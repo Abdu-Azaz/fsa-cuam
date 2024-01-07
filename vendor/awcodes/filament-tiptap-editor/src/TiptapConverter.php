@@ -1,0 +1,91 @@
+<?php
+
+namespace FilamentTiptapEditor;
+
+use FilamentTiptapEditor\Extensions\Extensions;
+use FilamentTiptapEditor\Extensions\Marks;
+use FilamentTiptapEditor\Extensions\Nodes;
+use Tiptap\Editor;
+use Tiptap\Extensions\StarterKit;
+use Tiptap\Marks\Highlight;
+use Tiptap\Marks\Subscript;
+use Tiptap\Marks\Superscript;
+use Tiptap\Marks\TextStyle;
+use Tiptap\Marks\Underline;
+use Tiptap\Nodes\CodeBlockHighlight;
+use Tiptap\Nodes\Table;
+use Tiptap\Nodes\TableCell;
+use Tiptap\Nodes\TableHeader;
+use Tiptap\Nodes\TableRow;
+
+class TiptapConverter
+{
+    protected Editor $editor;
+
+    final public function __construct()
+    {
+        $this->editor = new Editor([
+            'extensions' => $this->getExtensions(),
+        ]);
+    }
+
+    public function getExtensions(): array
+    {
+        $customExtensions = collect(config('filament-tiptap-editor.extensions', []))
+            ->transform(function ($ext) {
+                return new $ext['parser'];
+            })->toArray();
+
+        return [
+            new StarterKit([
+                'paragraph' => false,
+            ]),
+            new TextStyle(),
+            new Extensions\TextAlign([
+                'types' => ['heading', 'paragraph'],
+            ]),
+            new Extensions\Color(),
+            new CodeBlockHighlight(),
+            new Nodes\Paragraph(),
+            new Nodes\Lead(),
+            new Nodes\Image(),
+            new Nodes\CheckedList(),
+            new Nodes\Details(),
+            new Nodes\DetailsSummary(),
+            new Nodes\DetailsContent(),
+            new Nodes\Grid(),
+            new Nodes\GridColumn(),
+            new Nodes\GridBuilder(),
+            new Nodes\GridBuilderColumn(),
+            new Nodes\Vimeo(),
+            new Nodes\YouTube(),
+            new Nodes\Video(),
+            new Table(),
+            new TableHeader(),
+            new TableRow(),
+            new TableCell(),
+            new Highlight(),
+            new Underline(),
+            new Superscript(),
+            new Subscript(),
+            new Marks\Link(),
+            new Marks\Small(),
+            ...$customExtensions,
+        ];
+    }
+
+    public function asHTML(string | array $content): string
+    {
+        return $this->editor->setContent($content)->getHTML();
+    }
+
+    public function asJSON(string | array $content): string
+    {
+        return $this->editor->setContent($content)->getJSON();
+    }
+
+    public function asText(string | array $content): string
+    {
+        return $this->editor->setContent($content)->getText();
+    }
+}

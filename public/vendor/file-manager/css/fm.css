@@ -1,0 +1,207 @@
+.fm-navbar {
+    flex: 0 0 auto;
+}
+.fm-navbar .col-auto > .btn-group:not(:last-child) {
+    margin-right: 0.4rem;
+}
+.fm-tree-branch {
+    display: table;
+    width: 100%;
+    padding-left: 1rem;
+}
+.fm-tree-branch li > p {
+    margin-bottom: 0;
+    padding: 0.4rem;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.fm-tree-branch li > p:hover,
+.fm-tree-branch li > p.selected {
+    background-color: #037ef8;
+}
+.fm-tree-branch .bi.bi-dash,
+.fm-tree-branch .bi.bi-dash-square,
+.fm-tree-branch .bi.bi-plus-square {
+    font-size: 0.9rem;
+    padding-right: 0.4rem;
+}
+.fade-tree-enter-active,
+.fade-tree-leave-active {
+    transition: all 0.3s ease;
+}
+.fade-tree-enter,
+.fade-tree-leave-to {
+    transform: translate(20px);
+    opacity: 0;
+}
+.fm-tree {
+    overflow: auto;
+    border-right: 1px solid #6c757d;
+}
+.fm-tree > .fm-tree-branch {
+    padding-left: 0;
+}
+.fm-tree .fm-tree-disk {
+    padding: 0.2rem 0.3rem;
+    background-color: #cff4fc;
+}
+.fm-tree .fm-tree-disk > i {
+    padding-right: 0.4rem;
+}
+.fm-disk-list ul.list-inline {
+    margin-bottom: 0.5rem;
+}
+.fm-disk-list .badge.bg-light {
+    cursor: pointer;
+}
+.fm-breadcrumb .breadcrumb {
+    flex-wrap: nowrap;
+    padding: 0.2rem 0.3rem;
+    margin-bottom: 0.5rem;
+}
+.fm-breadcrumb .breadcrumb.active-manager {
+    background-color: #cff4fc;
+}
+.fm-breadcrumb .breadcrumb .breadcrumb-item:not(.active):hover {
+    cursor: pointer;
+    font-weight: 400;
+    color: #6c757d;
+}
+.fm-table thead th {
+    background: rgb(5, 40, 238);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    cursor: pointer;
+    border-top: none;
+}
+.fm-table thead th:hover {
+    background-color: #f8f9fa;
+}
+.fm-table thead th > i {
+    padding-left: 0.5rem;
+}
+.fm-table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.fm-table tr:hover {
+    background-color: #f8f9fa;
+}
+.fm-table .w-10 {
+    width: 10%;
+}
+.fm-table .w-65 {
+    width: 65%;
+}
+.fm-table .fm-content-item {
+    cursor: pointer;
+    max-width: 1px;
+}
+.fm-table .text-hidden {
+    color: #490606;
+}
+.fm-thumbnail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fm-thumbnail .img-thumbnail {
+    width: 88px;
+    height: 88px;
+}
+.fm-thumbnail .fade-enter-active,
+.fm-thumbnail .fade-leave-active {
+    transition: opacity 0.3s;
+}
+.fm-thumbnail .fade-enter,
+.fm-thumbnail .fade-leave-to {
+    opacity: 0;
+}
+.fm-grid {
+    padding-top: 1rem;
+}
+.fm-grid .fm-grid-item {
+    position: relative;
+    width: 125px;
+    padding: 0.4rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    border-radius: 5px;
+}
+.fm-grid .fm-grid-item.active {
+    background-color: #cff4fc;
+    box-shadow: 3px 2px 5px gray;
+}
+.fm-grid .fm-grid-item:not(.active):hover {
+    background-color: #f8f9fa;
+    box-shadow: 3px 2px 5px gray;
+}
+.fm-grid .fm-grid-item .fm-item-icon {
+    font-size: 5rem;
+    cursor: pointer;
+}
+.fm-grid .fm-grid-item .fm-item-icon > i,
+.fm-grid .fm-grid-item .fm-item-icon > figure > i {
+    color: #6c757d;
+}
+.fm-grid .fm-grid-item .fm-item-info {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.fm-content {
+    padding-left: 1rem;
+}
+.fm-content .fm-content-body {
+    overflow: auto;
+}
+.fm-modal-upload .fm-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 6px;
+    margin-bottom: 0.6rem;
+}
+.fm-modal-upload .fm-btn-wrapper input[type="file"] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.fm-modal-upload .fm-upload-list .bi {
+    padding-right: 0.5rem;
+}
+.fm-modal-upload .fm-upload-list .form-check-inline {
+    margin-right: 0;
+}
+.fm-modal-upload .fm-upload-info > .progress {
+    margin-bottom: 1rem;
+}
+.fm-additions-file-list .bi,
+.fm-modal-clipboard .modal-body .far {
+    padding-right: 0.5rem;
+}
+.fm-modal-properties .modal-body .row {
+    margin-bottom: 0.3rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+.fm-modal-properties .modal-body .row .bi-files {
+    display: none;
+    cursor: pointer;
+}
+.fm-modal-properties .modal-body .row:hover {
+    background-color: #f8f9fa;
+}
+.fm-modal-properties .modal-body .row:hover .bi-files {
+    display: block;
+}
+.fm-modal-properties .modal-body .col-2 {
+    font-weight: 700;
+}
+.fm-modal-properties .modal-body .col-9 {
+    word-wrap: break-word;
+}
