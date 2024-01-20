@@ -108,13 +108,13 @@
             dots: true,
             loop: true,
             autoplay: !0,
-            smartSpeed: 200,
+            smartSpeed: 400,
             responsive: {
                 0: {
                     items: 2,
                 },
                 576: {
-                    items: 2,
+                    items: 3,
                 },
                 900: {
                     items: 3,
@@ -131,7 +131,7 @@
                     items: 1,
                 },
                 600: {
-                    items: 2,
+                    items: 3,
                 },
                 900: {
                     items: 4,

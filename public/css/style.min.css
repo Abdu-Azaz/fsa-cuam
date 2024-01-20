@@ -991,3 +991,8 @@
  .evc:hover{
     opacity: 85%;
 }
+.partner-container
+{
+    max-width: 150px;
+}
+ 
