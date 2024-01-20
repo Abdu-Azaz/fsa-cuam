@@ -131,24 +131,28 @@
         },
         {
             "name": "amidesfahani/filament-tinyeditor",
-            "version": "v1.0.5",
-            "version_normalized": "1.0.5.0",
+            "version": "v1.1.1",
+            "version_normalized": "1.1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amidesfahani/filament-tinyeditor.git",
-                "reference": "c2351efa324a37e19981d7a75cdea2383268982c"
+                "reference": "1abe5262b2bdd0bd15fe8a82101d6f0c004c5753"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amidesfahani/filament-tinyeditor/zipball/c2351efa324a37e19981d7a75cdea2383268982c",
-                "reference": "c2351efa324a37e19981d7a75cdea2383268982c",
+                "url": "https://api.github.com/repos/amidesfahani/filament-tinyeditor/zipball/1abe5262b2bdd0bd15fe8a82101d6f0c004c5753",
+                "reference": "1abe5262b2bdd0bd15fe8a82101d6f0c004c5753",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1",
-                "spatie/laravel-package-tools": "^1.16"
+                "spatie/laravel-package-tools": "^1.16",
+                "tinymce/tinymce": "^6.7"
             },
-            "time": "2023-11-09T13:52:28+00:00",
+            "require-dev": {
+                "laravel/pint": "^1.13"
+            },
+            "time": "2023-12-14T20:28:04+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -182,7 +186,7 @@
             ],
             "support": {
                 "issues": "https://github.com/amidesfahani/filament-tinyeditor/issues",
-                "source": "https://github.com/amidesfahani/filament-tinyeditor/tree/v1.0.5"
+                "source": "https://github.com/amidesfahani/filament-tinyeditor/tree/v1.1.1"
             },
             "install-path": "../amidesfahani/filament-tinyeditor"
         },
@@ -11936,6 +11940,68 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.6"
             },
             "install-path": "../tijsverkoyen/css-to-inline-styles"
+        },
+        {
+            "name": "tinymce/tinymce",
+            "version": "6.8.2",
+            "version_normalized": "6.8.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tinymce/tinymce-dist.git",
+                "reference": "b0073db409746748af4fc06fbee337bb99f462d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/b0073db409746748af4fc06fbee337bb99f462d9",
+                "reference": "b0073db409746748af4fc06fbee337bb99f462d9",
+                "shasum": ""
+            },
+            "time": "2023-12-11T03:21:56+00:00",
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "tinymce.js",
+                        "plugins/*/plugin.js",
+                        "themes/*/theme.js",
+                        "models/*/model.js",
+                        "icons/*/icons.js"
+                    ],
+                    "files": [
+                        "tinymce.min.js",
+                        "plugins/*/plugin.min.js",
+                        "themes/*/theme.min.js",
+                        "models/*/model.min.js",
+                        "skins/**",
+                        "icons/*/icons.min.js"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT-only"
+            ],
+            "description": "Web based JavaScript HTML WYSIWYG editor control.",
+            "homepage": "https://www.tiny.cloud/",
+            "keywords": [
+                "contenteditable",
+                "editing",
+                "html",
+                "javascript",
+                "rich editor",
+                "rich text",
+                "rich text editor",
+                "richtext",
+                "rte",
+                "text",
+                "tinymce",
+                "wysiwyg"
+            ],
+            "support": {
+                "source": "https://github.com/tinymce/tinymce-dist/tree/6.8.2"
+            },
+            "install-path": "../tinymce/tinymce"
         },
         {
             "name": "ueberdosis/tiptap-php",

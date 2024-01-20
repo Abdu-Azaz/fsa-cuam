@@ -2,7 +2,7 @@
 
 return [
     'direction' => 'ltr',
-    'max_content_width' => '5xl',
+    'max_content_width' => '8xl',
     'disable_stylesheet' => false,
 
     /*

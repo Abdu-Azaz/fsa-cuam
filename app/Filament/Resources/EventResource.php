@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Filament\Resources\EventResource\Pages;
 
 use App\Models\Event;
@@ -9,6 +10,7 @@ use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Field;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
@@ -18,7 +20,9 @@ use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Table;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\Str;
-use AmidEsfahani\FilamentTinyEditor\TinyEditor;
+// use AmidEsfahani\FilamentTinyEditor\TinyEditor;
+use Filament\Forms\Components\RichEditor;
+
 class EventResource extends Resource
 {
     protected static ?string $model = Event::class;
@@ -57,7 +61,13 @@ class EventResource extends Resource
                     Forms\Components\TextInput::make('location')
 
                 ])->columns('2'),
-                TinyEditor::make('body')->required(),
+                    // TinyEditor::make('body'),
+                // TinyEditor::make('body')->required(),
+                TiptapEditor::make('body')->profile('default')->required()
+                // TinyEditor::make('body')
+                //             ->fileAttachmentsDirectory('events')
+                //             ->profile('full'),
+                // TinyEditor::make('body')->fileAttachmentsDisk('public')->fileAttachmentsDirectory('events')
             ])->columns('1');
     }
 

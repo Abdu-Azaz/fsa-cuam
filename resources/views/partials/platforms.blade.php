@@ -14,6 +14,9 @@
                 <a href="http://ecours-fsam.uiz.ac.ma/">
                     <img class="img-fluid w-50" src="{{ url('storage/partners/ecours-uiz.png') }}" alt="">
                 </a>
+                <a href="https://rosettastone.com">
+                    <img class="img-fluid w-50" src="{{ url('storage/partners/rosetta.png') }}" alt="">
+                </a>
             </div>
     </div>
 </div>

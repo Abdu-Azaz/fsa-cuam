@@ -11,7 +11,7 @@
         "php": "^8.1",
         "alexusmai/laravel-file-manager": "^3.1",
         "althinect/filament-spatie-roles-permissions": "^2.2",
-        "amidesfahani/filament-tinyeditor": "^1.0",
+        "amidesfahani/filament-tinyeditor": "^1.1",
         "awcodes/filament-curator": "^3.1",
         "awcodes/filament-tiptap-editor": "^3.0",
         "diglactic/laravel-breadcrumbs": "^8.1",

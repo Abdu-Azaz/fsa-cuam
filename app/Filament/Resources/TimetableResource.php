@@ -20,7 +20,7 @@ class TimetableResource extends Resource
     protected static ?string $model = Timetable::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $label = 'Timetables (EDT)';
+    protected static ?string $label = 'Timetables (E.D.T)';
     protected static ?string $navigationGroup = 'Faculty';
     
     public static function form(Form $form): Form

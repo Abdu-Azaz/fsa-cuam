@@ -46,6 +46,7 @@
         <div class="w-100 my-4  p-3">
             {!! $event->body !!}
         </div>
+ 
     </div>
 @endsection
 {{-- @push('css')
