@@ -3,8 +3,8 @@
 ])
 
 <x-filament-tiptap-editor::button
-    action="$wire.dispatchFormEvent('tiptap::setGridBuilderContent', '{{ $statePath }}')"
+    action="$wire.dispatchFormEvent('tiptap::setGridBuilderContent', '{{ $statePath }}', {})"
     active="grid-builder"
-    label="{{ __('filament-tiptap-editor::editor.grid-builder.label') }}"
+    label="{{ trans('filament-tiptap-editor::editor.grid-builder.label') }}"
     icon="grid-builder"
 />

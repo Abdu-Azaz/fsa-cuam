@@ -19,7 +19,7 @@ class UiAvatarsProvider implements Contracts\AvatarProvider
             ->join(' ');
 
         $backgroundColor = Rgb::fromString('rgb(' . FilamentColor::getColors()['gray'][950] . ')')->toHex();
-        
+
         return 'https://ui-avatars.com/api/?name=' . urlencode($name) . '&color=FFFFFF&background=' . str($backgroundColor)->after('#');
     }
 }

@@ -7,7 +7,8 @@
         $attributes
             ->merge($getExtraAttributes(), escape: false)
             ->class([
-                'fi-ta-icon flex flex-wrap gap-1.5',
+                'fi-ta-icon flex gap-1.5',
+                'flex-wrap' => $canWrap(),
                 'px-3 py-4' => ! $isInline(),
                 'flex-col' => $isListWithLineBreaks(),
             ])
@@ -31,17 +32,20 @@
                             IconColumnSize::Medium, 'md' => 'fi-ta-icon-item-size-md h-5 w-5',
                             IconColumnSize::Large, 'lg' => 'fi-ta-icon-item-size-lg h-6 w-6',
                             IconColumnSize::ExtraLarge, 'xl' => 'fi-ta-icon-item-size-xl h-7 w-7',
+                            IconColumnSize::TwoExtraLarge, IconColumnSize::ExtraExtraLarge, '2xl' => 'fi-ta-icon-item-size-2xl h-8 w-8',
                             default => $size,
                         },
                         match ($color) {
-                            'gray' => 'fi-color-gray text-gray-400 dark:text-gray-500',
+                            'gray' => 'text-gray-400 dark:text-gray-500',
                             default => 'fi-color-custom text-custom-500 dark:text-custom-400',
                         },
+                        is_string($color) ? 'fi-color-' . $color : null,
                     ])
                     @style([
                         \Filament\Support\get_color_css_variables(
                             $color,
                             shades: [400, 500],
+                            alias: 'tables::columns.icon-column.item',
                         ) => $color !== 'gray',
                     ])
                 />

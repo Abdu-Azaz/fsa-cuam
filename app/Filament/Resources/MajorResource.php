@@ -3,6 +3,8 @@
 namespace App\Filament\Resources;
 
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
+use App\Filament\Exports\MajorExporter;
+use App\Filament\Imports\MajorImporter;
 use App\Filament\Resources\MajorResource\Pages;
 use App\Filament\Resources\MajorResource\RelationManagers;
 use App\Models\Major;
@@ -14,6 +16,8 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\ExportBulkAction;
+use Filament\Tables\Actions\ImportAction;
 use Filament\Tables\Table;
 
 class MajorResource extends Resource
@@ -59,14 +63,13 @@ class MajorResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+        ->headerActions([
+            ImportAction::make()
+                ->importer(MajorImporter::class)
+        ])
             ->columns([
                 Tables\Columns\TextColumn::make('label')
                     ->searchable(),
-
-                Tables\Columns\TextColumn::make('diploma')
-                    ->searchable()
-                    ->sortable(),
-
                 Tables\Columns\TextColumn::make('department.name')
                     ->label('Department')
                     ->searchable()
@@ -81,10 +84,10 @@ class MajorResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(),
-                 Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()->toggleable(),
-                ])
+            ])
             ->filters([
                 //
             ])
@@ -94,6 +97,8 @@ class MajorResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    ExportBulkAction::make()
+                        ->exporter(MajorExporter::class)
                 ]),
             ]);
     }

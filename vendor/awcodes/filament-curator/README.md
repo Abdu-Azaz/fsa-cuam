@@ -24,6 +24,12 @@ composer require awcodes/filament-curator
 php artisan curator:install
 ```
 
+***If you are using the stand-alone forms package then you will need to include the Curator modal in your layout file, typically you would place this, before the closing `body` tag.***
+
+```html
+<x-curator::modals.modal />
+```
+
 In an effort to align with Filament's theming methodology you will need to use a custom theme to use this plugin.
 
 > **Note**
@@ -93,6 +99,7 @@ public function panel(Panel $panel): Panel
                 ->navigationGroup('Content')
                 ->navigationSort(3)
                 ->navigationCountBadge()
+                ->registerNavigation(false)
                 ->resource(\App\Filament\Resources\CustomMediaResource::class)
         ]);
 }
@@ -118,6 +125,8 @@ CuratorPicker::make(string $fieldName)
     ->pathGenerator(DatePathGenerator::class|UserPathGenerator::class) // see path generators below
     ->lazyLoad(bool | Closure $condition) // defaults to true
     ->listDisplay(bool | Closure $condition) // defaults to true
+    ->tenantAware(bool | Closure $condition) // defaults to true
+    ->defaultPanelSort(string | Closure $direction) // defaults to 'desc'
     // see https://filamentphp.com/docs/2.x/forms/fields#file-upload for more information about the following methods
     ->preserveFilenames()
     ->maxWidth()
@@ -174,7 +183,7 @@ Model
 ```php
 use Awcodes\Curator\Models\Media;
 
-public function productPictures(): BelongsTo
+public function productPictures(): BelongsToMany
 {
     return $this
         ->belongsToMany(Media::class, 'media_post', 'post_id', 'media_id')
@@ -324,6 +333,24 @@ You can also change which formats are available for curations by changing the `c
 ],
 ```
 
+If you wish to disable the "Curation" tab in the Media Editor you can do so by setting `tabs.display_curation`
+to `false` in the config file. The default is `true`.
+
+```php
+'tabs' => [
+    'display_curation' => false,
+],
+```
+
+If you wish to disable the "Upload New" tab in the Media Editor you can do so by setting `tabs.display_upload_new`
+to `false` in the config file. The default is `true`.
+
+```php
+'tabs' => [
+    'display_upload_new' => false,
+],
+```
+
 ### Glider Blade Component
 
 To make it as easy as possible to output your media, Curator comes with an
@@ -340,9 +367,10 @@ Glide's options.
 - srcset: this will output the necessary srcset with glide generated urls.
   Must be an array of srcset widths and requires the 'sizes' attribute to
   also be set.
+- force: (bool) this can be used to force glider to return a signed url and is helpful when returning urls from cloud disks. This should be used with the knowledge that it could have performance implications.
 
 ```blade
-<div class="aspect-video w-64">
+<div class="w-64 aspect-video">
     <x-curator-glider
         class="object-cover w-auto"
         :media="1"
@@ -394,32 +422,32 @@ class MyCustomGliderFallback extends GliderFallback
     public function getAlt(): string
     {
         return 'boring fallback image';
-    };
+    }
 
     public function getHeight(): int
     {
         return 640;
-    };
+    }
 
     public function getKey(): string
     {
         return 'card_fallback';
-    };
+    }
 
     public function getSource(): string
     {
         return 'https://via.placeholder.com/640x420.jpg';
-    };
+    }
 
     public function getType(): string
     {
         return 'image/jpg';
-    };
+    }
 
     public function getWidth(): int
     {
         return 420;
-    };
+    }
 }
 ```
 
@@ -437,6 +465,16 @@ Then you can reference your fallback in the blade component.
 
 ```blade
 <x-curator-glider :media="1" fallback="card_fallback"/>
+```
+
+### Custom Glide Route
+
+By default, Curator will use the route `curator` when serving images through Glide. If you want to change this you can update the `glide.route_path` setting in the Curator config file.
+
+```php
+'glide' => [
+    'route_path' => 'uploads',
+],
 ```
 
 ### Custom Glide Server
@@ -508,8 +546,6 @@ media item, only the ones where you're trying to change the focal point, etc.
     />
 @endif
 ```
-
-
 
 ### Custom Model
 

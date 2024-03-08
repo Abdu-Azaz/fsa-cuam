@@ -6,6 +6,7 @@ use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
+use Illuminate\Contracts\View\View;
 
 class CuratorPlugin implements Plugin
 {
@@ -20,6 +21,8 @@ class CuratorPlugin implements Plugin
     protected ?int $navigationSort = null;
 
     protected ?bool $navigationCountBadge = null;
+
+    protected ?bool $shouldRegisterNavigation = null;
 
     protected string | Closure | null $pluralLabel = null;
 
@@ -36,11 +39,18 @@ class CuratorPlugin implements Plugin
             ->resources([
                 $this->getResource(),
             ]);
+
+        if (! is_panel_auth_route()) {
+            $panel
+                ->renderHook(
+                    'panels::body.end',
+                    fn (): View => view('curator::components.modals.modal')
+                );
+        }
     }
 
     public function boot(Panel $panel): void
     {
-        //
     }
 
     public static function make(): static
@@ -48,7 +58,7 @@ class CuratorPlugin implements Plugin
         return app(static::class);
     }
 
-    public static function get(): static
+    public static function get(): Plugin
     {
         return filament(app(static::class)->getId());
     }
@@ -88,7 +98,12 @@ class CuratorPlugin implements Plugin
         return $this->navigationCountBadge ?? config('curator.resources.navigation_count_badge');
     }
 
-    public function navigationGroup(string | Closure $group = null): static
+    public function shouldRegisterNavigation(): ?bool
+    {
+        return $this->shouldRegisterNavigation ?? config('curator.should_register_navigation');
+    }
+
+    public function navigationGroup(string | Closure | null $group = null): static
     {
         $this->navigationGroup = $group;
 
@@ -112,6 +127,13 @@ class CuratorPlugin implements Plugin
     public function navigationCountBadge(bool $show = true): static
     {
         $this->navigationCountBadge = $show;
+
+        return $this;
+    }
+
+    public function registerNavigation(bool $show = true): static
+    {
+        $this->shouldRegisterNavigation = $show;
 
         return $this;
     }

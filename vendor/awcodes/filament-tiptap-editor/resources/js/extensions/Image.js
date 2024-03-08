@@ -18,6 +18,18 @@ export const CustomImage = Image.extend({
       height: {
         default: null,
       },
+      lazy: {
+        default: null,
+        parseHTML: element => element.getAttribute('loading') === 'lazy' ? element.getAttribute('data-lazy') : null,
+        renderHTML: (attributes) => {
+          if (attributes.lazy) {
+            return {
+              "data-lazy": attributes.lazy,
+              "loading": "lazy",
+            };
+          }
+        }
+      }
     };
   },
 });

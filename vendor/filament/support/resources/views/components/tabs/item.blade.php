@@ -7,6 +7,7 @@
     'alpineActive' => null,
     'badge' => null,
     'badgeColor' => null,
+    'badgeTooltip' => null,
     'href' => null,
     'icon' => null,
     'iconColor' => 'gray',
@@ -18,7 +19,7 @@
 
 @php
     if (! $iconPosition instanceof IconPosition) {
-        $iconPosition = $iconPosition ? IconPosition::tryFrom($iconPosition) : null;
+        $iconPosition = filled($iconPosition) ? (IconPosition::tryFrom($iconPosition) ?? $iconPosition) : null;
     }
 
     $hasAlpineActiveClasses = filled($alpineActive);
@@ -32,7 +33,7 @@
 
     $activeLabelClasses = 'text-primary-600 dark:text-primary-400';
 
-    $iconClasses = 'fi-tabs-item-icon h-5 w-5 transition duration-75';
+    $iconClasses = 'fi-tabs-item-icon h-5 w-5 shrink-0 transition duration-75';
 
     $inactiveIconClasses = 'text-gray-400 dark:text-gray-500';
 
@@ -105,7 +106,12 @@
     @endif
 
     @if (filled($badge))
-        <x-filament::badge :color="$badgeColor" size="sm" class="w-max">
+        <x-filament::badge
+            :color="$badgeColor"
+            size="sm"
+            :tooltip="$badgeTooltip"
+            class="w-max"
+        >
             {{ $badge }}
         </x-filament::badge>
     @endif

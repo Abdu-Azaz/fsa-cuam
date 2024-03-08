@@ -19,7 +19,7 @@ return [
         'default' => [
             'heading', 'bullet-list', 'ordered-list', 'checked-list', 'blockquote', 'hr', '|',
             'bold', 'italic', 'strike', 'underline', 'superscript', 'subscript', 'lead', 'small', 'color', 'highlight', 'align-left', 'align-center', 'align-right', '|',
-            'link', 'media', 'oembed', 'table', 'grid-builder', 'details', '|', 'code', 'code-block', 'source',
+            'link', 'media', 'oembed', 'table', 'grid-builder', 'details', '|', 'code', 'code-block', 'source', 'blocks',
         ],
         'simple' => ['heading', 'hr', 'bullet-list', 'ordered-list', 'checked-list', '|', 'bold', 'italic', 'lead', 'small', '|', 'link', 'media'],
         'minimal' => ['bold', 'italic', 'link', 'bullet-list', 'ordered-list'],
@@ -69,6 +69,7 @@ return [
     'image_crop_aspect_ratio' => null,
     'image_resize_target_width' => null,
     'image_resize_target_height' => null,
+    'use_relative_paths' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -78,5 +79,18 @@ return [
     */
     'disable_floating_menus' => false,
     'disable_bubble_menus' => false,
-    'floating_menu_tools' => ['media', 'grid-builder', 'details', 'table', 'oembed', 'code-block'],
+    'disable_toolbar_menus' => false,
+
+    'bubble_menu_tools' => ['bold', 'italic', 'strike', 'underline', 'superscript', 'subscript', 'lead', 'small', 'link'],
+    'floating_menu_tools' => ['media', 'grid-builder', 'details', 'table', 'oembed', 'code-block', 'blocks'],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Extensions
+    |--------------------------------------------------------------------------
+    |
+    */
+    'extensions_script' => null,
+    'extensions_styles' => null,
+    'extensions' => [],
 ];

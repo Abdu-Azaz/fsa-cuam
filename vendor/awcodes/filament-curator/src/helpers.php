@@ -4,15 +4,17 @@ namespace Awcodes\Curator;
 
 use Awcodes\Curator\Models\Media;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Str;
 
-if (! function_exists('Curator\is_media_resizable')) {
+if (! function_exists('is_media_resizable')) {
     function is_media_resizable(string $ext): bool
     {
         return in_array($ext, ['jpeg', 'jpg', 'png', 'webp', 'bmp']);
     }
 }
 
-if (! function_exists('Curator\get_media_items')) {
+if (! function_exists('get_media_items')) {
     function get_media_items(array | Media | int $ids): Collection | array
     {
         if ($ids instanceof Media) {
@@ -34,5 +36,19 @@ if (! function_exists('Curator\get_media_items')) {
         }
 
         return [];
+    }
+}
+
+if (! function_exists('is_panel_auth_route')) {
+    function is_panel_auth_route(): bool
+    {
+        $authRoutes = [
+            '/login',
+            '/password-reset',
+            '/register',
+            '/email-verification',
+        ];
+
+        return Str::of(Request::path())->contains($authRoutes);
     }
 }

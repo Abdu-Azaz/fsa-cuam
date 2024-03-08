@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ProfessorResource\Pages;
 use App\Models\Professor;
 use Filament\Forms;
-use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Support\Enums\ActionSize;
@@ -15,10 +14,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use App\Filament\Resources\ProfessorResource\RelationManagers\DepartmentsRelationManager;
-use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Section;
 use Filament\Tables\Columns\IconColumn\IconColumnSize;
-use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class ProfessorResource extends Resource
 {
@@ -85,7 +82,7 @@ class ProfessorResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                    ExportBulkAction::make()
+                    // ExportBulkAction::make()
                 ]),
 
             ]);

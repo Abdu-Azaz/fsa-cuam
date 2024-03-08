@@ -2,8 +2,17 @@
 title: Checkbox list
 ---
 import AutoScreenshot from "@components/AutoScreenshot.astro"
+import LaracastsBanner from "@components/LaracastsBanner.astro"
 
 ## Overview
+
+<LaracastsBanner
+    title="Checkbox List"
+    description="Watch the Rapid Laravel Development with Filament series on Laracasts - it will teach you the basics of adding checkbox list fields to Filament forms."
+    url="https://laracasts.com/series/rapid-laravel-development-with-filament/episodes/5"
+    series="rapid-laravel-development"
+/>
+
 
 The checkbox list component allows you to select multiple values from a list of predefined options:
 
@@ -177,6 +186,16 @@ CheckboxList::make('technologies')
     ->relationship(titleAttribute: 'name')
 ```
 
+When using `disabled()` with `relationship()`, ensure that `disabled()` is called before `relationship()`. This ensures that the `dehydrated()` call from within `relationship()` is not overridden by the call from `disabled()`:
+
+```php
+use Filament\Forms\Components\CheckboxList;
+
+CheckboxList::make('technologies')
+    ->disabled()
+    ->relationship(titleAttribute: 'name')
+```
+
 ### Customizing the relationship query
 
 You may customize the database query that retrieves options using the `modifyOptionsQueryUsing` parameter of the `relationship()` method:
@@ -219,6 +238,20 @@ CheckboxList::make('authors')
         modifyQueryUsing: fn (Builder $query) => $query->orderBy('first_name')->orderBy('last_name'),
     )
     ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->first_name} {$record->last_name}")
+```
+
+### Saving pivot data to the relationship
+
+If your pivot table has additional columns, you can use the `pivotData()` method to specify the data that should be saved in them:
+
+```php
+use Filament\Forms\Components\CheckboxList;
+
+CheckboxList::make('primaryTechnologies')
+    ->relationship(name: 'technologies', titleAttribute: 'name')
+    ->pivotData([
+        'is_primary' => true,
+    ])
 ```
 
 ## Setting a custom no search results message

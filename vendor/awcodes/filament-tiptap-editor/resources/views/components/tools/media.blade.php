@@ -12,18 +12,20 @@
 
 <x-filament-tiptap-editor::button
     action="openModal()"
-    label="{{ __('filament-tiptap-editor::editor.media') }}"
+    label="{{ trans('filament-tiptap-editor::editor.media') }}"
     active="image"
     icon="media"
     x-data="{
         openModal() {
             let media = this.editor().getAttributes('image');
             let arguments = {
+                type: 'media',
                 src: media.src || '',
                 alt: media.alt || '',
                 title: media.title || '',
                 width: media.width || '',
                 height: media.height || '',
+                lazy: media.lazy || false,
             };
 
             {{ $action }}

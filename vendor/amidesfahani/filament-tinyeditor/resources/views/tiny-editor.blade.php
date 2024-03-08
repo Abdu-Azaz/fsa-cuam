@@ -21,22 +21,17 @@
 		x-data="tinyeditor({
 			state: $wire.{{ $applyStateBindingModifiers("entangle('{$statePath}')", isOptimisticallyLive: false) }},
 			statePath: '{{ $statePath }}',
-
 			selector: '#{{ $textareaID }}',
-
 			plugins: '{{ $getPlugins() }}',
 			toolbar: '{{ $getToolbar() }}',
-
 			language: '{{ $getInterfaceLanguage() }}',
 			language_url: 'https://cdn.jsdelivr.net/npm/tinymce-i18n@23.10.9/langs6/{{ $getInterfaceLanguage() }}.min.js',
 			directionality: '{{ $getDirection() }}',
-
 			max_height: {{ $getMaxHeight() }},
 			min_height: {{ $getMinHeight() }},
-
 			@if($darkMode() == 'media')
-			skin: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oxide-dark' : ''),
-			content_css: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : ''),
+			skin: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oxide-dark' : 'oxide'),
+			content_css: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'),
 			@elseif($darkMode() == 'class')
 			skin: (document.querySelector('html').getAttribute('class').includes('dark') ? 'oxide-dark' : 'oxide'),
 			content_css: (document.querySelector('html').getAttribute('class').includes('dark') ? 'dark' : 'default'),
@@ -46,25 +41,28 @@
 			@elseif($darkMode() == false)
 			skin: 'oxide',
 			content_css: 'default',
+			@elseif($darkMode() == 'custom')
+			skin: '{{ $skinsUI() }}',
+			content_css: '{{ $skinsContent() }}',
 			@else
 			skin: (window.matchMedia('(prefers-color-scheme: dark)').matches || document.querySelector('html').getAttribute('class').includes('dark') ? 'oxide-dark' : 'oxide'),
 			content_css: (window.matchMedia('(prefers-color-scheme: dark)').matches || document.querySelector('html').getAttribute('class').includes('dark') ? 'dark' : 'default'),
 			@endif
-
 			toolbar_sticky: {{ $getToolbarSticky() ? 'true' : 'false' }},
-
 			templates: '{{ $getTemplates() }}',
-	
 			menubar: {{ $getShowMenuBar() ? 'true' : 'false' }},
-
 			relative_urls: {{ $getRelativeUrls() ? 'true' : 'false' }},
 			remove_script_host: {{ $getRemoveScriptHost() ? 'true' : 'false' }},
 			convert_urls: {{ $getConvertUrls() ? 'true' : 'false' }},
-
+			setup: null,
 			disabled: @js($isDisabled),
 			locale: '{{ app()->getLocale() }}',
 			placeholder: @js($getPlaceholder()),
-			{{ $getCustomConfigs() }}
+			image_list: {!! $getImageList() !!},
+			image_advtab: @js($imageAdvtab()),
+			image_description: @js($imageDescription()),
+			image_class_list: {!! $getImageClassList() !!},
+			custom_configs: @js($getCustomConfigs())
 		})"
     >
         @unless($isDisabled())

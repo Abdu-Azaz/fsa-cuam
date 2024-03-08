@@ -16,6 +16,8 @@ class Glider extends Component
 
     public ?string $sourceSet = null;
 
+    protected ?string $basePath = null;
+
     public function __construct(
         public int | Media | stdClass | null $media,
         public ?string $glide = null,
@@ -48,9 +50,16 @@ class Glider extends Component
         public ?string $watermarkPosition = null,
         public ?string $watermarkAlpha = null,
         public ?string $fallback = null,
+        public bool $force = false,
     ) {
+        $this->basePath = Str::of(config('curator.glide.route_path', 'curator'))
+            ->trim('/')
+            ->prepend('/')
+            ->append('/')
+            ->toString();
+
         if (! $media instanceof Media) {
-            if(! is_null($media)) {
+            if (! is_null($media)) {
                 $this->media = app(Media::class)::where('id', $media)->first();
             }
 
@@ -100,12 +109,12 @@ class Glider extends Component
                     return $this->media->path;
                 }
 
-                $urlBuilder = UrlBuilderFactory::create('/curator/', config('app.key'));
+                $urlBuilder = UrlBuilderFactory::create($this->basePath, config('app.key'));
 
                 return $urlBuilder->getUrl($this->media->path, $params);
             }
 
-            return $this->media->getSignedUrl($params);
+            return $this->media->getSignedUrl($params, $this->force);
         }
 
         return '';
@@ -155,7 +164,7 @@ class Glider extends Component
     public function render(): View | Closure | string
     {
         if ($this->glide) {
-            $this->source = $this->media->resizable ? '/curator/' . $this->media->path . '?' . $this->glide : $this->media->url;
+            $this->source = $this->media->resizable ? $this->basePath . $this->media->path . '?' . $this->glide : $this->media->url;
         } else {
             $this->source = $this->buildGlideSource();
         }

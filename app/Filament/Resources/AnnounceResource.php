@@ -47,10 +47,10 @@ class AnnounceResource extends Resource
                     ]),
                 ]),
 
-                TiptapEditor::make('body')->required()->columnSpanFull(),
+                
                 Forms\Components\Section::make('Fill the body ')->schema([
                 // TinyEditor::make('body')->required(),
-
+                TiptapEditor::make('body')->required()->columnSpanFull(),
                     // TinyEditor::make('body')->showMenuBar()->minHeight(300),
                     Forms\Components\TextInput::make('meta_keywords')->helperText('(Comma-seprated) Optional')
 
@@ -66,7 +66,7 @@ class AnnounceResource extends Resource
                         ),
                     Forms\Components\Toggle::make('isFeatured')
                         ->label('Featured')
-                        ->helperText('Make This Announce Featured If It Is So Important'),
+                        ->helperText('If Marked as Featured, the Announce Will Appear in Other Pages sidebar'),
                     Forms\Components\Select::make('status')
                         ->options(
                             [

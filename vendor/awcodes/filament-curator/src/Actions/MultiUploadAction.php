@@ -21,14 +21,14 @@ class MultiUploadAction extends Action
         $this
             ->button()
             ->color('gray')
-            ->label(__('curator::forms.multi_upload.action_label'))
-            ->modalHeading(__('curator::forms.multi_upload.modal_heading'))
+            ->label(trans('curator::forms.multi_upload.action_label'))
+            ->modalHeading(trans('curator::forms.multi_upload.modal_heading'))
             ->form([
                 Uploader::make('files')
                     ->acceptedFileTypes(config('curator.accepted_file_types'))
                     ->directory(config('curator.directory'))
                     ->disk(config('curator.disk'))
-                    ->label(__('curator::forms.multi_upload.modal_file_label'))
+                    ->label(trans('curator::forms.multi_upload.modal_file_label'))
                     ->minSize(config('curator.min_size'))
                     ->maxSize(config('curator.max_size'))
                     ->multiple()
@@ -41,19 +41,19 @@ class MultiUploadAction extends Action
             ->action(function ($data) {
                 foreach ($data['files'] as $item) {
                     // Fix malformed utf-8 characters
-                    if (!empty($item['exif'])) {
+                    if (! empty($item['exif'])) {
                         array_walk_recursive($item['exif'], function (&$entry) {
-                            if (!mb_detect_encoding($entry, 'utf-8', true)) {
+                            if (! mb_detect_encoding($entry, 'utf-8', true)) {
                                 $entry = utf8_encode($entry);
                             }
                         });
                     }
 
-                    $item['title'] = pathinfo($data['originalFilenames'][$item['path']] ?? null, PATHINFO_FILENAME);
+                    $item['title'] = pathinfo($data['originalFilename'][$item['path']] ?? null, PATHINFO_FILENAME);
 
                     tap(
                         App::make(Media::class)->create($item),
-                        fn(Media $media) => $media->getPrettyName(),
+                        fn (Media $media) => $media->getPrettyName(),
                     )->toArray();
                 }
             });

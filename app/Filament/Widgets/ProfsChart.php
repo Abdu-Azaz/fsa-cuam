@@ -59,6 +59,7 @@ class ProfsChart extends ChartWidget
         foreach ($departments as $department) {
             $professorCount = Professor::where('department_id', $department->id)->count();
             $professorsCount[] = $professorCount;
+            // echo "FFF";
         }
 
         // Generate acronyms from department names
@@ -75,7 +76,13 @@ class ProfsChart extends ChartWidget
                 ],
             ],
             'labels' => $acronyms,
+            'yAxisOptions' => [
+                'ticks' => [
+                    'stepSize' => 1, // Set the step size to 1 for whole numbers on the y-axis
+                ],
+            ],
         ];
+        
     }
 
     protected function getType(): string

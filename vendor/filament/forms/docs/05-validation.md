@@ -220,6 +220,14 @@ The field value must be greater than or equal to another. [See the Laravel docum
 Field::make('newNumber')->gte('oldNumber')
 ```
 
+### Hex color
+
+The field value must be a valid color in hexadecimal format. [See the Laravel documentation.](https://laravel.com/docs/validation#rule-hex-color)
+
+```php
+Field::make('color')->hexColor()
+```
+
 ### In
 The field must be included in the given list of values. [See the Laravel documentation.](https://laravel.com/docs/validation#rule-in)
 
@@ -307,6 +315,32 @@ The field value must be empty. [See the Laravel documentation.](https://laravel.
 
 ```php
 Field::make('name')->prohibited()
+```
+
+### Prohibited If
+
+The field must be empty *only if* the other specified field has any of the given values. [See the Laravel documentation.](https://laravel.com/docs/validation#rule-prohibited-if)
+
+```php
+Field::make('name')->prohibitedIf('field', 'value')
+```
+
+### Prohibited Unless
+
+The field must be empty *unless* the other specified field has any of the given values. [See the Laravel documentation.](https://laravel.com/docs/validation#rule-prohibited-unless)
+
+```php
+Field::make('name')->prohibitedUnless('field', 'value')
+```
+
+### Prohibits
+
+If the field is not empty, all other specified fields must be empty. [See the Laravel documentation.](https://laravel.com/docs/validation#rule-prohibits)
+
+```php
+Field::make('name')->prohibits('field')
+
+Field::make('name')->prohibits(['field', 'another_field'])
 ```
 
 ### Required
@@ -441,12 +475,21 @@ Field::make('email')
     })
 ```
 
+
+### ULID
+
+The field under validation must be a valid [Universally Unique Lexicographically Sortable Identifier](https://github.com/ulid/spec) (ULID). [See the Laravel documentation.](https://laravel.com/docs/validation#rule-ulid)
+
+```php
+Field::make('identifier')->ulid()
+```
+
 ### UUID
 
 The field must be a valid RFC 4122 (version 1, 3, 4, or 5) universally unique identifier (UUID). [See the Laravel documentation.](https://laravel.com/docs/validation#rule-uuid)
 
 ```php
-Field::make('identifer')->uuid()
+Field::make('identifier')->uuid()
 ```
 
 ## Other rules
@@ -496,7 +539,7 @@ TextInput::make('slug')->rules([
 ])
 ```
 
-## Validation attributes
+## Customizing validation attributes
 
 When fields fail validation, their label is used in the error message. To customize the label used in field error messages, use the `validationAttribute()` method:
 
@@ -504,6 +547,20 @@ When fields fail validation, their label is used in the error message. To custom
 use Filament\Forms\Components\TextInput;
 
 TextInput::make('name')->validationAttribute('full name')
+```
+
+## Validation messages
+
+By default Laravel's validation error message is used. To customize the error messages, use the `validationMessages()` method:
+
+```php
+use Filament\Forms\Components\TextInput;
+
+TextInput::make('email')
+    ->unique(// ...)
+    ->validationMessages([
+        'unique' => 'The :attribute has already been registered.',
+    ])
 ```
 
 ## Sending validation notifications

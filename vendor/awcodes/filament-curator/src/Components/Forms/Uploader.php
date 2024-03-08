@@ -5,6 +5,7 @@ namespace Awcodes\Curator\Components\Forms;
 use Awcodes\Curator\Concerns\CanGeneratePaths;
 use Awcodes\Curator\Concerns\CanNormalizePaths;
 use Awcodes\Curator\PathGenerators\Contracts\PathGenerator;
+use Filament\Facades\Filament;
 use Filament\Forms\Components\BaseFileUpload;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Support\Facades\App;
@@ -13,12 +14,13 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use League\Flysystem\UnableToCheckFileExistence;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+
 use function Awcodes\Curator\is_media_resizable;
 
 class Uploader extends FileUpload
 {
-    use CanNormalizePaths;
     use CanGeneratePaths;
+    use CanNormalizePaths;
 
     public function getDirectory(): ?string
     {
@@ -45,18 +47,18 @@ class Uploader extends FileUpload
             return;
         }
 
-        if (!is_array($this->getState())) {
+        if (! is_array($this->getState())) {
             $this->state([$this->getState()]);
         }
 
-        $state = array_map(function (TemporaryUploadedFile|array $file) {
-            if (!$file instanceof TemporaryUploadedFile) {
+        $state = array_map(function (TemporaryUploadedFile | array $file) {
+            if (! $file instanceof TemporaryUploadedFile) {
                 return $file;
             }
 
             $callback = $this->saveUploadedFileUsing;
 
-            if (!$callback) {
+            if (! $callback) {
                 $file->delete();
 
                 return $file;
@@ -82,7 +84,7 @@ class Uploader extends FileUpload
 
         $this->saveUploadedFileUsing(function (BaseFileUpload $component, TemporaryUploadedFile $file): ?array {
             try {
-                if (!$file->exists()) {
+                if (! $file->exists()) {
                     return null;
                 }
             } catch (UnableToCheckFileExistence $exception) {
@@ -91,20 +93,14 @@ class Uploader extends FileUpload
 
             $filename = $component->shouldPreserveFilenames()
                 ? Str::of(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME))->slug()
-                : (string)Str::uuid();
+                : (string) Str::uuid();
 
             $extension = $file->getClientOriginalExtension();
 
             $storeMethod = $component->getVisibility() === 'public' ? 'storePubliclyAs' : 'storeAs';
 
             if (is_media_resizable($extension)) {
-                if (
-                    (
-                        in_array($component->getDiskName(), config('curator.cloud_disks'))
-                        && config('livewire.temporary_file_upload.directory') !== null
-                    )
-                    || in_array(config('livewire.temporary_file_upload.disk'), config('curator.cloud_disks'))
-                ) {
+                if (in_array(config('livewire.temporary_file_upload.disk'), config('curator.cloud_disks')) && config('livewire.temporary_file_upload.directory') !== null) {
                     $content = Storage::disk($component->getDiskName())->get($file->path());
                 } else {
                     $content = $file->getRealPath();
@@ -117,7 +113,7 @@ class Uploader extends FileUpload
                 $exif = $image->exif();
             }
 
-            if (Storage::disk($component->getDiskName())->exists(ltrim($component->getDirectory().'/'.$filename.'.'.$extension, '/'))) {
+            if (Storage::disk($component->getDiskName())->exists(ltrim($component->getDirectory() . '/' . $filename . '.' . $extension, '/'))) {
                 $filename = $filename . '-' . time();
             }
 
@@ -127,7 +123,7 @@ class Uploader extends FileUpload
                 $component->getDiskName()
             );
 
-            return [
+            $data = [
                 'disk' => $component->getDiskName(),
                 'directory' => $component->getDirectory(),
                 'visibility' => $component->getVisibility(),
@@ -140,6 +136,12 @@ class Uploader extends FileUpload
                 'type' => $file->getMimeType(),
                 'ext' => $extension,
             ];
+
+            if (config('curator.is_tenant_aware') && Filament::hasTenancy()) {
+                $data[config('curator.tenant_ownership_relationship_name') . '_id'] = Filament::getTenant()->id;
+            }
+
+            return $data;
         });
     }
 }

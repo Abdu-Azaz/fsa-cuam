@@ -2,6 +2,7 @@
 
 namespace Filament\Actions;
 
+use Closure;
 use Filament\Support\Components\ViewComponent;
 use Filament\Support\Concerns\HasBadge;
 use Filament\Support\Concerns\HasColor;
@@ -49,6 +50,10 @@ class StaticAction extends ViewComponent
 
     protected string $viewIdentifier = 'action';
 
+    protected ?string $livewireTarget = null;
+
+    protected string | Closure | null $alpineClickHandler = null;
+
     final public function __construct(?string $name)
     {
         $this->name($name);
@@ -71,9 +76,7 @@ class StaticAction extends ViewComponent
 
     public function button(): static
     {
-        $this->view(static::BUTTON_VIEW);
-
-        return $this;
+        return $this->view(static::BUTTON_VIEW);
     }
 
     public function isButton(): bool
@@ -83,16 +86,12 @@ class StaticAction extends ViewComponent
 
     public function grouped(): static
     {
-        $this->view(static::GROUPED_VIEW);
-
-        return $this;
+        return $this->view(static::GROUPED_VIEW);
     }
 
     public function iconButton(): static
     {
-        $this->view(static::ICON_BUTTON_VIEW);
-
-        return $this;
+        return $this->view(static::ICON_BUTTON_VIEW);
     }
 
     public function isIconButton(): bool
@@ -102,14 +101,20 @@ class StaticAction extends ViewComponent
 
     public function link(): static
     {
-        $this->view(static::LINK_VIEW);
-
-        return $this;
+        return $this->view(static::LINK_VIEW);
     }
 
     public function isLink(): bool
     {
         return $this->getView() === static::LINK_VIEW;
+    }
+
+    public function alpineClickHandler(string | Closure | null $handler): static
+    {
+        $this->alpineClickHandler = $handler;
+        $this->livewireClickHandlerEnabled(blank($handler));
+
+        return $this;
     }
 
     public static function getDefaultName(): ?string
@@ -127,26 +132,8 @@ class StaticAction extends ViewComponent
             return $this->action;
         }
 
-        if ($event = $this->getEvent()) {
-            $arguments = '';
-
-            if ($component = $this->getDispatchToComponent()) {
-                $arguments .= Js::from($component)->toHtml();
-                $arguments .= ', ';
-            }
-
-            $arguments .= Js::from($event)->toHtml();
-
-            if ($this->getEventData()) {
-                $arguments .= ', ';
-                $arguments .= Js::from($this->getEventData())->toHtml();
-            }
-
-            return match ($this->getDispatchDirection()) {
-                'self' => "\$dispatchSelf($arguments)",
-                'to' => "\$dispatchTo($arguments)",
-                default => "\$dispatch($arguments)"
-            };
+        if ($event = $this->getLivewireEventClickHandler()) {
+            return $event;
         }
 
         if ($handler = $this->getParentActionCallLivewireClickHandler()) {
@@ -160,8 +147,41 @@ class StaticAction extends ViewComponent
         return null;
     }
 
+    public function getLivewireEventClickHandler(): ?string
+    {
+        $event = $this->getEvent();
+
+        if (blank($event)) {
+            return null;
+        }
+
+        $arguments = '';
+
+        if ($component = $this->getDispatchToComponent()) {
+            $arguments .= Js::from($component)->toHtml();
+            $arguments .= ', ';
+        }
+
+        $arguments .= Js::from($event)->toHtml();
+
+        if ($this->getEventData()) {
+            $arguments .= ', ';
+            $arguments .= Js::from($this->getEventData())->toHtml();
+        }
+
+        return match ($this->getDispatchDirection()) {
+            'self' => "\$dispatchSelf($arguments)",
+            'to' => "\$dispatchTo($arguments)",
+            default => "\$dispatch($arguments)"
+        };
+    }
+
     public function getAlpineClickHandler(): ?string
     {
+        if (filled($handler = $this->evaluate($this->alpineClickHandler))) {
+            return $handler;
+        }
+
         if (! $this->shouldClose()) {
             return null;
         }
@@ -169,9 +189,16 @@ class StaticAction extends ViewComponent
         return 'close()';
     }
 
+    public function livewireTarget(?string $target): static
+    {
+        $this->livewireTarget = $target;
+
+        return $this;
+    }
+
     public function getLivewireTarget(): ?string
     {
-        return null;
+        return $this->livewireTarget;
     }
 
     /**

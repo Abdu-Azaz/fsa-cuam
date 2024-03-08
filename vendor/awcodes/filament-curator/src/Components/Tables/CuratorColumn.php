@@ -2,12 +2,15 @@
 
 namespace Awcodes\Curator\Components\Tables;
 
-use function Awcodes\Curator\get_media_items;
 use Awcodes\Curator\Models\Media;
 use Closure;
 use Filament\Tables\Columns\ImageColumn;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Arr;
+
+use function Awcodes\Curator\get_media_items;
 
 class CuratorColumn extends ImageColumn
 {
@@ -48,5 +51,26 @@ class CuratorColumn extends ImageColumn
         $this->resolution = $resolution;
 
         return $this;
+    }
+
+    public function applyEagerLoading(EloquentBuilder | Relation $query): EloquentBuilder | Relation
+    {
+        $model = $query->getModel();
+
+        if (! $this->queriesRelationships($query->getModel())) {
+            return $query;
+        }
+
+        if ($model instanceof Media || is_subclass_of(Media::class, $model)) {
+            return $query;
+        }
+
+        $relationshipName = $this->getRelationshipName();
+
+        if (array_key_exists($relationshipName, $query->getEagerLoads())) {
+            return $query;
+        }
+
+        return $query->with([$relationshipName]);
     }
 }

@@ -14,6 +14,7 @@ use Filament\Support\Exceptions\Cancel;
 use Filament\Support\Exceptions\Halt;
 use Filament\Tables\Contracts\HasTable;
 use Illuminate\Validation\ValidationException;
+use Throwable;
 
 use function Livewire\store;
 
@@ -96,13 +97,15 @@ trait InteractsWithInfolists
             return null;
         }
 
-        $action->arguments($arguments);
+        $action->mergeArguments($arguments);
 
         $form = $this->getMountedInfolistActionForm();
 
         $result = null;
 
         try {
+            $action->beginDatabaseTransaction();
+
             if ($this->mountedInfolistActionHasForm()) {
                 $action->callBeforeFormValidated();
 
@@ -118,16 +121,31 @@ trait InteractsWithInfolists
             ]);
 
             $result = $action->callAfter() ?? $result;
+
+            $action->commitDatabaseTransaction();
         } catch (Halt $exception) {
+            $exception->shouldRollbackDatabaseTransaction() ?
+                $action->rollBackDatabaseTransaction() :
+                $action->commitDatabaseTransaction();
+
             return null;
         } catch (Cancel $exception) {
+            $exception->shouldRollbackDatabaseTransaction() ?
+                $action->rollBackDatabaseTransaction() :
+                $action->commitDatabaseTransaction();
         } catch (ValidationException $exception) {
+            $action->rollBackDatabaseTransaction();
+
             if (! $this->mountedInfolistActionShouldOpenModal()) {
                 $action->resetArguments();
                 $action->resetFormData();
 
                 $this->unmountInfolistAction();
             }
+
+            throw $exception;
+        } catch (Throwable $exception) {
+            $action->rollBackDatabaseTransaction();
 
             throw $exception;
         }
@@ -231,9 +249,10 @@ trait InteractsWithInfolists
             return false;
         }
 
-        return $action->getModalDescription() ||
-            $action->getModalContent() ||
-            $action->getModalContentFooter() ||
+        return $action->hasCustomModalHeading() ||
+            $action->hasModalDescription() ||
+            $action->hasModalContent() ||
+            $action->hasModalContentFooter() ||
             $action->getInfolist() ||
             $this->mountedInfolistActionHasForm();
     }

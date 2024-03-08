@@ -28,12 +28,15 @@ return [
     'glide' => [
         'server' => \Awcodes\Curator\Glide\DefaultServerFactory::class,
         'fallbacks' => [],
+        'route_path' => 'curator',
     ],
     'image_crop_aspect_ratio' => null,
     'image_resize_mode' => null,
     'image_resize_target_height' => null,
     'image_resize_target_width' => null,
     'is_limited_to_directory' => false,
+    'is_tenant_aware' => true,
+    'tenant_ownership_relationship_name' => 'tenant',
     'max_size' => 5000,
     'model' => \Awcodes\Curator\Models\Media::class,
     'min_size' => 0,
@@ -50,4 +53,9 @@ return [
     'should_preserve_filenames' => false,
     'should_register_navigation' => true,
     'visibility' => 'public',
+    'tabs' => [
+        'display_curation' => true,
+        'display_upload_new' => true,
+    ],
+    'multi_select_key' => 'metaKey',
 ];

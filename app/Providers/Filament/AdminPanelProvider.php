@@ -33,6 +33,7 @@ class AdminPanelProvider extends PanelProvider
             ->font('Poppins')
             ->brandName('FSA FACTORY')
             ->favicon(null)
+            ->databaseNotifications()
             ->sidebarCollapsibleOnDesktop()
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->plugins([

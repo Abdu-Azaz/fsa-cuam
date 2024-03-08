@@ -10,18 +10,17 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use ReflectionClass;
 use ReflectionException;
-use Spatie\Permission\Models\Permission as PermissionModel;
 
 class Permission extends Command
 {
-    private $config;
+    private mixed $config;
 
     private array $permissions = [];
 
     private array $policies = [];
 
-    protected $signature = 'permissions:sync 
-                                {--C|clean} 
+    protected $signature = 'permissions:sync
+                                {--C|clean}
                                 {--P|policies}
                                 {--O|oep}
                                 {--Y|yes-to-all}';
@@ -32,6 +31,7 @@ class Permission extends Command
     {
         parent::__construct();
         $this->config = config('filament-spatie-roles-permissions.generator');
+
     }
 
     /**
@@ -50,9 +50,11 @@ class Permission extends Command
 
         $this->prepareCustomPermissions();
 
+        $permissionModel = config('permission.models.permission');
+
         foreach ($this->permissions as $permission) {
             $this->comment('Syncing Permission for: '.$permission['name']);
-            PermissionModel::firstOrCreate($permission);
+            $permissionModel::firstOrCreate($permission);
         }
     }
 
@@ -232,16 +234,14 @@ class Permission extends Command
         }, $array);
     }
 
-    private function extractNamespace($file)
+    private function extractNamespace($file): string
     {
-
-        $ns = null;
+        $ns = '';
         $handle = fopen($file, 'r');
         if ($handle) {
             while (($line = fgets($handle)) !== false) {
-                if (str_starts_with($line, 'namespace')) {
-                    $parts = explode(' ', $line);
-                    $ns = rtrim(trim($parts[1]), ';');
+                if (preg_match('/namespace\s+([a-zA-Z0-9_\\\\]+);/', $line, $matches)) {
+                    $ns = $matches[1];
                     break;
                 }
             }

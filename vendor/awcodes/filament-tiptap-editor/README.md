@@ -87,6 +87,18 @@ Styling the output is entirely up to you.
 {!! tiptap_converter()->asText($post->content) !!}
 ```
 
+#### Table of Contents
+
+If you are using the `heading` tool in your editor you can also generate a table of contents from the headings in the content. This is done by passing the content to the `asHTML()` method and setting the `toc` option to `true`. You can also pass a `maxDepth` option to limit the depth of headings to include in the table of contents.
+
+```blade
+<!-- this will generate links for all headings up to h3 -->
+{!! tiptap_converter()->asHTML($post->content, toc: true, maxDepth: 3) !!}
+
+<!-- this will generate a table of contents with headings up to h3 -->
+{!! tiptap_converter()->asToc($post->content, maxDepth: 3) !!}
+```
+
 ## Config
 
 The plugin will work without publishing the config, but should you need to change any of the default settings you can publish the config file with the following Artisan command:
@@ -241,6 +253,193 @@ TiptapEditor::make('content')
 
 ```php
 'floating_menu_tools' => ['media', 'grid-builder', 'details', 'table', 'oembed', 'code-block']
+```
+
+## Grid layouts
+
+When using the `grid` tool, you can customize the available layouts in the dropdown by passing them to the `gridLayouts()` method:
+
+```php
+TiptapEditor::make('content')
+    ->gridLayouts([
+        'two-columns',
+        'three-columns',
+        'four-columns',
+        'five-columns',
+        'fixed-two-columns',
+        'fixed-three-columns',
+        'fixed-four-columns',
+        'fixed-five-columns',
+        'asymmetric-left-thirds',
+        'asymmetric-right-thirds',
+        'asymmetric-left-fourths',
+        'asymmetric-right-fourths',
+    ]);
+```
+
+## Custom Blocks
+
+> **Note**
+> To use custom blocks you must store your content as JSON.
+
+There are 3 components you need to create a custom block for Tiptap Editor.
+
+* A block class that extends `TiptapBlock` and defines the settings for the block.
+* A 'preview' blade file
+* A 'rendered' blade file
+
+### Creating a custom block
+
+#### Block class
+
+```php
+use FilamentTiptapEditor\TiptapBlock;
+
+class BatmanBlock extends TiptapBlock
+{
+    public string $preview = 'blocks.previews.batman';
+
+    public string $rendered = 'blocks.rendered.batman';
+
+    public function getFormSchema(): array
+    {
+        return [
+            TextInput::make('name'),
+            TextInput::make('color'),
+            Select::make('side')
+                ->options([
+                    'Hero' => 'Hero',
+                    'Villain' => 'Villain',
+                ])
+                ->default('Hero')
+        ];
+    }
+}
+```
+
+#### Static blocks
+
+If you simply need a placeholder to output a block that doesn't have settings you can simply not provide a `getFormSchema` method and no modal will be shown and blocks will be directly inserted into the editor.
+
+```php
+use FilamentTiptapEditor\TiptapBlock;
+
+class StaticBlock extends TiptapBlock
+{
+    public string $preview = 'blocks.previews.static';
+
+    public string $rendered = 'blocks.rendered.static';
+}
+```
+
+#### Modal width, slide overs and icons 
+
+***Note***: Currently, icons will only be show on the drag and drop block panel
+
+```php
+class BatmanBlock extends TiptapBlock
+{
+    public string $width = 'xl';
+    
+    public bool $slideOver = true;
+    
+    public ?string $icon = 'heroicon-o-film';
+}
+```
+
+#### Preview view
+
+Preview views are just standard blade views. Unfortunately, you cannot use Livewire components in a block preview as they will not work correctly due to the editor having to be wire:ignore.
+
+`resources/views/blocks/previews/batman.blade.php`
+```html
+<div class="flex items-center gap-6">
+    <div class="text-5xl">
+        @php
+            echo match($name) {
+                'robin' => '🐤',
+                'ivy' => '🥀',
+                'joker' => '🤡',
+                default => '🦇'
+            }
+        @endphp
+    </div>
+    <div>
+        <p>Name: {{ $name }}</p>
+        <p style="color: {{ $color }};">Color: {{ $color }}</p>
+        <p>Side: {{ $side ?? 'Good' }}</p>
+    </div>
+</div>
+```
+
+#### Rendered view
+
+Rendered views are normal blade files and can also be used to output livewire components with your block data.
+
+`resources/views/blocks/rendered/batman.blade.php`
+```html
+<div>
+    <livewire:batman-block
+        :name="$name"
+        :color="$color"
+        :side="$side"
+    />
+</div>
+```
+
+#### Registering your blocks with the editor
+
+In the register method of a service provider you can add your blocks to the editor via `configureUsing`.
+
+> **Note**
+> You will also need to add the 'blocks' key where appropriate in your profiles in the tiptap config.
+
+```php
+use App\TiptapBlocks\BatmanBlock;
+use App\TiptapBlocks\StaticBlock;
+use FilamentTiptapEditor\TiptapEditor;
+
+TiptapEditor::configureUsing(function (TiptapEditor $component) {
+    $component
+        ->blocks([
+            BatmanBlock::class,
+            StaticBlock::class,
+        ]);
+});
+```
+
+By default, the drag and drop blocks panel will be open in the editor. If you want to change this you can use the `collapseBlocksPanel` modifier on the Editor instance or globally with `configureUsing`.
+
+```php
+use App\TiptapBlocks\BatmanBlock;
+use App\TiptapBlocks\StaticBlock;
+use FilamentTiptapEditor\TiptapEditor;
+
+TiptapEditor::configureUsing(function (TiptapEditor $component) {
+    $component
+        ->collapseBlocksPanel()
+        ->blocks([...]);
+});
+```
+
+## Merge tags
+
+Merge tags can be used with JSON-based editor content to replace placeholders with dynamic content. Merge tags are defined in the `mergeTags()` method of the editor instance:
+
+```php
+TiptapEditor::make('content')
+    ->mergeTags([
+        'first_name',
+        'last_name',
+    ])
+```
+
+To insert a merge tag, the user can either type `{{` to open an autocomplete menu, or drag a merge tag into the editor from the "blocks panel". You can remove the tags from the blocks panel using `showMergeTagsInBlocksPanel(false)`:
+
+```php
+TiptapEditor::make('content')
+    ->mergeTags([...])
+    ->showMergeTagsInBlocksPanel(false)
 ```
 
 ## Usage in Standalone Forms Package

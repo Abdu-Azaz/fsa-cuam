@@ -9,6 +9,8 @@ return [
     'navigation_section_group' => 'filament-spatie-roles-permissions::filament-spatie.section.roles_and_permissions', // Default uses language constant
 
     'team_model' => \App\Models\Team::class,
+    
+    'scope_to_tenant' => true,
 
     /*
      * Set as false to remove from navigation.
@@ -34,9 +36,26 @@ return [
 
     'default_guard_name' => null,
 
-    'model_filter_key' => 'return \'%\'.$key;', // Eg: 'return \'%\'.$key.'\%\';'
+    'model_filter_key' => 'return \'%\'.$value;', // Eg: 'return \'%\'.$key.'\%\';'
 
     'user_name_column' => 'name',
+
+    /*
+     * Icons to use for navigation
+     */
+    'icons' => [
+        'role_navigation' => 'heroicon-o-lock-closed',
+        'permission_navigation' => 'heroicon-o-lock-closed',
+    ],
+
+    /*
+     *  Navigation items order - int value, false  restores the default position
+     */
+
+    'sort' => [
+        'role_navigation' => false,
+        'permission_navigation' => false
+    ],
 
     'generator' => [
 
@@ -92,14 +111,14 @@ return [
         ],
 
         /*
-         * Define custom_models in snake-case
+         * Define custom_models
          */
         'custom_models' => [
             //
         ],
 
         /*
-         * Define excluded_models in snake-case
+         * Define excluded_models
          */
         'excluded_models' => [
             //
@@ -110,7 +129,7 @@ return [
         ],
 
         /*
-         * Define any other permission here
+         * Define any other permission that should be synced with the DB
          */
         'custom_permissions' => [
             //'view-log'

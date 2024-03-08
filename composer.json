@@ -16,7 +16,7 @@
         "awcodes/filament-tiptap-editor": "^3.0",
         "diglactic/laravel-breadcrumbs": "^8.1",
         "eightynine/filament-excel-import": "^3.0",
-        "filament/filament": "^3.0-stable",
+        "filament/filament": "^3.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",

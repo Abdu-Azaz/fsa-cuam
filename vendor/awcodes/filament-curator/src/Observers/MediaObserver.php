@@ -24,7 +24,7 @@ class MediaObserver
                 } elseif ($k === 'exif' && is_array($v)) {
                     // Fix malformed utf-8 characters
                     array_walk_recursive($v, function (&$entry) {
-                        if (!mb_detect_encoding($entry, 'utf-8', true)) {
+                        if (! mb_detect_encoding($entry, 'utf-8', true)) {
                             $entry = utf8_encode($entry);
                         }
                     });
@@ -58,10 +58,14 @@ class MediaObserver
 
             $media->name = $media->getOriginal()['name'];
             $media->path = $media->directory . '/' . $media->getOriginal()['name'] . '.' . $media->ext;
+
+            // Delete glide-cache for replaced image
+            $server = app(config('curator.glide.server'))->getFactory();
+            $server->deleteCache($media->path);
         }
 
         // Rename file name
-        if ($media->isDirty(['name']) && !blank($media->name)) {
+        if ($media->isDirty(['name']) && ! blank($media->name)) {
             if (Storage::disk($media->disk)->exists($media->directory . '/' . $media->name . '.' . $media->ext)) {
                 $media->name = $media->name . '-' . time();
             }
@@ -87,6 +91,10 @@ class MediaObserver
         if (count(Storage::disk($media->disk)->allFiles($media->directory)) == 0) {
             Storage::disk($media->disk)->deleteDirectory($media->directory);
         }
+
+        // Delete glide-cache for delete image
+        $server = app(config('curator.glide.server'))->getFactory();
+        $server->deleteCache($media->path);
     }
 
     private function hasMediaUpload($media): bool

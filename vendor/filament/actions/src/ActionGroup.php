@@ -8,6 +8,7 @@ use Filament\Support\Concerns\HasBadge;
 use Filament\Support\Concerns\HasColor;
 use Filament\Support\Concerns\HasExtraAttributes;
 use Filament\Support\Concerns\HasIcon;
+use Filament\Support\Facades\FilamentIcon;
 use Livewire\Component;
 
 class ActionGroup extends ViewComponent implements HasLivewire
@@ -112,9 +113,7 @@ class ActionGroup extends ViewComponent implements HasLivewire
 
     public function button(): static
     {
-        $this->view(static::BUTTON_VIEW);
-
-        return $this;
+        return $this->view(static::BUTTON_VIEW);
     }
 
     public function isButton(): bool
@@ -124,16 +123,12 @@ class ActionGroup extends ViewComponent implements HasLivewire
 
     public function grouped(): static
     {
-        $this->view(static::GROUPED_VIEW);
-
-        return $this;
+        return $this->view(static::GROUPED_VIEW);
     }
 
     public function iconButton(): static
     {
-        $this->view(static::ICON_BUTTON_VIEW);
-
-        return $this;
+        return $this->view(static::ICON_BUTTON_VIEW);
     }
 
     public function isIconButton(): bool
@@ -143,9 +138,7 @@ class ActionGroup extends ViewComponent implements HasLivewire
 
     public function link(): static
     {
-        $this->view(static::LINK_VIEW);
-
-        return $this;
+        return $this->view(static::LINK_VIEW);
     }
 
     public function isLink(): bool
@@ -194,7 +187,7 @@ class ActionGroup extends ViewComponent implements HasLivewire
 
     public function getIcon(): string
     {
-        return $this->getBaseIcon() ?? 'heroicon-m-ellipsis-vertical';
+        return $this->getBaseIcon() ?? FilamentIcon::resolve('actions::action-group') ?? 'heroicon-m-ellipsis-vertical';
     }
 
     public function isHidden(): bool

@@ -23,12 +23,24 @@ class EditMedia extends EditRecord
         return [
             Action::make('save')
                 ->action('save')
-                ->label(__('curator::views.panel.edit_save')),
+                ->label(trans('curator::views.panel.edit_save')),
             Action::make('preview')
                 ->color('gray')
                 ->url($this->record->url, shouldOpenInNewTab: true)
-                ->label(__('curator::views.panel.view')),
+                ->label(trans('curator::views.panel.view')),
             DeleteAction::make(),
         ];
+    }
+
+    protected function afterSave(): void
+    {
+        $state = $this->getForm('form')->getRawState();
+
+        if ($state['file'] !== null) {
+            $livewire = $this->getForm('form')->getLivewire();
+            $statePath = $this->getForm('form')->getStatePath();
+
+            data_set($livewire, $statePath . '.file', null);
+        }
     }
 }

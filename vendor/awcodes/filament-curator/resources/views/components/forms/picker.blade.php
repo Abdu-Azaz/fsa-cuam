@@ -16,7 +16,7 @@
                 $wire.$set(event.detail.statePath, event.detail.media);
             },
         }"
-        x-on:insert-media.window="insertMedia($event)"
+        x-on:insert-content.window="insertMedia($event)"
         class="curator-media-picker w-full"
     >
         <ul
@@ -80,15 +80,15 @@
 
                                     <div class="flex items-center justify-center flex-none w-8 h-8">
                                         <x-filament-actions::group
-                                        :actions="[
-                                            $getAction('view')(['url' => $item['url']]),
-                                            $getAction('edit')(['id' => $item['id']]),
-                                            $getAction('download')(['uuid' => $uuid]),
-                                            $getAction('remove')(['uuid' => $uuid]),
-                                        ]"
-                                        color="gray"
-                                        size="xs"
-                                        dropdown-placement="bottom-end"
+                                            :actions="[
+                                                $getAction('view')(['url' => $item['url']]),
+                                                $getAction('edit')(['id' => $item['id']]),
+                                                $getAction('download')(['uuid' => $uuid]),
+                                                $getAction('remove')(['uuid' => $uuid]),
+                                            ]"
+                                            color="gray"
+                                            size="xs"
+                                            dropdown-placement="bottom-end"
                                         />
                                     </div>
                                 </div>
@@ -185,5 +185,4 @@
             @endif
         </div>
     </div>
-
 </x-dynamic-component>

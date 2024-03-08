@@ -98,7 +98,12 @@ export default function markdownEditorFormComponent({
         state,
 
         init: async function () {
-            this.editor = new EasyMDE({
+            if (this.$root._editor) {
+                this.$root._editor.toTextArea()
+                this.$root._editor = null
+            }
+
+            this.$root._editor = this.editor = new EasyMDE({
                 autoDownloadFontAwesome: false,
                 autoRefresh: true,
                 autoSave: false,
@@ -199,11 +204,7 @@ export default function markdownEditorFormComponent({
                     return
                 }
 
-                this.editor.value(this.state ?? '')
-
-                // There is an issue with the editor not rendering the content
-                // until after it is focused. All solutions online have been
-                // attempted and none have worked so far.
+                Alpine.raw(this.editor).value(this.state ?? '')
             })
         },
 

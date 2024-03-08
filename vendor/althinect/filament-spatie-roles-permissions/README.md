@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/althinect/filament-spatie-roles-permissions.svg?style=flat-square)](https://packagist.org/packages/althinect/filament-spatie-roles-permissions)
 ![GitHub Actions](https://github.com/althinect/filament-spatie-roles-permissions/actions/workflows/main.yml/badge.svg)
 
-This plugin is built on top of [Spatie's Permission](https://spatie.be/docs/laravel-permission/v5/introduction) package. 
+This plugin is built on top of [Spatie's Permission](https://spatie.be/docs/laravel-permission/v6/introduction) package. 
 
 Provides Resources for Roles and Permissions
 
@@ -12,7 +12,7 @@ Permission and Policy generations
 - Check the ``config/filament-spatie-roles-permissions-config.php``
 
 Supports permissions for teams
-- Make sure the ``teams`` attribute in the ``app/permission.php`` file is set to ``true``
+- Make sure the ``teams`` attribute in the ``config/permission.php`` file is set to ``true``
 
 ## Updating
 
@@ -104,7 +104,7 @@ reorder Post
 ```
 
 ### Generating Policies
-Policies will be generated with the respective permission. This won't replace any existing policies
+To generate policies use the command below. This won't replace any existing policies
 
 ```bash
 php artisan permissions:sync -P|--policies
@@ -116,6 +116,10 @@ This will override existing policy classes
 ```bash
 php artisan permissions:sync -O|--oep
 ```
+
+### Role and Permission Policies
+Create a RolePolicy and PermissionPolicy if you wish to control the visibility of the resources on the navigation menu.
+Make sure to add them to the AuthServiceProvider. 
 
 ### Ignoring prompts
 You can ignore any prompts by add the flag ``-Y`` or ``--yes-to-all`` 
@@ -148,6 +152,23 @@ Gate::before(function (User $user, string $ability) {
 });
 ```
 
+### Guard Names
+When you use any guard other than `web` you have to add the guard name to the `config/auth.php` file.
+Example: If you use `api` guard, you should add the following to the `guards` array
+
+```php
+
+'guards' => [
+    ...
+
+    'api' => [
+        'driver' => 'token',
+        'provider' => 'users',
+        'hash' => false,
+    ],
+],
+```
+
 ### Tenancy
 
 - Make sure to set the following on the `config/permission.php`
@@ -155,10 +176,9 @@ Gate::before(function (User $user, string $ability) {
 'teams' => true
 ```
 
-- Make sure the `team_model` on the `config/filament-spatie-roles-permissions` is correctly set.
-
+- Make sure the `team_model` on the `config/permission` is correctly set.
 - Create a Role model which extends `Spatie\Permission\Models\Role`
-- Create a Permission model which extends `Spatie\Permission\Models\Permission`
+- Replace the model in the `config/permission.php` with the newly created models
 - Add the `team` relationship in both models
 
 ```php
@@ -170,7 +190,6 @@ public function team(): BelongsTo
 ```
 - Add the following to the `AdminPanelProvider` to support tenancy
 
-Follow the instructions on [Filament Multi-tenancy](https://filamentphp.com/docs/3.x/panels/tenancy)
 
 ```php
 use Althinect\FilamentSpatieRolesPermissions\Middleware\SyncSpatiePermissionsWithFilamentTenants;
@@ -181,6 +200,21 @@ $panel
         SyncSpatiePermissionsWithFilamentTenants::class,
     ], isPersistent: true)
 ```
+
+- Use the following within you UserResource
+
+```
+Forms\Components\Select::make('roles')
+            ->relationship(name: 'roles', titleAttribute: 'name')
+            ->saveRelationshipsUsing(function (Model $record, $state) {
+                 $record->roles()->syncWithPivotValues($state, [config('permission.column_names.team_foreign_key') => getPermissionsTeamId()]);
+            })
+           ->multiple()
+           ->preload()
+           ->searchable(),
+```
+
+Follow the instructions on [Filament Multi-tenancy](https://filamentphp.com/docs/3.x/panels/tenancy)
 
 ### Configurations
 
