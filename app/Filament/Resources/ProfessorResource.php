@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Exports\ProfessorExporter;
+use App\Filament\Imports\ProfessorImporter;
 use App\Filament\Resources\ProfessorResource\Pages;
 use App\Models\Professor;
 use Filament\Forms;
@@ -15,12 +17,13 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use App\Filament\Resources\ProfessorResource\RelationManagers\DepartmentsRelationManager;
 use Filament\Forms\Components\Section;
+use Filament\Tables\Actions\ExportBulkAction;
+use Filament\Tables\Actions\ImportAction;
 use Filament\Tables\Columns\IconColumn\IconColumnSize;
 
 class ProfessorResource extends Resource
 {
     protected static ?string $model = Professor::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-users';
     protected static ?string $navigationGroup = 'Faculty';
 
@@ -46,6 +49,9 @@ class ProfessorResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+        ->headerActions([
+            ImportAction::make()
+                ->importer(ProfessorImporter::class)])
             ->columns([
 
                 TextColumn::make('id')
@@ -82,7 +88,8 @@ class ProfessorResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                    // ExportBulkAction::make()
+                    ExportBulkAction::make()
+                        ->exporter(ProfessorExporter::class)
                 ]),
 
             ]);
