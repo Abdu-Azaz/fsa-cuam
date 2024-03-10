@@ -8,7 +8,7 @@
         <div class="p-2">
             <div class="d-flex mt-1  fw-bold">
                 <small style="font-size:0.66rem"><i
-                        class="far fa-calendar-alt me-2 "></i>{{ $announce->formatDateTime() }} &nbsp; <span class="alert alert-danger p-0"> {{$announce->isUpdated() ? ' (' .__('maj').' '.$announce->announceUpdatedSince().')':''}}</span></small>
+                        class="far fa-calendar-alt me-2 "></i>{{ $announce->formatDateTime() }} &nbsp; <span class="alert {{$announce->isUpdated() ? 'alert-danger' :''}} p-0"> {{$announce->isUpdated() ? ' (' .__('maj').' '.$announce->announceUpdatedSince().')':''}}</span></small>
             </div>
             <div>
                 {{-- <small style="font-size:0.67rem " class="fw-bold text-danger"></small> --}}

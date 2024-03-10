@@ -10,13 +10,14 @@ class Announce extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'body', 'status', 'announce_type', 'isFeatured','meta_keywords'];
+    protected $fillable = ['title', 'slug', 'body', 'status', 'announce_type', 'isFeatured','meta_keywords','make_first'];
 
     public function announceUpdatedSince()
     {
         return  Carbon::parse($this->updated_at)->diffForHumans();
     }
 
+    
     public function isUpdated(): bool
     {
         return $this->updated_at > $this->created_at;
@@ -44,6 +45,7 @@ class Announce extends Model
         }
         return $image_path;
     }
+
 
     public function formatDateTime()
     {

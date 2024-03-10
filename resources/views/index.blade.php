@@ -10,8 +10,9 @@
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
+
                     @foreach ($sliders as $slide)
-                        <div class="carousel-item active fitToScreen">
+                        <div class="carousel-item {{ $loop->first ? ' active' : '' }} fitToScreen">
                             <img class="w-100 fitToScreen" src="{{ url('storage/' . $slide->slide_image) }}" alt="Image">
                             <div class="grid"></div>
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">

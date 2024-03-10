@@ -4,7 +4,7 @@
 {{-- 2C Layout --}}
 {{-- {{dd($announce)}} --}}
 
-@extends('layouts.two-columns')
+@extends('layouts.one-column')
 
 {{-- DOCUMENT TITLE (Browser Tab) --}}
 @section('title')

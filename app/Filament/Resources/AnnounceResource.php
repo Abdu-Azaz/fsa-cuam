@@ -64,17 +64,26 @@ class AnnounceResource extends Resource
                                 'changement_filiere' => 'Changement de filiere'
                             ]
                         ),
-                    Forms\Components\Toggle::make('isFeatured')
-                        ->label('Featured')
-                        ->helperText('If Marked as Featured, the Announce Will Appear in Other Pages sidebar'),
-                    Forms\Components\Select::make('status')
+                        Forms\Components\Select::make('status')
                         ->options(
                             [
                                 'published' => 'Published',
                                 'draft' => 'Draft',
                             ]
-                        )
-                ])->columns('3'),
+                        ),
+
+                ])->columns('2'),
+                Section::make()->schema(
+                    [
+                        
+                        Forms\Components\Toggle::make('make_first')
+                        ->label('Make First')
+                        ->helperText('If True, the announce WIll Appear FIrst on update'),
+                        Forms\Components\Toggle::make('isFeatured')
+                        ->label('Featured')
+                        ->helperText('If Marked as Featured, the Announce Will Appear in Other Pages sidebar'),
+                    ]
+                )->columns('2')
             ]);
     }
 

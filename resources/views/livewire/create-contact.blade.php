@@ -35,11 +35,11 @@
                                 </div>
                                 <div class="col-12">
                                     <input wire:model="email" type="email" name="email"
-                                        class="form-control bg-light border-0 px-3" placeholder="{{ __('Email') }}">
+                                        class="form-control bg-light border-0 px-3" placeholder="{{ __('messages.academic_email') }}">
                                 </div>
                                 <div class="col-12">
                                     <input wire:model="subject" type="text" name="subject"
-                                        class="form-control bg-light border-0 px-3" placeholder="{{ __('Sujet') }}">
+                                        class="form-control bg-light border-0 px-3" placeholder="{{ __('messages.subject') }}">
                                 </div>
                                 <div class="col-12">
                                     <textarea wire:model="content" name="message" class="form-control bg-light border-0 px-3 py-3" rows="2"

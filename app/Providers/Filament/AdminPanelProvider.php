@@ -50,7 +50,7 @@ class AdminPanelProvider extends PanelProvider
 
             ])
             ->navigationItems([
-                NavigationItem::make('Media')
+                NavigationItem::make('Media (By_Me)')
                     ->url('/admin/my-media')
                     ->icon('heroicon-o-presentation-chart-line')
                     ->group('Media')

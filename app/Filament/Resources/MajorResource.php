@@ -28,6 +28,7 @@ class MajorResource extends Resource
     protected static ?string $navigationGroup = 'Faculty';
     protected static ?string $label = 'Filières';
 
+
     public static function form(Form $form): Form
     {
         return $form

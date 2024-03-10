@@ -28,6 +28,18 @@
      overflow-x: hidden;
      background-color: var(--bg-body);
  }
+body.dark{
+    background-color: var(--bg-dark);
+
+}
+ .mein-palette{
+    --container-dark:#3E3F40;
+    --Kolor2:#3C5E73;
+    --Kolor3:#677C8D;
+    --Kolor4:#62BFEE;
+    --bg-dark:#262626;
+    --Kolor6:#FFFEFE;
+ }
 
  .dark {
      --color-primary: #5CC9DF;
@@ -56,6 +68,8 @@
      border: 1px solid var(--color-gray-400);
      box-shadow: var(--box-shadow-lg);
  }
+
+ 
 
  a {
      text-decoration: none;
@@ -226,7 +240,7 @@
      padding: 20px 0;
      color: var(--color-dark);
  }
-
+ 
  .navbar-dark .navbar-nav .nav-link:hover,
  .navbar-dark .navbar-nav .nav-link.active {
      color: var(--color-warning);

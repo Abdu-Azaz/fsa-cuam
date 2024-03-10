@@ -2,7 +2,7 @@
 return[ 
     'home' => 'Accueil',
     'news' => ' Actualité',
-    'contac-tus' => 'Contactez-Nous',
+    'contact-us' => 'Contactez-Nous',
     'full-name' => 'Nom complet',
     'faculty'=>'Faculté',
     'students'=>'Etudiants',
@@ -45,7 +45,14 @@ return[
     'role' => 'Rôle',
     'foi' => 'Champs d\'intérêt',
     'founded'=> 'Créé le: ',
-    'coordinator' => 'Responsable'
+    'coordinator' => 'Responsable',
+    'library'=> 'Bibliothèque',
+    'academic_email'=>'Email académique',
+    'subject'=>'Sujet',
+    'teams'=>'Equipes',
+    'labs'=>'Laboratoires',
+
+
 
 
 ]; 

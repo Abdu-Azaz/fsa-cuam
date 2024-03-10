@@ -76,7 +76,9 @@ Route::post('/contact', [RoutesController::class, 'ContactUsForm'])->name('conta
 Route::post('/add_node', [RoutesController::class, 'storeNode'])->name('node.store');
 
 // Route::get('/search', Search::class);
-
+Route::view('/test', 'test');
+Route::view('/teams', 'research.teams')->name('research-teams');
+Route::view('/labs', 'research.laboratories')->name('research-laboratories');
 Route::fallback(function(){
     abort(404, "Resource not found!");
 });

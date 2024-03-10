@@ -20,9 +20,10 @@ class RoutesController extends Controller
      */
     public function index()
     {
-        $announces = Announce::where('status','published')->orderBy('updated_at','desc')->get();
+        $announces = Announce::where('status', 'published')->
+        orderBy('updated_at', 'DESC')->take(10)->get();
         $sliders = Slide::get();
-        $events = Event::orderBy('updated_at','desc')->get();
+        $events = Event::orderBy('updated_at', 'DESC')->get();
         return view('index', compact('announces', 'sliders', 'events'));
     }
 
@@ -57,7 +58,7 @@ class RoutesController extends Controller
                 $pageBreadcrumb .= '.sv';
                 break;
         }
-        return view('departments.single-department', compact('professors', 'pageBreadcrumb', 'department','programs'));
+        return view('departments.single-department', compact('professors', 'pageBreadcrumb', 'department', 'programs'));
     }
 
     public function licenceinformatique()
@@ -76,8 +77,8 @@ class RoutesController extends Controller
         ]);
         //  Store data in database
         // $input = $request->all();
-         
-        return back()->with('success', 'Email envoyé, ip: '.$request->ip());
+
+        return back()->with('success', 'Email envoyé, ip: ' . $request->ip());
     }
 
     public function storeNode(Request $request)
@@ -96,15 +97,14 @@ class RoutesController extends Controller
     public function timetables()
     {
         $timetables = Timetable::all()->groupBy(['major.label', 'semester']);
-        
+
         return view('timetables', compact('timetables'));
     }
 
     public function clubs()
     {
         $clubs = Club::all();
-        
+
         return view('clubs', compact('clubs'));
     }
-
 }

@@ -46,7 +46,17 @@ return [
     'clubs' => 'Clubs and Student Life',
     'foi' => 'Field of interest',
     'founded'=> 'Founded at',
-    'coordinator' => 'Manager'
+    'coordinator' => 'Manager',
+    'library'=> 'Library',
+    'academic_email'=>'Academic email',
+    'subject'=>'subject',
+    'teams'=>'Teams',
+    'labs'=>'Laboratories',
+    
+
+
+
+
 
 
 
