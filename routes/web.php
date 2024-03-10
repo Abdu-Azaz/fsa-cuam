@@ -79,6 +79,7 @@ Route::post('/add_node', [RoutesController::class, 'storeNode'])->name('node.sto
 Route::view('/test', 'test');
 Route::view('/teams', 'research.teams')->name('research-teams');
 Route::view('/labs', 'research.laboratories')->name('research-laboratories');
+
 Route::fallback(function(){
     abort(404, "Resource not found!");
 });

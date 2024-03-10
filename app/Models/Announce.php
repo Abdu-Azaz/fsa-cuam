@@ -30,8 +30,11 @@ class Announce extends Model
 
         switch ($type) {
             case 'avis':
-                $image_path =  url('storage/media/announce.png');
+                $this->isFeatured ? $image_path =  url('storage/media/featured.png'):$image_path =  url('storage/media/announce.png');
                 break;
+            // case 'avis-via': //very important announce
+            //     $image_path =  url('storage/media/via.png');
+            //     break;
             case 'emploi':
                 $image_path =  url('storage/media/emploi.png');
                 break;

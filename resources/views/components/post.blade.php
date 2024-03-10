@@ -5,7 +5,7 @@
                 style="max-height:200px;object-fit: cover">
         </div>
 
-        <div class="p-2">
+        <div class="p-2" style=" background:#eee">
             <div class="d-flex mt-1  fw-bold">
                 <small style="font-size:0.66rem"><i
                         class="far fa-calendar-alt me-2 "></i>{{ $announce->formatDateTime() }} &nbsp; <span class="alert {{$announce->isUpdated() ? 'alert-danger' :''}} p-0"> {{$announce->isUpdated() ? ' (' .__('maj').' '.$announce->announceUpdatedSince().')':''}}</span></small>
@@ -13,9 +13,9 @@
             <div>
                 {{-- <small style="font-size:0.67rem " class="fw-bold text-danger"></small> --}}
             </div>
-            <hr class="border border-dark my-0">
+            <hr class="border border-dark my-0" >
             <a style="font-size:0.8rem; text-align:center" href="{{ route('announces.show', $announce->slug) }}"
-                class="mb-3 text-primary fw-bold ">{{ $announce->title }}</a>
+                class="mb-3 text-primary fw-bold text-uppercase">{{ $announce->title }}</a>
             </a>
         </div>
     </div>
