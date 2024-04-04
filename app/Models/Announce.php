@@ -9,15 +9,14 @@ use Illuminate\Support\Carbon;
 class Announce extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['title', 'slug', 'body', 'status', 'announce_type', 'isFeatured','meta_keywords','make_first'];
-
+    protected $fillable = ['title', 'slug', 'body', 'status', 'announce_type', 'isFeatured', 'meta_keywords', 'make_first', 'views_count'];
+    public $timestamps = false;
     public function announceUpdatedSince()
     {
         return  Carbon::parse($this->updated_at)->diffForHumans();
     }
 
-    
+
     public function isUpdated(): bool
     {
         return $this->updated_at > $this->created_at;
@@ -26,26 +25,18 @@ class Announce extends Model
     }
     public function determineAnnounceThumbnail()
     {
-        $type = $this->announce_type;
 
-        switch ($type) {
-            case 'avis':
-                $this->isFeatured ? $image_path =  url('storage/media/featured.png'):$image_path =  url('storage/media/announce.png');
-                break;
-            // case 'avis-via': //very important announce
-            //     $image_path =  url('storage/media/via.png');
-            //     break;
-            case 'emploi':
-                $image_path =  url('storage/media/emploi.png');
-                break;
-            case 'parcours':
-                $image_path =  url('storage/media/parcours.png');
-                break;
-            case 'pv':
-                $image_path =  url('storage/media/pv.png');
-                break;
-                
-        }
+        $thumbnailPaths = [
+            'avis' => $this->isFeatured ? 'featured.png' : 'announce.png',
+            'avis-via' => 'via.png',
+            'emploi' => 'emploi.png',
+            'parcours' => 'parcours.png',
+            'pv' => 'pv.png',
+        ];
+
+        $type = $this->announce_type;
+        $image_path = isset($thumbnailPaths[$type]) ? url('storage/media/' . $thumbnailPaths[$type]) : url('storage/media/default.png');
+
         return $image_path;
     }
 
@@ -53,5 +44,17 @@ class Announce extends Model
     public function formatDateTime()
     {
         return Carbon::parse($this->updated_at)->format('d M y | H:i');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::updating(function (Announce $announce) {
+            // Update updated_at only if specific conditions are met
+            if ($announce->isDirty(['title', 'body']) && $announce->make_first) {
+                $announce->updated_at = now();
+            }
+        });
     }
 }

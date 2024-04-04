@@ -22,6 +22,12 @@ class AnnounceController extends Controller
     public function show($slug)
     {
         $announce = Announce::where('slug', $slug)->first();
+        $viewed = session()->get('viewed_posts', []);
+
+        if (!in_array($announce->id, $viewed)) {
+            $announce->increment('views_count');
+            session()->push('viewed_posts', $announce->id);
+        }
         return view('announces.show', compact('announce'));
     }
 

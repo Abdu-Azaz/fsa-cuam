@@ -51,6 +51,7 @@ return[
     'subject'=>'Sujet',
     'teams'=>'Equipes',
     'labs'=>'Laboratoires',
+    'views' => 'Vues'
 
 
 

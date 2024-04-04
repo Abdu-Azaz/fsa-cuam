@@ -26,7 +26,7 @@
                     </div>
                     <div class="ps-2">
                         <h6 class="text-primary mb-0">{{ __('messages.departments') }}</h6>
-                        <h1 class="mb-0 text-primary" data-toggle="counter-up">{{setting('departments-number',5)}}</h1>
+                        <h1 class="mb-0 text-primary" data-toggle="counter-up">{{setting('departments-number',6)}}</h1>
                     </div>
                 </div>
             </div>

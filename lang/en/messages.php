@@ -32,6 +32,7 @@ return [
     'faculty-council' => 'Faculty Council',
     'faculty-council-definition' => 'The next file contains all information related to faculty council (definition, roles, members, laws...)',
     'added-on' => 'Added on',
+    'courses' => 'Programs',
     'onlineplatforms' => 'Online plateforms',
     'partners' => 'Partners',
     'announcements' => 'Announcements',
@@ -52,6 +53,7 @@ return [
     'subject'=>'subject',
     'teams'=>'Teams',
     'labs'=>'Laboratories',
+    'views' => 'Views'
     
 
 

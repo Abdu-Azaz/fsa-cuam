@@ -26,6 +26,7 @@
  body {
      font-family: 'DM Sans', sans-serif;
      overflow-x: hidden;
+      
      background-color: var(--bg-body);
  }
 body.dark{
@@ -84,6 +85,9 @@ body.dark{
      font-family: 'DM Sans', sans-serif;
  }
 
+    h1{
+        font-size: 2rem!important;
+    }
  .fs-1-5 {
      font-size: 20px;
  }
@@ -156,11 +160,11 @@ body.dark{
  }
 
  #brand-light {
-     display: block;
+     display: none;
  }
 
  #brand-dark {
-     display: none;
+     display: block;
  }
 
  h1,
@@ -229,11 +233,16 @@ body.dark{
      position: relative;
      margin-left: 15px;
      padding: 35px 0;
-     color: var(--color-white);
-     font-size: 1rem;
+     /* color: var(--color-white); */
+     color: var(--color-dark);
+     font-size: 0.8rem;
      font-weight: 600;
      outline: none;
      transition: .5s;
+ }
+ .navbar{
+    background-color: #dde;
+    
  }
 
  .sticky-top.navbar-dark .navbar-nav .nav-link {
@@ -243,7 +252,7 @@ body.dark{
  
  .navbar-dark .navbar-nav .nav-link:hover,
  .navbar-dark .navbar-nav .nav-link.active {
-     color: var(--color-warning);
+     color: var(--color-primary);
  }
 
  .navbar-dark .navbar-toggler {
@@ -254,8 +263,9 @@ body.dark{
  @media (max-width: 991.98px) {
      .sticky-top.navbar-dark {
          position: relative;
-         background: var(--color-white);
+         background: var(--color-warning);
          /* background: var(--color-dark); */
+         
      }
 
      .navbar-dark .navbar-nav .nav-link,
@@ -263,12 +273,13 @@ body.dark{
      .sticky-top.navbar-dark .navbar-nav .nav-link {
          padding: 10px 0;
          color: var(--color-dark);
+         
      }
  }
 
  @media (min-width: 992px) {
      .navbar-dark {
-         position: absolute;
+         /* position: absolute; */
          width: 100%;
          top: 0;
          left: 0;
@@ -278,8 +289,12 @@ body.dark{
 
      .sticky-top.navbar-dark {
          position: fixed;
-         background: var(--color-white);
+         background: var(--color-gray-400);
+         /* background: #333; */
+        
      }
+
+     
 
      .navbar-dark .navbar-nav .nav-link::before {
          position: absolute;
@@ -288,8 +303,10 @@ body.dark{
          height: 2px;
          bottom: -1px;
          left: 50%;
-         background-color: var(--color-warning);
+         /* background-color: var(--color-warning); */
+         background-color: var(--color-primary);
          transition: .5s;
+
      }
 
      .navbar-dark .navbar-nav .nav-link:hover::before,
@@ -929,7 +946,7 @@ body.dark{
 
  @media (min-width: 991.98px) {
      .navbar-dark .navbar-nav .nav-link {
-         font-size: .9rem !important;
+         font-size: .8rem !important;
      }
  }
 

@@ -23,6 +23,12 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use FilamentTiptapEditor\TiptapEditor;
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
+use Filament\Forms\Components\Actions\Action;
+use Filament\Forms\Components\Field;
+use Filament\Forms\Components\TextInput;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
+
 class AnnounceResource extends Resource
 {
     protected static ?string $model = Announce::class;
@@ -47,10 +53,10 @@ class AnnounceResource extends Resource
                     ]),
                 ]),
 
-                
+
                 Forms\Components\Section::make('Fill the body ')->schema([
-                // TinyEditor::make('body')->required(),
-                TiptapEditor::make('body')->required()->columnSpanFull(),
+                    // TinyEditor::make('body')->required(),
+                    TiptapEditor::make('body')->required()->columnSpanFull(),
                     // TinyEditor::make('body')->showMenuBar()->minHeight(300),
                     Forms\Components\TextInput::make('meta_keywords')->helperText('(Comma-seprated) Optional')
 
@@ -61,27 +67,43 @@ class AnnounceResource extends Resource
                             [
                                 'avis' => 'Avis Aux Etudiants',
                                 'emploi' => 'Emploi du temps',
-                                'changement_filiere' => 'Changement de filiere'
+                                'changement_filiere' => 'Changement de filiere',
+                                'announce-simple'=>'Announce Simple'
                             ]
                         ),
-                        Forms\Components\Select::make('status')
+                    Forms\Components\Select::make('status')
                         ->options(
                             [
                                 'published' => 'Published',
                                 'draft' => 'Draft',
                             ]
                         ),
-
+                                        
                 ])->columns('2'),
+//    Tabs::make('Tabs')
+//     ->tabs([
+//         Tabs\Tab::make('Tab 1')
+//             ->schema([
+//                 // ...
+//             ]),
+//         Tabs\Tab::make('Tab 2')
+//             ->schema([
+//                 // ...
+//             ]),
+//         Tabs\Tab::make('Tab 3')
+//             ->schema([
+//                 // ...
+//             ]),
+//         ]),
                 Section::make()->schema(
                     [
-                        
+
                         Forms\Components\Toggle::make('make_first')
-                        ->label('Make First')
-                        ->helperText('If True, the announce WIll Appear FIrst on update'),
+                            ->label('Make First')
+                            ->helperText('If True, the announce WIll Appear FIrst on update'),
                         Forms\Components\Toggle::make('isFeatured')
-                        ->label('Featured')
-                        ->helperText('If Marked as Featured, the Announce Will Appear in Other Pages sidebar'),
+                            ->label('Featured')
+                            ->helperText('If Marked as Featured, the Announce Will Appear in Other Pages sidebar'),
                     ]
                 )->columns('2')
             ]);
@@ -128,6 +150,8 @@ class AnnounceResource extends Resource
                     })
                     ->html()
                     ->toggleable(),
+                    Tables\Columns\TextColumn::make('views_count')->label('Views'),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->since()
                     ->sortable()
@@ -158,8 +182,10 @@ class AnnounceResource extends Resource
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),
-                ])->size(ActionSize::Small)
+                ])->size(ActionSize::Small),
+
                 // ...
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

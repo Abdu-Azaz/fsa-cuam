@@ -33,7 +33,7 @@
                         class="fas fa-link text-warning me-2"></i>Assurance AMO</a>
                 <a class="text-light mb-2" href="https://www.bourse.ma"><i
                         class="fas fa-link text-warning me-2"></i>Consultation bourse</a>
-                <a class="text-light mb-2" href="https://www.e-soft-skills.uiz.ac.ma"><i
+                <a class="text-light mb-2" href="https://www.e-cours-fsam.uiz.ac.ma"><i
                         class="fas fa-link text-warning me-2"></i>E-Cours Soft Skills</a>
 
             </div>

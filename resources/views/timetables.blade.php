@@ -24,11 +24,11 @@
             <div class="accordion-item ">
                 <h2 class="accordion-header border border-dark mb-1" id="flush-headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        data-bs-target="#flush-collapseOne{{$major}}" aria-expanded="false" aria-controls="flush-collapseOne">
                         <span class="fs-4">{{ $major }}</span>
                     </button>
                 </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                <div id="flush-collapseOne{{$major}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                     data-bs-parent="#accordion{{ $major }}">
                     <div class="accordion-body bg-light border border-dark ">
                         @foreach ($timetables_per_semester as $semester => $timetables)

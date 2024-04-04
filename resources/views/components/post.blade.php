@@ -7,7 +7,7 @@
 
         <div class="p-2" style=" background:#eee">
             <div class="d-flex mt-1  fw-bold">
-                <small style="font-size:0.66rem"><i
+                <small style="font-size:0.63rem"><i
                         class="far fa-calendar-alt me-2 "></i>{{ $announce->formatDateTime() }} &nbsp; <span class="alert {{$announce->isUpdated() ? 'alert-danger' :''}} p-0"> {{$announce->isUpdated() ? ' (' .__('maj').' '.$announce->announceUpdatedSince().')':''}}</span></small>
             </div>
             <div>

@@ -50,8 +50,8 @@
         <x-section-title> {{ __('messages.news') }}</x-section-title>
 
         <div class="d-flex justify-content-end align-items-center my-3">
-            <button class="btn btn-outline-dark owl-prev mx-2 py-0 px-4"><i class="fas fa-chevron-left"></i></button>
-            <button class="btn btn-outline-dark owl-next py-0 px-4"><i class="fas fa-chevron-right"></i></button>
+            <button class="btn btn-outline-dark owl-prev mx-2 rounded-0 py-0 px-3"><i class="fas fa-chevron-left"></i></button>
+            <button class="btn btn-outline-dark owl-next py-0 px-3 rounded-0"><i class="fas fa-chevron-right"></i></button>
         </div>
         <div class="owl-carousel owl-theme wow fadeInRight" data-wow-delay="0.3s">
             {{-- {{($announces)}} --}}
@@ -63,12 +63,10 @@
                 {{ __('Pas d\'announces') }}
             @endif
             {{-- d-flex justify-content-center align-items-center --}}
-            <div class="wow SlideInRight  bg-light rounded  border border-dark m-1 d-flex align-items-center justify-content-center"
-                data-wow-delay="0.7s" style="height:235px">
-                <div class="blog-item  rounded overflow-hidden ">
-                    <a class="text-uppercase fw-bold btn-danger p-4 "
+            <div class="wow SlideInRight  bg-light rounded  borders bosrder-dark m-1 d-flex align-items-center justify-content-center"
+                data-wow-delay="0.7s" style=" background:linear-gradient(135deg, {{ setting('color1', '#dff') }},  {{ setting('color2', '#fdd') }}); height:235px" sstyle=""> 
+                    <a class="text-uppercase display-6 border p-3 "
                         href="{{ route('announces.index') }}">{{ __('messages.see-more') }}</a>
-                </div>
             </div>
         </div>
     </div>
@@ -76,22 +74,26 @@
     <div class="container my-3">
         <x-section-title> {{ __('messages.deans-word') }}</x-section-title>
 
-        <div class="card mb-3 text-light " style="background:linear-gradient(135deg, 
-        {{ setting('color1-gradients', '#000')}}, 
-        {{ setting('color2-gradients', 'blue') }}  
-    )">
+        <div class="card mb-3 text-light " 
+          style="background:linear-gradient(135deg, 
+        {{ setting('color1-gradients', '#111')}}, 
+        {{ setting('color2-gradients', '#00f') }}  
+    )"
+    >
             <div class="row g-0">
-                <div class="col-sm-2">
+                <div class="col-sm-2" >
                     <img src="{{ url('storage/' . setting('dean-photo')) }}" class="img-fluid rounded-start w-100"
                         alt="{{ __('Dean Image') }}">
                 </div>
                 <div class="col-sm-8">
-                    <div class="card-body">
+                    <div class="card-body" >
                         <i class="fas fa-quote-left d-block"></i>
-                        <p class="card-text text-wrap fs-5">
+                        <p class="card-text text-wrap fs-5" >
 
                             {{ __('messages.dean-excerpt') }}...
-                            <span class="w-100 d-flex justify-content-end"><i class="fas fa-quote-right"></i></span>
+                            <span class="w-100 d-flex justify-content-end">
+                                <i class="fas fa-quote-right"></i>
+                            </span>
                         </p>
                         <a class="btn btn-sm btn-warning py-0" href="{{ route('doyen') }}">{{ __('messages.see-more') }}
                             <i class="fas fa-arrow-right"></i></a>
@@ -109,8 +111,8 @@
 
         @if (count($events) > 0)
             <div class="d-flex justify-content-end align-items-center my-1">
-                <button class="btn btn-outline-dark owl-prev mx-2 py-0"><i class="fas fa-chevron-left"></i></button>
-                <button class="btn btn-outline-dark owl-next py-0"><i class="fas fa-chevron-right"></i></button>
+                <button class="btn btn-outline-dark owl-prev rounded-0 mx-2 py-0"><i class="fas fa-chevron-left"></i></button>
+                <button class="btn btn-outline-dark owl-next rounded-0 py-0"><i class="fas fa-chevron-right"></i></button>
             </div>
 
 

@@ -32,10 +32,10 @@
             {{__('messages.added-on')}}: {{$event->addedOn()}} <br>
         </div>
         <div class="fw-bold fs-6 p-4 rounded row">
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6 bg-light border">
                 <i class="fas fa-calendar-alt"></i> {{$event->formatDatetime()}} <br>
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6 bg-light border">
                 <i class="fas fa-map-marked-alt"></i> {{$event->location}}
             </div>
         </div>

@@ -84,9 +84,10 @@ class MajorResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(),
+                    ->toggleable()->since(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
+                    ->since()
                     ->sortable()->toggleable(),
             ])
             ->filters([

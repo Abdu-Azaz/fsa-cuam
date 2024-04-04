@@ -13,7 +13,7 @@ $trail->push(__('messages.deans-word'), route('doyen'));
 
 Breadcrumbs::for('formations', function ($trail) {
     $trail->parent('home', route('homepage'));
-    $trail->push('Formations', route('formations'));
+    $trail->push(__("messages.courses"), route('formations'));
 });
 
 Breadcrumbs::for('departments', function ($trail) {

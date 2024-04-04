@@ -39,7 +39,7 @@ class SlideResource extends Resource
                     FileUpload::make('slide_image')
                         ->image()
                         ->imageEditor()
-                        ->directory('slides')
+                        ->directory('slides')->helperText("Make sure to reduce image size")
                 ]),
             ]);
     }

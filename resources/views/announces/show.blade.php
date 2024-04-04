@@ -23,12 +23,19 @@
 {{-- MAIN COLUMN CONTENT (LEFT COLUMN) --}}
 @section('main_column_content')
     <h2 class="text-ceter mb-2">{{ $announce->title }}</h2>
-    <div>
+    <span class="bg-light border">
         {{__('messages.added-on')}}: {{ $announce->formatDateTime()}} ( {{ $announce->isUpdated() ? __('messages.lu').': '.$announce->announceUpdatedSince(): ''}})
-    </div>
+    </span>
+   
     <div class="bg-white p-4">
-        <div class="w-100">
+        <div class="w-100" style="overflow-x:auto">
             {!! $announce->body !!}
         </div>
+        <span class="bg-light border">
+            <i class="fas fa-eye"></i> {{$announce->views_count}} {{__('messages.views')}}
+        </span>
+       
+        {{-- <div class="bg-info">
+        </div> --}}
     </div>
 @endsection

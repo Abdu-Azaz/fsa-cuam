@@ -27,10 +27,12 @@
  
 <div class="pt-md-0 ms-2">
   @foreach ($available_locales as $locale_name => $available_locale)
-    <span class="my-auto {{ $available_locale === $current_locale ? ' p-0 rounded border border-2 border-secondary text-white p-0' : '' }}">
+    <span class="my-auto {{ $available_locale === $current_locale ? ' p-0 rounded border border-2 border-primary text-white p-0' : '' }}">
       <a class="m-1 text-primary my-auto" href="{{ url('/lang', $available_locale) }}">
-        @if ($available_locale === 'en') 🇬🇧
-        @else 🇫🇷
+        @if ($available_locale === 'en') 
+            🇬🇧
+        @else 
+            🇫🇷
         @endif
       </a>
 

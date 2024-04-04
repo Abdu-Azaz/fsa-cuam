@@ -2,8 +2,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
         <a href="{{ route('homepage') }}" class="navbar-brand p-0 me-auto">
             <img src="{{ asset('storage/media/stand_fr_dark.png') }}" class="img-fluid m-0 me-2" alt="LOGO-FSA" id="brand-dark">
-            <img src="{{ asset('storage/media/enguiz_light.svg') }}" class="img-fluid m-0 me-2" alt="LOGO_FSA"
-                id="brand-light">
+            {{-- <img src="{{ asset('storage/media/enguiz_light.svg') }}" class="img-fluid m-0 me-2" alt="LOGO_FSA"
+                id="brand-light"> --}}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
