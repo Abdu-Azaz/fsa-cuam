@@ -38,8 +38,8 @@
                     <table class="table table-hover table-striped table-responisve border">
                         <tr>
                             <th>{{__('messages.title')}}</th>
-                            <th>Department</th>
-                            <th>File</th>
+                            <th>{{__('messages.department')}}</th>
+                            <th>{{__('messages.file')}}</th>
                         </tr>
                         @foreach ($programmes as $programme)
                         <tr>

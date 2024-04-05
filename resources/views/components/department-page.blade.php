@@ -45,15 +45,15 @@
                         aria-labelledby="pills-{{ \Str::slug($diploma) }}-tab">
                         <table class="table table-hover table-striped">
                             <tr>
-                                <th>Code</th>
-                                <th>Title</th>
-                                <th>File</th>
+                                <th>{{__('Code')}}</th>
+                                <th>{{__('messages.title')}}</th>
+                                <th>{{__('messages.file')}}</th>
                             </tr>
                             @foreach ($programmes as $programme)
                                 <tr>
                                     <td>{{ $programme->id }}</td>
                                     <td>{{ $programme->label }}</td>
-                                    <td><a href="#{{ $programme->department->pdf_file }}">Download</a></td>
+                                    <td><a href="#{{ $programme->department->pdf_file }}">{{__('messages.download')}}</a></td>
                                 </tr>
                             @endforeach
                         </table>

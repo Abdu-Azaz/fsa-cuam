@@ -70,6 +70,11 @@ Breadcrumbs::for('presentation', function ($trail) {
     $trail->push('Presentation', route('presentation'));
 });
 
+Breadcrumbs::for('howto', function ($trail) {
+    $trail->parent('home', route('homepage'));
+    $trail->push(__('messages.howto'), route('presentation'));
+});
+
 Breadcrumbs::for('administration', function ($trail) {
     $trail->parent('home', route('homepage'));
     $trail->push('Administration', route('administration'));

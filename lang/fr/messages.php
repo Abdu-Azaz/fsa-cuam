@@ -8,6 +8,7 @@ return[
     'students'=>'Etudiants',
     'presentation'=>'Présentation',
     'departments'=>'Départments',
+    'department'=>'Départment',
     'deans-word' => 'Mot du doyen',
     'dean-excerpt' => 'La Faculté des Sciences Appliquées-Ait Melloul de l\'Université Ibn Zohr, FSA, est le premier établissement marocain dédié aux sciences appliquées et leurs interactions socio-économiques',
     'gisi-department'=>"Génie Informatique et Systèmes Intelligents",
@@ -51,7 +52,11 @@ return[
     'subject'=>'Sujet',
     'teams'=>'Equipes',
     'labs'=>'Laboratoires',
-    'views' => 'Vues'
+    'views' => 'Vues',
+    'file'=>'Fichier',
+    'howto'=>"Guides Étape par Étape"
+
+
 
 
 

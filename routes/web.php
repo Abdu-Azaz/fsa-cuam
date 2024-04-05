@@ -53,6 +53,7 @@ Route::view('/bibliotheque', 'library')->name("library");
 Route::get('/timetables', [RoutesController::class, 'timetables'])->name("timetables");
 Route::get('/clubs-and-stuff', [RoutesController::class, 'clubs'])->name("clubs");
 Route::view('/faculte/Systeme-LMD', 'lmd')->name('lmd');
+Route::get('/student_space/how-to', [RoutesController::class, 'how_to'])->name('how_to');
 
 
 Route::get('lang/{locale}', function ($locale) {
@@ -73,9 +74,9 @@ Route::prefix('admin')->group(function(){
 });
 
 Route::post('/contact', [RoutesController::class, 'ContactUsForm'])->name('contact.store');
-Route::post('/add_node', [RoutesController::class, 'storeNode'])->name('node.store');
-
+// Route::post('/add_node', [RoutesController::class, 'storeNode'])->name('node.store');
 // Route::get('/search', Search::class);
+
 Route::view('/test', 'test');
 Route::view('/teams', 'research.teams')->name('research-teams');
 Route::view('/labs', 'research.laboratories')->name('research-laboratories');

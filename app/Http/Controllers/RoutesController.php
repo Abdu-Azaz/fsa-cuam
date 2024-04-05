@@ -20,8 +20,7 @@ class RoutesController extends Controller
      */
     public function index()
     {
-        $announces = Announce::where('status', 'published')->
-        orderBy('updated_at', 'DESC')->take(10)->get();
+        $announces = Announce::where('status', 'published')->orderBy('updated_at', 'DESC')->take(10)->get();
         $sliders = Slide::get();
         $events = Event::orderBy('updated_at', 'DESC')->get();
         return view('index', compact('announces', 'sliders', 'events'));
@@ -106,5 +105,11 @@ class RoutesController extends Controller
         $clubs = Club::all();
 
         return view('clubs', compact('clubs'));
+    }
+
+    public function how_to()
+    {
+        $howtos = DB::table('howtos')->get();
+        return view('how_to', compact('howtos'));
     }
 }

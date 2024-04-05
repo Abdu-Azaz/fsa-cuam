@@ -30,11 +30,11 @@
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{__('Espace Etudiant')}}</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{route('timetables')}}" class="dropdown-item">{{__('Emploi du temps')}}</a>
-                        <a href="#" class="dropdown-item">{{__('Cours En Ligne')}}</a>
-                        <a href="#" class="dropdown-item">{{__('Plateforme Pédagogique')}}</a>
+                        {{-- <a href="#" class="dropdown-item">{{__('Cours En Ligne')}}</a> --}}
+                        {{-- <a href="#" class="dropdown-item">{{__('Plateforme Pédagogique')}}</a> --}}
                         <a href="{{route('library')}}" class="dropdown-item">{{__('Bibliothèque')}}</a>
                         <a href="{{route('clubs')}}" class="dropdown-item">{{__('Clubs et Vie Estudiantine')}}</a>
-                        <a href="#" class="dropdown-item">{{__('messages.activate-account')}}</a>
+                        <a href="{{route('how_to')}}" class="dropdown-item">{{__('messages.activate-account')}}</a>
                     </div>
                 </div>
                 <div class="nav-item dropdown mx-auto">

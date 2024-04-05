@@ -7,6 +7,7 @@ return [
     'full-name' => 'Full name',
     'faculty' => 'Faculty',
     'departments' => 'Departments',
+    'department' => 'Department',
     'presentation' => 'Presentation',
     'students' => 'Students',
     'deans-word' => 'Dean\'s Word',
@@ -53,7 +54,9 @@ return [
     'subject'=>'subject',
     'teams'=>'Teams',
     'labs'=>'Laboratories',
-    'views' => 'Views'
+    'views' => 'Views',
+    'file'=>'File',
+    'howto'=>"How-to"
     
 
 
