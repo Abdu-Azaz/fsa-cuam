@@ -54,7 +54,10 @@ return[
     'labs'=>'Laboratoires',
     'views' => 'Vues',
     'file'=>'Fichier',
-    'howto'=>"Guides Étape par Étape"
+    'howto'=>"Guides Étape par Étape",
+    'insurance' => 'Assurance étudiant',
+    'scholarship' =>'Consultation bourse'
+
 
 
 

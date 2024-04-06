@@ -29,12 +29,12 @@
             <div class="link-animated d-flex flex-column justify-content-start">
                 <a class="text-light mb-2" href="https://www.gconcours.uiz.ac.ma"><i
                         class="fas fa-link text-warning me-2"></i>{{ __('Plateforme GConcours') }}</a>
-                <a class="text-light mb-2" href="https://www.amo.ma"><i
-                        class="fas fa-link text-warning me-2"></i>Assurance AMO</a>
-                <a class="text-light mb-2" href="https://www.bourse.ma"><i
-                        class="fas fa-link text-warning me-2"></i>Consultation bourse</a>
+                <a class="text-light mb-2" href="http://www.uiz.ac.ma/amo"><i
+                        class="fas fa-link text-warning me-2"></i>{{__('messages.insurance')}} (AMO)</a>
+                <a class="text-light mb-2" href="https://e-bourse-maroc.onousc.ma"><i
+                        class="fas fa-link text-warning me-2"></i>{{__('messages.scholarship')}}</a>
                 <a class="text-light mb-2" href="https://www.e-cours-fsam.uiz.ac.ma"><i
-                        class="fas fa-link text-warning me-2"></i>E-Cours Soft Skills</a>
+                        class="fas fa-link text-warning me-2"></i>E-Cours Digital Skills</a>
 
             </div>
         </div>

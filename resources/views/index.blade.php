@@ -76,7 +76,7 @@
 
         <div class="card mb-3 text-light " 
           style="background:linear-gradient(135deg, 
-        {{ setting('color1-gradients', '#111')}}, 
+        {{ setting('color1-gradients', 'blue')}}, 
         {{ setting('color2-gradients', '#00f') }}  
     )"
     >

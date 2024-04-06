@@ -10,6 +10,7 @@
     'color' => 'primary',
     'disabled' => false,
     'form' => null,
+    'formId' => null,
     'grouped' => false,
     'href' => null,
     'icon' => null,
@@ -22,6 +23,7 @@
     'loadingIndicator' => true,
     'outlined' => false,
     'size' => ActionSize::Medium,
+    'spaMode' => null,
     'tag' => 'button',
     'target' => null,
     'tooltip' => null,
@@ -147,6 +149,7 @@
         :color="$color"
         :disabled="$disabled"
         :form="$form"
+        :form-id="$formId"
         :href="$href"
         :icon="$icon"
         :icon-alias="$iconAlias"
@@ -155,6 +158,7 @@
         :label="$slot"
         :size="$size"
         :tag="$tag"
+        :target="$target"
         :tooltip="$tooltip"
         :type="$type"
         :class="
@@ -173,7 +177,7 @@
 
 <{{ $tag }}
     @if ($tag === 'a')
-        {{ \Filament\Support\generate_href_html($href, $target === '_blank') }}
+        {{ \Filament\Support\generate_href_html($href, $target === '_blank', $spaMode) }}
     @endif
     @if (($keyBindings || $hasTooltip) && (! $hasFormProcessingLoadingIndicator))
         x-data="{}"
@@ -211,6 +215,7 @@
         $attributes
             ->merge([
                 'disabled' => $disabled,
+                'form' => $formId,
                 'type' => $tag === 'button' ? $type : null,
                 'wire:loading.attr' => $tag === 'button' ? 'disabled' : null,
                 'wire:target' => ($hasLoadingIndicator && $loadingIndicatorTarget) ? $loadingIndicatorTarget : null,

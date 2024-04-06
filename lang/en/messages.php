@@ -56,7 +56,10 @@ return [
     'labs'=>'Laboratories',
     'views' => 'Views',
     'file'=>'File',
-    'howto'=>"How-to"
+    'howto'=>"How-to",
+    'insurance' => 'Student insurance',
+    'scholarship' =>'Scholarship state'
+
     
 
 

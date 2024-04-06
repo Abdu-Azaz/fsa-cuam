@@ -9,6 +9,7 @@
     'color' => 'primary',
     'disabled' => false,
     'form' => null,
+    'formId' => null,
     'href' => null,
     'icon' => null,
     'iconAlias' => null,
@@ -17,6 +18,7 @@
     'label' => null,
     'loadingIndicator' => true,
     'size' => ActionSize::Medium,
+    'spaMode' => null,
     'tag' => 'button',
     'target' => null,
     'tooltip' => null,
@@ -137,6 +139,7 @@
             $attributes
                 ->merge([
                     'disabled' => $disabled,
+                    'form' => $formId,
                     'type' => $type,
                 ], escape: false)
                 ->merge([
@@ -188,7 +191,7 @@
     </button>
 @elseif ($tag === 'a')
     <a
-        {{ \Filament\Support\generate_href_html($href, $target === '_blank') }}
+        {{ \Filament\Support\generate_href_html($href, $target === '_blank', $spaMode) }}
         @if ($keyBindings || $hasTooltip)
             x-data="{}"
         @endif
