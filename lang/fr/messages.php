@@ -56,8 +56,8 @@ return[
     'file'=>'Fichier',
     'howto'=>"Guides Étape par Étape",
     'insurance' => 'Assurance étudiant',
-    'scholarship' =>'Consultation bourse'
-
+    'scholarship' =>'Consultation bourse',
+    'moodle'=>"E-cours Moodle"
 
 
 

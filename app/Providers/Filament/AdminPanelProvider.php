@@ -21,6 +21,8 @@ use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugi
 use Filament\Infolists\Infolist;
 use Filament\Navigation\NavigationItem;
 use Filament\Pages\Dashboard;
+use Z3d0X\FilamentFabricator\FilamentFabricatorPlugin;
+
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -40,6 +42,7 @@ class AdminPanelProvider extends PanelProvider
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->plugins([
                 FilamentSpatieRolesPermissionsPlugin::make(),
+                FilamentFabricatorPlugin::make(),
                 \Awcodes\Curator\CuratorPlugin::make()
                     ->label('Media')
                     ->pluralLabel('Media')

@@ -1,5 +1,5 @@
-<div class="wow slideInLeft rounded m-1 border border-1 border-dark" data-wow-delay="0.9s">
-    <div class="blog-item bg-light rounded overflow-hidden">
+<div class="wow slideInLeft rounded  m-1" style="border: 2px solid #bcf" data-wow-delay="0.9s">
+    <div class="blog-item bg-light overflow-hidden">
         <div class="blog-img position-relative overflow-hidden">
             <img class="img-fluid w-100 " src="{{ $announce->determineAnnounceThumbnail() }}" alt=""
                 style="max-height:200px;object-fit: cover">

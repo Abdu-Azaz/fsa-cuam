@@ -31,7 +31,7 @@ return [
     'download' => 'Download',
     'title' => 'Title',
     'faculty-council' => 'Faculty Council',
-    'faculty-council-definition' => 'The next file contains all information related to faculty council (definition, roles, members, laws...)',
+    'faculty-council-definition' => 'Faculty council (definition, roles, members, laws...):',
     'added-on' => 'Added on',
     'courses' => 'Programs',
     'onlineplatforms' => 'Online plateforms',
@@ -58,7 +58,8 @@ return [
     'file'=>'File',
     'howto'=>"How-to",
     'insurance' => 'Student insurance',
-    'scholarship' =>'Scholarship state'
+    'scholarship' =>'Scholarship state',
+    'moodle'=>"Moodle courses"
 
     
 

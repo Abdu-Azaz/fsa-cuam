@@ -17,7 +17,7 @@
                     <div class="dropdown-menu m-0">
                         <a href="{{ route('doyen') }}" class="dropdown-item">{{__('messages.deans-word')}}</a>
                         <a href="{{ route('departements') }}" class="dropdown-item">{{__('messages.departments')}}</a>
-                        <a href="{{route('presentation')}}" class="dropdown-item">{{__('messages.presentation')}}</a>
+                        {{-- <a href="{{route('presentation')}}" class="dropdown-item">{{__('messages.presentation')}}</a> --}}
                         <a href="{{route('administration')}}" class="dropdown-item">{{__('Administration')}}</a>
                         <a href="{{ route('lmd') }}" class="dropdown-item">{{__('Système LMD')}}</a>
                         <a href="" class="dropdown-item">{{__('messages.internal-rule')}}</a>
@@ -42,14 +42,16 @@
                     <div class="dropdown-menu m-0">
                         <a href="http://scolarite.uiz.ac.ma/cst-cuam/" class="dropdown-item">{{__('Scolarité')}}</a>
                         <a href="https://amo.onousc.ma/" class="dropdown-item">{{__('Assurance AMO')}}</a>
-                        <a href="https://e-bourse-maroc.onousc.ma/" class="dropdown-item">{{__('Consultation Bourse')}}</a>
+                        <a href="https://e-bourse-maroc.onousc.ma/" class="dropdown-item">{{__('messages.scholarship')}}</a>
+                        <a href="http://ecours-fsam.uiz.ac.ma" class="dropdown-item">{{__('messages.moodle')}}</a>
+                        <a href="https://login.rosettastone.com" class="dropdown-item">{{__('Rosetta Stone')}}</a>
                     </div>
                 </div>
                 <div class="nav-item dropdown mx-auto">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{__('Recherche')}}</a>
                     <div class="dropdown-menu m-0">
-                        <a href="{{route('research-teams')}}" class="dropdown-item">{{__('Équipes')}}</a>
-                        <a href="{{route('research-laboratories')}}" class="dropdown-item">{{__('Laboratoires')}}</a>
+                        <a href="{{route('research-teams')}}" class="dropdown-item">{{__('messages.teams')}}</a>
+                        <a href="{{route('research-laboratories')}}" class="dropdown-item">{{__('messages.labs')}}</a>
                     </div>
                 </div>
                 <div class="nav-item d-flex align-items-center mx-auto">

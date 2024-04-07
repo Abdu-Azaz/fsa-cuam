@@ -26,19 +26,30 @@
 </div> --}}
  
 <div class="pt-md-0 ms-2">
-  @foreach ($available_locales as $locale_name => $available_locale)
-    <span class="my-auto {{ $available_locale === $current_locale ? ' p-0 rounded border border-2 border-primary text-white p-0' : '' }}">
-      <a class="m-1 text-primary my-auto" href="{{ url('/lang', $available_locale) }}">
-        @if ($available_locale === 'en') 
-            🇬🇧
-        @else 
-            🇫🇷
-        @endif
-      </a>
-
-       
-    </span>
-  @endforeach
+    <div class="dropdoswn-start bxstn-group">
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            @if ($current_locale === 'en') 
+                🇬🇧
+            @else 
+                🇫🇷
+            @endif
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end"  aria-labelledby="dropdownMenuButton">
+            @foreach ($available_locales as $locale_name => $available_locale)
+                <li>
+                    <a  class="dropdown-item {{ $available_locale === $current_locale ? 'active' : '' }}" href="{{ url('/lang', $available_locale) }}">
+                        @if ($available_locale === 'en') 
+                            🇬🇧 English
+                        @else 
+                            🇫🇷 Francais
+                        @endif
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+    
+    
 </div>
 
 {{-- <div class="nav-item dropdown">    

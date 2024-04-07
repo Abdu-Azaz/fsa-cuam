@@ -38,9 +38,9 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         '2ad94ea6f6f6013119e9abcf4e302a08' => __DIR__ . '/..' . '/filament/forms/src/helpers.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'b69d5f1f95cd1ed438c038b6cbcc45b5' => __DIR__ . '/..' . '/filament/notifications/src/Testing/Autoload.php',
-        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '89e9938b64b06cc502d7ceca69a380fe' => __DIR__ . '/..' . '/filament/filament/src/global_helpers.php',
         'ebb446bb6d02e998480945fbbb73dc64' => __DIR__ . '/..' . '/filament/filament/src/helpers.php',
+        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
@@ -70,6 +70,8 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'Z' => 
         array (
             'ZipStream\\' => 10,
+            'Z3d0X\\FilamentFabricator\\Database\\Factories\\' => 44,
+            'Z3d0X\\FilamentFabricator\\' => 25,
         ),
         'W' => 
         array (
@@ -146,6 +148,7 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
             'PhpOffice\\PhpSpreadsheet\\' => 25,
+            'Pboivin\\FilamentPeek\\' => 21,
         ),
         'O' => 
         array (
@@ -279,6 +282,14 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'ZipStream\\' => 
         array (
             0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
+        ),
+        'Z3d0X\\FilamentFabricator\\Database\\Factories\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/z3d0x/filament-fabricator/database/factories',
+        ),
+        'Z3d0X\\FilamentFabricator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src',
         ),
         'Whoops\\' => 
         array (
@@ -524,6 +535,10 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'PhpOffice\\PhpSpreadsheet\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet',
+        ),
+        'Pboivin\\FilamentPeek\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pboivin/filament-peek/src',
         ),
         'Opis\\Closure\\' => 
         array (
@@ -7356,6 +7371,24 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'PHPUnit\\Util\\Xml' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Xml/Xml.php',
         'PHPUnit\\Util\\Xml\\Loader' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Xml/Loader.php',
         'PHPUnit\\Util\\Xml\\XmlException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Exception/XmlException.php',
+        'Pboivin\\FilamentPeek\\CachedBuilderPreview' => __DIR__ . '/..' . '/pboivin/filament-peek/src/CachedBuilderPreview.php',
+        'Pboivin\\FilamentPeek\\CachedPreview' => __DIR__ . '/..' . '/pboivin/filament-peek/src/CachedPreview.php',
+        'Pboivin\\FilamentPeek\\Exceptions\\PreviewModalException' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Exceptions/PreviewModalException.php',
+        'Pboivin\\FilamentPeek\\FilamentPeekPlugin' => __DIR__ . '/..' . '/pboivin/filament-peek/src/FilamentPeekPlugin.php',
+        'Pboivin\\FilamentPeek\\FilamentPeekServiceProvider' => __DIR__ . '/..' . '/pboivin/filament-peek/src/FilamentPeekServiceProvider.php',
+        'Pboivin\\FilamentPeek\\Forms\\Actions\\InlinePreviewAction' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Forms/Actions/InlinePreviewAction.php',
+        'Pboivin\\FilamentPeek\\Forms\\Components\\PreviewLink' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Forms/Components/PreviewLink.php',
+        'Pboivin\\FilamentPeek\\Livewire\\BuilderEditor' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Livewire/BuilderEditor.php',
+        'Pboivin\\FilamentPeek\\Pages\\Actions\\PreviewAction' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Pages/Actions/PreviewAction.php',
+        'Pboivin\\FilamentPeek\\Pages\\Concerns\\HasBuilderPreview' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Pages/Concerns/HasBuilderPreview.php',
+        'Pboivin\\FilamentPeek\\Pages\\Concerns\\HasPreviewModal' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Pages/Concerns/HasPreviewModal.php',
+        'Pboivin\\FilamentPeek\\Support\\Cache' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Support/Cache.php',
+        'Pboivin\\FilamentPeek\\Support\\Concerns\\SetsInitialPreviewModalData' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Support/Concerns/SetsInitialPreviewModalData.php',
+        'Pboivin\\FilamentPeek\\Support\\Html' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Support/Html.php',
+        'Pboivin\\FilamentPeek\\Support\\Page' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Support/Page.php',
+        'Pboivin\\FilamentPeek\\Support\\Panel' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Support/Panel.php',
+        'Pboivin\\FilamentPeek\\Support\\View' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Support/View.php',
+        'Pboivin\\FilamentPeek\\Tables\\Actions\\ListPreviewAction' => __DIR__ . '/..' . '/pboivin/filament-peek/src/Tables/Actions/ListPreviewAction.php',
         'PharIo\\Manifest\\Application' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Application.php',
         'PharIo\\Manifest\\ApplicationName' => __DIR__ . '/..' . '/phar-io/manifest/src/values/ApplicationName.php',
         'PharIo\\Manifest\\Author' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Author.php',
@@ -10107,6 +10140,27 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'Z3d0X\\FilamentFabricator\\Commands\\Aliases\\MakeLayoutCommand' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Commands/Aliases/MakeLayoutCommand.php',
+        'Z3d0X\\FilamentFabricator\\Commands\\Aliases\\MakePageBlockCommand' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Commands/Aliases/MakePageBlockCommand.php',
+        'Z3d0X\\FilamentFabricator\\Commands\\MakeLayoutCommand' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Commands/MakeLayoutCommand.php',
+        'Z3d0X\\FilamentFabricator\\Commands\\MakePageBlockCommand' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Commands/MakePageBlockCommand.php',
+        'Z3d0X\\FilamentFabricator\\Enums\\BlockPickerStyle' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Enums/BlockPickerStyle.php',
+        'Z3d0X\\FilamentFabricator\\Facades\\FilamentFabricator' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Facades/FilamentFabricator.php',
+        'Z3d0X\\FilamentFabricator\\FilamentFabricatorManager' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/FilamentFabricatorManager.php',
+        'Z3d0X\\FilamentFabricator\\FilamentFabricatorPlugin' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/FilamentFabricatorPlugin.php',
+        'Z3d0X\\FilamentFabricator\\FilamentFabricatorServiceProvider' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/FilamentFabricatorServiceProvider.php',
+        'Z3d0X\\FilamentFabricator\\Forms\\Components\\PageBuilder' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Forms/Components/PageBuilder.php',
+        'Z3d0X\\FilamentFabricator\\Http\\Controllers\\PageController' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Http/Controllers/PageController.php',
+        'Z3d0X\\FilamentFabricator\\Layouts\\Layout' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Layouts/Layout.php',
+        'Z3d0X\\FilamentFabricator\\Models\\Contracts\\Page' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Models/Contracts/Page.php',
+        'Z3d0X\\FilamentFabricator\\Models\\Page' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Models/Page.php',
+        'Z3d0X\\FilamentFabricator\\PageBlocks\\PageBlock' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/PageBlocks/PageBlock.php',
+        'Z3d0X\\FilamentFabricator\\Resources\\PageResource' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Resources/PageResource.php',
+        'Z3d0X\\FilamentFabricator\\Resources\\PageResource\\Pages\\Concerns\\HasPreviewModal' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Resources/PageResource/Pages/Concerns/HasPreviewModal.php',
+        'Z3d0X\\FilamentFabricator\\Resources\\PageResource\\Pages\\CreatePage' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Resources/PageResource/Pages/CreatePage.php',
+        'Z3d0X\\FilamentFabricator\\Resources\\PageResource\\Pages\\EditPage' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Resources/PageResource/Pages/EditPage.php',
+        'Z3d0X\\FilamentFabricator\\Resources\\PageResource\\Pages\\ListPages' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Resources/PageResource/Pages/ListPages.php',
+        'Z3d0X\\FilamentFabricator\\Resources\\PageResource\\Pages\\ViewPage' => __DIR__ . '/..' . '/z3d0x/filament-fabricator/src/Resources/PageResource/Pages/ViewPage.php',
         'ZipStream\\CentralDirectoryFileHeader' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/CentralDirectoryFileHeader.php',
         'ZipStream\\CompressionMethod' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/CompressionMethod.php',
         'ZipStream\\DataDescriptor' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/DataDescriptor.php',
