@@ -28,7 +28,7 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <input type="text" name="name" class="form-control bg-light border-0 px-3"
-                                    placeholder="{{ __('messages.full-  name') }}">
+                                    placeholder="{{ __('messages.full-name') }}">
                             </div>
                             <div class="col-12">
                                 <input type="email" name="email" class="form-control bg-light border-0 px-3"
@@ -51,12 +51,12 @@
             </div>
             <div class="col-lg-5">
                 <div class="bg-dark h-100 rounded  p-1">
-                    <h2 class="text-white mb-4">{{ __('Contactez nous') }}</h2>
+                    <h2 class="text-white mb-4">{{ __('messages.contact-us') }}</h2>
                     <div class="d-flex mb-lg-4">
 
                         <i class="fa fa-users  text-light"></i>
                         <div class="ps-3">
-                            <h5 class="text-white">{{ __('Adresse') }}</h5>
+                            <h5 class="text-white">{{ __('messages.address') }}</h5>
                             <span class="text-white text-wrap">Route Nationale N10. BP 6146 Cité Azrou</span>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
 
                         <i class="fa fa-phone fs-5x text-light"></i>
                         <div class="ps-3">
-                            <h5 class="text-white">{{ __('Téléphone') }}</h5>
+                            <h5 class="text-white">{{ __('messages.phone') }}</h5>
                             <span class="text-white">0528-241434</span>
                         </div>
                     </div>

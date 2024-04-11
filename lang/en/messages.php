@@ -59,7 +59,13 @@ return [
     'howto'=>"How-to",
     'insurance' => 'Student insurance',
     'scholarship' =>'Scholarship state',
-    'moodle'=>"Moodle courses"
+    'moodle'=>"Moodle courses",
+    'address'=>'Address',
+    'phone'=>'Phone',  
+    
+
+
+
 
     
 

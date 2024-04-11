@@ -644,6 +644,58 @@
             "install-path": "../brick/math"
         },
         {
+            "name": "brick/varexporter",
+            "version": "0.4.0",
+            "version_normalized": "0.4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/brick/varexporter.git",
+                "reference": "2fd038f7c9d12d468130c6e1b3ce06e4160a7dbb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brick/varexporter/zipball/2fd038f7c9d12d468130c6e1b3ce06e4160a7dbb",
+                "reference": "2fd038f7c9d12d468130c6e1b3ce06e4160a7dbb",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "^4.0",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpunit/phpunit": "^8.5 || ^9.0",
+                "vimeo/psalm": "5.15.0"
+            },
+            "time": "2023-09-01T21:10:07+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Brick\\VarExporter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A powerful alternative to var_export(), which can export closures and objects without __set_state()",
+            "keywords": [
+                "var_export"
+            ],
+            "support": {
+                "issues": "https://github.com/brick/varexporter/issues",
+                "source": "https://github.com/brick/varexporter/tree/0.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/BenMorel",
+                    "type": "github"
+                }
+            ],
+            "install-path": "../brick/varexporter"
+        },
+        {
             "name": "carbonphp/carbon-doctrine-types",
             "version": "2.1.0",
             "version_normalized": "2.1.0.0",
@@ -1991,17 +2043,17 @@
         },
         {
             "name": "filament/actions",
-            "version": "v3.2.63",
-            "version_normalized": "3.2.63.0",
+            "version": "v3.2.64",
+            "version_normalized": "3.2.64.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/actions.git",
-                "reference": "03da7f930763c60b7917f93e6657fb9bf9f8234b"
+                "reference": "dfad6b0acb70cda7e7872dd03d158282bf19bf58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/actions/zipball/03da7f930763c60b7917f93e6657fb9bf9f8234b",
-                "reference": "03da7f930763c60b7917f93e6657fb9bf9f8234b",
+                "url": "https://api.github.com/repos/filamentphp/actions/zipball/dfad6b0acb70cda7e7872dd03d158282bf19bf58",
+                "reference": "dfad6b0acb70cda7e7872dd03d158282bf19bf58",
                 "shasum": ""
             },
             "require": {
@@ -2018,7 +2070,7 @@
                 "php": "^8.1",
                 "spatie/laravel-package-tools": "^1.9"
             },
-            "time": "2024-04-05T21:55:09+00:00",
+            "time": "2024-04-11T07:40:37+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2047,17 +2099,17 @@
         },
         {
             "name": "filament/filament",
-            "version": "v3.2.63",
-            "version_normalized": "3.2.63.0",
+            "version": "v3.2.64",
+            "version_normalized": "3.2.64.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/panels.git",
-                "reference": "46f425d6097c77b98782f3db5f3717e2439bb3e8"
+                "reference": "bcbb6a7e154216a263fd88e8287aafd7597bb9b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/panels/zipball/46f425d6097c77b98782f3db5f3717e2439bb3e8",
-                "reference": "46f425d6097c77b98782f3db5f3717e2439bb3e8",
+                "url": "https://api.github.com/repos/filamentphp/panels/zipball/bcbb6a7e154216a263fd88e8287aafd7597bb9b9",
+                "reference": "bcbb6a7e154216a263fd88e8287aafd7597bb9b9",
                 "shasum": ""
             },
             "require": {
@@ -2082,7 +2134,7 @@
                 "php": "^8.1",
                 "spatie/laravel-package-tools": "^1.9"
             },
-            "time": "2024-04-05T21:55:28+00:00",
+            "time": "2024-04-11T07:40:42+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2115,17 +2167,17 @@
         },
         {
             "name": "filament/forms",
-            "version": "v3.2.63",
-            "version_normalized": "3.2.63.0",
+            "version": "v3.2.64",
+            "version_normalized": "3.2.64.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/forms.git",
-                "reference": "26676242e9470d28bb15f6686fff3e12da650d23"
+                "reference": "7ee0c2575a4fc924ee5ba08511376c3c75ed88fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/forms/zipball/26676242e9470d28bb15f6686fff3e12da650d23",
-                "reference": "26676242e9470d28bb15f6686fff3e12da650d23",
+                "url": "https://api.github.com/repos/filamentphp/forms/zipball/7ee0c2575a4fc924ee5ba08511376c3c75ed88fc",
+                "reference": "7ee0c2575a4fc924ee5ba08511376c3c75ed88fc",
                 "shasum": ""
             },
             "require": {
@@ -2142,7 +2194,7 @@
                 "php": "^8.1",
                 "spatie/laravel-package-tools": "^1.9"
             },
-            "time": "2024-04-05T21:55:12+00:00",
+            "time": "2024-04-11T07:40:38+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2174,8 +2226,8 @@
         },
         {
             "name": "filament/infolists",
-            "version": "v3.2.63",
-            "version_normalized": "3.2.63.0",
+            "version": "v3.2.64",
+            "version_normalized": "3.2.64.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/infolists.git",
@@ -2228,17 +2280,17 @@
         },
         {
             "name": "filament/notifications",
-            "version": "v3.2.63",
-            "version_normalized": "3.2.63.0",
+            "version": "v3.2.64",
+            "version_normalized": "3.2.64.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/notifications.git",
-                "reference": "27efac9801a7688e991b4c8e029c52922222fc8a"
+                "reference": "e644a09c1b68b20b197aeaa1db14423f9e526447"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/notifications/zipball/27efac9801a7688e991b4c8e029c52922222fc8a",
-                "reference": "27efac9801a7688e991b4c8e029c52922222fc8a",
+                "url": "https://api.github.com/repos/filamentphp/notifications/zipball/e644a09c1b68b20b197aeaa1db14423f9e526447",
+                "reference": "e644a09c1b68b20b197aeaa1db14423f9e526447",
                 "shasum": ""
             },
             "require": {
@@ -2251,7 +2303,7 @@
                 "php": "^8.1",
                 "spatie/laravel-package-tools": "^1.9"
             },
-            "time": "2024-04-05T21:55:20+00:00",
+            "time": "2024-04-11T07:40:39+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2283,17 +2335,17 @@
         },
         {
             "name": "filament/support",
-            "version": "v3.2.63",
-            "version_normalized": "3.2.63.0",
+            "version": "v3.2.64",
+            "version_normalized": "3.2.64.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/support.git",
-                "reference": "17ddf2035ac79183bd61806bc0c7d4851228f2a1"
+                "reference": "54beefbc75237f8d42a9eb4692f07029e76a1e0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/support/zipball/17ddf2035ac79183bd61806bc0c7d4851228f2a1",
-                "reference": "17ddf2035ac79183bd61806bc0c7d4851228f2a1",
+                "url": "https://api.github.com/repos/filamentphp/support/zipball/54beefbc75237f8d42a9eb4692f07029e76a1e0a",
+                "reference": "54beefbc75237f8d42a9eb4692f07029e76a1e0a",
                 "shasum": ""
             },
             "require": {
@@ -2312,7 +2364,7 @@
                 "symfony/console": "^6.0|^7.0",
                 "symfony/html-sanitizer": "^6.1|^7.0"
             },
-            "time": "2024-04-05T21:55:36+00:00",
+            "time": "2024-04-11T07:40:56+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2344,17 +2396,17 @@
         },
         {
             "name": "filament/tables",
-            "version": "v3.2.63",
-            "version_normalized": "3.2.63.0",
+            "version": "v3.2.64",
+            "version_normalized": "3.2.64.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/tables.git",
-                "reference": "5dfc41c56de5eab326ce1ecc5ceb5ba2baad8005"
+                "reference": "1cdf9ee9ba35cad6e8e41725896e26e397549440"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/tables/zipball/5dfc41c56de5eab326ce1ecc5ceb5ba2baad8005",
-                "reference": "5dfc41c56de5eab326ce1ecc5ceb5ba2baad8005",
+                "url": "https://api.github.com/repos/filamentphp/tables/zipball/1cdf9ee9ba35cad6e8e41725896e26e397549440",
+                "reference": "1cdf9ee9ba35cad6e8e41725896e26e397549440",
                 "shasum": ""
             },
             "require": {
@@ -2371,7 +2423,7 @@
                 "php": "^8.1",
                 "spatie/laravel-package-tools": "^1.9"
             },
-            "time": "2024-04-05T21:55:42+00:00",
+            "time": "2024-04-11T07:41:14+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2400,8 +2452,8 @@
         },
         {
             "name": "filament/widgets",
-            "version": "v3.2.63",
-            "version_normalized": "3.2.63.0",
+            "version": "v3.2.64",
+            "version_normalized": "3.2.64.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/widgets.git",
@@ -3295,17 +3347,17 @@
         },
         {
             "name": "kirschbaum-development/eloquent-power-joins",
-            "version": "3.5.5",
-            "version_normalized": "3.5.5.0",
+            "version": "3.5.6",
+            "version_normalized": "3.5.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kirschbaum-development/eloquent-power-joins.git",
-                "reference": "ed5af4788f0dad3ce35bb883cecac4293496139a"
+                "reference": "6de51d9ec43af34e77bd1d9908173de1416a0aed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kirschbaum-development/eloquent-power-joins/zipball/ed5af4788f0dad3ce35bb883cecac4293496139a",
-                "reference": "ed5af4788f0dad3ce35bb883cecac4293496139a",
+                "url": "https://api.github.com/repos/kirschbaum-development/eloquent-power-joins/zipball/6de51d9ec43af34e77bd1d9908173de1416a0aed",
+                "reference": "6de51d9ec43af34e77bd1d9908173de1416a0aed",
                 "shasum": ""
             },
             "require": {
@@ -3318,7 +3370,7 @@
                 "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0|^8.0|^9.0",
                 "phpunit/phpunit": "^8.0|^9.0|^10.0"
             },
-            "time": "2024-03-27T11:14:14+00:00",
+            "time": "2024-04-09T00:35:30+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -3354,23 +3406,23 @@
             ],
             "support": {
                 "issues": "https://github.com/kirschbaum-development/eloquent-power-joins/issues",
-                "source": "https://github.com/kirschbaum-development/eloquent-power-joins/tree/3.5.5"
+                "source": "https://github.com/kirschbaum-development/eloquent-power-joins/tree/3.5.6"
             },
             "install-path": "../kirschbaum-development/eloquent-power-joins"
         },
         {
             "name": "laravel/framework",
-            "version": "v10.48.4",
-            "version_normalized": "10.48.4.0",
+            "version": "v10.48.7",
+            "version_normalized": "10.48.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "7e0701bf59cb76a51f7c1f7bea51c0c0c29c0b72"
+                "reference": "118c686992f4b90d4da6deaf0901315c337bbaf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7e0701bf59cb76a51f7c1f7bea51c0c0c29c0b72",
-                "reference": "7e0701bf59cb76a51f7c1f7bea51c0c0c29c0b72",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/118c686992f4b90d4da6deaf0901315c337bbaf9",
+                "reference": "118c686992f4b90d4da6deaf0901315c337bbaf9",
                 "shasum": ""
             },
             "require": {
@@ -3521,7 +3573,7 @@
                 "symfony/postmark-mailer": "Required to enable support for the Postmark mail transport (^6.2).",
                 "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^2.0)."
             },
-            "time": "2024-03-21T13:36:36+00:00",
+            "time": "2024-04-10T14:57:20+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3639,17 +3691,17 @@
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.1.17",
-            "version_normalized": "0.1.17.0",
+            "version": "v0.1.18",
+            "version_normalized": "0.1.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "8ee9f87f7f9eadcbe21e9e72cd4176b2f06cd5b5"
+                "reference": "3b5e6b03f1f1175574b5a32331d99c9819da9848"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/8ee9f87f7f9eadcbe21e9e72cd4176b2f06cd5b5",
-                "reference": "8ee9f87f7f9eadcbe21e9e72cd4176b2f06cd5b5",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/3b5e6b03f1f1175574b5a32331d99c9819da9848",
+                "reference": "3b5e6b03f1f1175574b5a32331d99c9819da9848",
                 "shasum": ""
             },
             "require": {
@@ -3671,7 +3723,7 @@
             "suggest": {
                 "ext-pcntl": "Required for the spinner to be animated."
             },
-            "time": "2024-03-13T16:05:43+00:00",
+            "time": "2024-04-04T17:41:50+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3693,7 +3745,7 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
-                "source": "https://github.com/laravel/prompts/tree/v0.1.17"
+                "source": "https://github.com/laravel/prompts/tree/v0.1.18"
             },
             "install-path": "../laravel/prompts"
         },
@@ -4252,17 +4304,17 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.26.0",
-            "version_normalized": "3.26.0.0",
+            "version": "3.27.0",
+            "version_normalized": "3.27.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "072735c56cc0da00e10716dd90d5a7f7b40b36be"
+                "reference": "4729745b1ab737908c7d055148c9a6b3e959832f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/072735c56cc0da00e10716dd90d5a7f7b40b36be",
-                "reference": "072735c56cc0da00e10716dd90d5a7f7b40b36be",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4729745b1ab737908c7d055148c9a6b3e959832f",
+                "reference": "4729745b1ab737908c7d055148c9a6b3e959832f",
                 "shasum": ""
             },
             "require": {
@@ -4295,7 +4347,7 @@
                 "phpunit/phpunit": "^9.5.11|^10.0",
                 "sabre/dav": "^4.6.0"
             },
-            "time": "2024-03-25T11:49:53+00:00",
+            "time": "2024-04-07T19:17:50+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -4329,7 +4381,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.26.0"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.27.0"
             },
             "funding": [
                 {
@@ -5710,37 +5762,35 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.0.2",
-            "version_normalized": "5.0.2.0",
+            "version": "v4.19.1",
+            "version_normalized": "4.19.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "139676794dc1e9231bf7bcd123cfc0c99182cb13"
+                "reference": "4e1b88d21c69391150ace211e9eaf05810858d0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/139676794dc1e9231bf7bcd123cfc0c99182cb13",
-                "reference": "139676794dc1e9231bf7bcd123cfc0c99182cb13",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/4e1b88d21c69391150ace211e9eaf05810858d0b",
+                "reference": "4e1b88d21c69391150ace211e9eaf05810858d0b",
                 "shasum": ""
             },
             "require": {
-                "ext-ctype": "*",
-                "ext-json": "*",
                 "ext-tokenizer": "*",
-                "php": ">=7.4"
+                "php": ">=7.1"
             },
             "require-dev": {
                 "ircmaxell/php-yacc": "^0.0.7",
-                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0"
+                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0 || ^9.0"
             },
-            "time": "2024-03-05T20:51:40+00:00",
+            "time": "2024-03-17T08:10:35+00:00",
             "bin": [
                 "bin/php-parse"
             ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "4.9-dev"
                 }
             },
             "installation-source": "dist",
@@ -5765,7 +5815,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.0.2"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.19.1"
             },
             "install-path": "../nikic/php-parser"
         },
@@ -9650,6 +9700,164 @@
                 }
             ],
             "install-path": "../spatie/shiki-php"
+        },
+        {
+            "name": "statikbe/laravel-chained-translator",
+            "version": "2.4.0",
+            "version_normalized": "2.4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/statikbe/laravel-chained-translator.git",
+                "reference": "dc837abd57c89165a2c41c7e8edbeb9c7d42e278"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/statikbe/laravel-chained-translator/zipball/dc837abd57c89165a2c41c7e8edbeb9c7d42e278",
+                "reference": "dc837abd57c89165a2c41c7e8edbeb9c7d42e278",
+                "shasum": ""
+            },
+            "require": {
+                "brick/varexporter": "^0.4",
+                "laravel/framework": "^9.0|^10.0|^11.0",
+                "php": "^8.0|^8.1|^8.2"
+            },
+            "time": "2024-03-14T14:27:13+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Statikbe\\LaravelChainedTranslator\\TranslationServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/Helpers/helpers.php"
+                ],
+                "psr-4": {
+                    "Statikbe\\LaravelChainedTranslator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kobe Christiaensen",
+                    "email": "kobe@statik.be"
+                },
+                {
+                    "name": "Sten Govaerts",
+                    "email": "sten@statik.be"
+                },
+                {
+                    "name": "Johan Maes",
+                    "email": "johan@statik.be"
+                },
+                {
+                    "name": "Kayalion"
+                }
+            ],
+            "description": "The Laravel Chained Translator can combine several translators that can override each others translations.",
+            "keywords": [
+                "Chain",
+                "chained",
+                "content manager",
+                "custom",
+                "customer",
+                "laravel",
+                "statik",
+                "statikbe",
+                "translations"
+            ],
+            "support": {
+                "issues": "https://github.com/statikbe/laravel-chained-translator/issues",
+                "source": "https://github.com/statikbe/laravel-chained-translator/tree/2.4.0"
+            },
+            "install-path": "../statikbe/laravel-chained-translator"
+        },
+        {
+            "name": "statikbe/laravel-filament-chained-translation-manager",
+            "version": "v3.2.3",
+            "version_normalized": "3.2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/statikbe/laravel-filament-chained-translation-manager.git",
+                "reference": "23a0499b55fd61685e54ab626934b6b37baaed31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/statikbe/laravel-filament-chained-translation-manager/zipball/23a0499b55fd61685e54ab626934b6b37baaed31",
+                "reference": "23a0499b55fd61685e54ab626934b6b37baaed31",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "illuminate/contracts": "^10.0|^11.0",
+                "php": "^8.1|^8.2",
+                "spatie/laravel-package-tools": "^1.14.0",
+                "statikbe/laravel-chained-translator": "^2.3"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.0||^8.0",
+                "nunomaduro/larastan": "^2.4",
+                "orchestra/testbench": "^8.0",
+                "pestphp/pest": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0",
+                "phpstan/extension-installer": "^1.2",
+                "phpstan/phpstan-deprecation-rules": "^1.1",
+                "phpstan/phpstan-phpunit": "^1.3",
+                "phpunit/phpunit": "^10.0|^11.0"
+            },
+            "time": "2024-03-21T08:27:07+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Statikbe\\FilamentTranslationManager\\FilamentTranslationManagerServiceProvider"
+                    ],
+                    "aliases": {
+                        "FilamentTranslationManager": "Statikbe\\FilamentTranslationManager\\FilamentTranslationManager"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Statikbe\\FilamentTranslationManager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kobe Christiaensen",
+                    "email": "kobe@statik.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sten Govaerts",
+                    "email": "sten@statik.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A translation manager tool for Laravel Filament, that makes use of the Laravel Chained Translator.",
+            "homepage": "https://github.com/statikbe/laravel-filament-chained-translation-manager",
+            "keywords": [
+                "laravel",
+                "laravel-filament-chained-translation-manager",
+                "statikbe"
+            ],
+            "support": {
+                "issues": "https://github.com/statikbe/laravel-filament-chained-translation-manager/issues",
+                "source": "https://github.com/statikbe/laravel-filament-chained-translation-manager/tree/v3.2.3"
+            },
+            "install-path": "../statikbe/laravel-filament-chained-translation-manager"
         },
         {
             "name": "symfony/console",

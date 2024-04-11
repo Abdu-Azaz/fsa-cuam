@@ -24,32 +24,38 @@
         @endif
     @endforeach
 </div> --}}
- 
+
 <div class="pt-md-0 ms-2">
     <div class="dropdoswn-start bxstn-group">
-        <button class="btn btn-sm btn-outline-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-            @if ($current_locale === 'en') 
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle " type="button" id="dropdownMenuButton"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            @if ($current_locale === 'en')
                 🇬🇧
-            @else 
+            @elseif ($current_locale === 'fr')
                 🇫🇷
+            @else
+                🇲🇦
             @endif
         </button>
-        <ul class="dropdown-menu dropdown-menu-end"  aria-labelledby="dropdownMenuButton">
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
             @foreach ($available_locales as $locale_name => $available_locale)
                 <li>
-                    <a  class="dropdown-item {{ $available_locale === $current_locale ? 'active' : '' }}" href="{{ url('/lang', $available_locale) }}">
-                        @if ($available_locale === 'en') 
+                    <a class="dropdown-item {{ $available_locale === $current_locale ? 'active' : '' }}"
+                        href="{{ url('/lang', $available_locale) }}">
+                        @if ($available_locale === 'en')
                             🇬🇧 English
-                        @else 
+                        @elseif ($available_locale === 'fr')
                             🇫🇷 Francais
+                        @else
+                            🇲🇦 العربية
                         @endif
                     </a>
                 </li>
             @endforeach
         </ul>
     </div>
-    
-    
+
+
 </div>
 
 {{-- <div class="nav-item dropdown">    

@@ -10,6 +10,7 @@ use Filament\Navigation\UserMenuItem;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use Statikbe\FilamentTranslationManager\FilamentTranslationManager;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,8 @@ class AppServiceProvider extends ServiceProvider
             $partners = Partner::all();
             $view->with('partners', $partners);
         });
+        FilamentTranslationManager::setLocales(['en', 'fr','ar']);
+
         
     }
 }

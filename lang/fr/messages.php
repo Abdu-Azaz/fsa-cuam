@@ -57,8 +57,8 @@ return[
     'howto'=>"Guides Étape par Étape",
     'insurance' => 'Assurance étudiant',
     'scholarship' =>'Consultation bourse',
-    'moodle'=>"E-cours Moodle"
-
+    'phone'=>'Téléphone',
+    'address'=>'Adresse',
 
 
 

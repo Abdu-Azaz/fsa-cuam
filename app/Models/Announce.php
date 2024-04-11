@@ -43,7 +43,7 @@ class Announce extends Model
 
     public function formatDateTime()
     {
-        return Carbon::parse($this->updated_at)->format('d M y | H:i');
+        return Carbon::parse($this->updated_at)->translatedFormat('d M y | H:i');
     }
 
     public static function boot()

@@ -35,7 +35,6 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->font('Poppins')
             ->brandName('FSA FACTORY')
-            ->favicon(null)
             ->databaseNotifications()
             ->sidebarCollapsibleOnDesktop()
             ->spa()
@@ -52,6 +51,7 @@ class AdminPanelProvider extends PanelProvider
                     ->navigationCountBadge()
                 // ->resource(\App\Filament\Resources\CustomMediaResource::class)
                 ,
+                \Statikbe\FilamentTranslationManager\FilamentChainedTranslationManagerPlugin::make(),
 
             ])
             ->navigationItems([

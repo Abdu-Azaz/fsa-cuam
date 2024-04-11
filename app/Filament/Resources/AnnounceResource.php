@@ -35,7 +35,6 @@ class AnnounceResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
     protected static ?string $navigationGroup = 'Announces & events';
-
     public static function form(Form $form): Form
     {
         return $form

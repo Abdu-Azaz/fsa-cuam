@@ -46,6 +46,7 @@ return array(
     '6124b4c8570aa390c21fafd04a26c69f' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     '801c31d8ed748cfa537fa45402288c95' => $vendorDir . '/psy/psysh/src/functions.php',
     '377b22b161c09ed6e5152de788ca020a' => $vendorDir . '/spatie/laravel-permission/src/helpers.php',
+    'bb1c50b6be5ca84833dbae11100960cf' => $vendorDir . '/statikbe/laravel-chained-translator/src/Helpers/helpers.php',
     'db23a2d3a93978d3a73cf48ec05fdbb9' => $vendorDir . '/awcodes/filament-curator/src/helpers.php',
     '096c2d3bc2fc8bdd430b86b9391cf287' => $vendorDir . '/awcodes/filament-tiptap-editor/src/helpers.php',
     '37a3dc5111fe8f707ab4c132ef1dbc62' => $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',

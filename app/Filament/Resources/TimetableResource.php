@@ -7,6 +7,7 @@ use App\Filament\Resources\TimetableResource\RelationManagers;
 use App\Models\Timetable;
 use Filament\Forms;
 use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -22,7 +23,7 @@ class TimetableResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $label = 'Timetables (E.D.T)';
     protected static ?string $navigationGroup = 'Faculty';
-    
+
     public static function form(Form $form): Form
     {
         return $form
@@ -30,40 +31,43 @@ class TimetableResource extends Resource
                 Section::make('New Time Table')->schema([
                     Group::make()->schema([
                         Forms\Components\Select::make('major_id')
-                        ->relationship('major', 'label')
-                        ->searchable()
-                        ->required(),
-                    Forms\Components\Select::make('semester')
-                        ->options([
-                            'S1' => 'S1',
-                            'S2' => 'S2',
-                            'S3' => 'S3',
-                            'S4' => 'S4',
-                            'S5' => 'S5',
-                            'S6' => 'S6'
-                        ])
-                        ->required(),
+                            ->relationship('major', 'label')
+                            ->searchable()
+                            ->required(),
+                        Forms\Components\Select::make('semester')
+                            ->options([
+                                'S1' => 'S1',
+                                'S2' => 'S2',
+                                'S3' => 'S3',
+                                'S4' => 'S4',
+                                'S5' => 'S5',
+                                'S6' => 'S6'
+                            ])
+                            ->required(),
                         Forms\Components\Select::make('session')
-                        ->options([
-                            'Automne' => 'Automne',
-                            'Printemps' => 'Printemps'
-                        ])
-                        ->required()
+                            ->options([
+                                'Automne' => 'Automne',
+                                'Printemps' => 'Printemps'
+                            ])
+                            ->required()
                     ])->columns('3'),
-                    
+
                     Group::make()->schema([
-                        Forms\Components\FileUpload::make('file')
-                        ->required()
-                        ->directory('timetables'),
-                    Forms\Components\Select::make('type')
-                        ->options([
-                            'Cours' => 'Cours',
-                            'TP' => 'TP',
-                            'Groupes'=>'Groupes'
-                        ])
-                        ->required()
-                    ])->columns('2')
-                ])
+                        Repeater::make(__("timetables"))->schema([
+
+                            // Forms\Components\Select::make('type')
+                            //     ->translateLabel()
+                            //     ->options([
+                            //         'Cours' => 'Cours',
+                            //         'TP' => 'TP',
+                            //         'Groupes' => 'Groupes'
+                            //     ])->helperText("TYPE: COURS TP ou Groupe"),
+                            Forms\Components\TextInput::make('type')->helperText("TYPE: COURS TP (tp1, tp2...) ou Groupe"),
+                            Forms\Components\FileUpload::make('file')
+                                ->directory('timetables')
+                        ])->columns('2')->collapsible()
+                    ])
+                ])->description("Timetables Files")
             ]);
     }
 
@@ -77,11 +81,7 @@ class TimetableResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('session')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('file')
-                ->toggleable(isToggledHiddenByDefault: true)
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('type')
-                    ->searchable(),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable(),

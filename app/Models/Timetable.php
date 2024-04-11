@@ -13,16 +13,19 @@ class Timetable extends Model
         'major_id',
         'semester',
         'session',
-        'file',
-        'type'
+        // 'file',
+        // 'type'
+        'timetables'
     ];
+
+    protected $casts = ['timetables' => 'array'];
 
     public function major()
     {
         return $this->belongsTo(Major::class);
     }
 
-    public function isUpdated():bool
+    public function isUpdated(): bool
     {
         return $this->updated_at > $this->created_at;
     }
