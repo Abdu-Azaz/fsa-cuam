@@ -22,7 +22,8 @@
                         <img class="img-fluid" src="{{ url('storage/' . $departement->image) }}" alt="">
                     </div>
                     <a class="blog-overlay" href="{{ route('departement', $departement->slug) }}">
-                        <h5 class="text-white">{{ __($departement->name) }}</h5>
+                        {{-- <h5 class="text-white">{{ __($departement->name) }}</h5> --}}
+                        <h5 class="text-white">{{ __('messages.'.$departement->translation_key) }}</h5>
                     </a>
                 </div>
             </div>

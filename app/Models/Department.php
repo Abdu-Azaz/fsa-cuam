@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Department extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'slug', 'image'];
+    protected $fillable = ['name', 'slug', 'image', 'translation_key'];
 
     public function professors():HasMany    
     {

@@ -17,7 +17,7 @@ return [
     'maths-department' => "Applied Mathematics",
     'sv-department' => "Life Sciences",
     'useful-links' => "Useful links",
-    'rights-reserves' => 'All rights reserved',
+    'rights-reserved' => 'All rights reserved',
     'welcome' => 'Welcome to the faculty of applied sciences',
     'lu' => "updated",
     'internal-rule' => 'Internal law',
@@ -31,7 +31,7 @@ return [
     'download' => 'Download',
     'title' => 'Title',
     'faculty-council' => 'Faculty Council',
-    'faculty-council-definition' => 'Faculty council (definition, roles, members, laws...):',
+    'faculty-council-definition' => 'Faculty council (definition, roles, members, laws...)',
     'added-on' => 'Added on',
     'courses' => 'Programs',
     'onlineplatforms' => 'Online plateforms',
@@ -41,6 +41,7 @@ return [
     'courses' => 'Courses',
     'links' => 'Useful links',
     'search' => 'Search',
+    'research'=>'Research',
     'featured-news' => 'Featured news',
     'activate-account' => 'Activate student account',
     'timetables' => 'Timetables',
@@ -62,8 +63,16 @@ return [
     'moodle'=>"Moodle courses",
     'address'=>'Address',
     'phone'=>'Phone',  
-    
-
+    'student-spapce'=>'Student space',
+    'administration'=>'Administration',
+    'e-services'=>'E-services',
+    'scolarity'=>'Student Platform',
+    "ap"=>"Applied Physics",
+    "ac"=>"Applied Chemistry",
+    "am"=>"Applied Mathematics",
+    "ls"=>"Life Sciences",
+    "gisi"=> "Computer Engineering & Intelligent Systems",
+     'fsa-address'=>'National Route No 10. MB 6146 Azrou'
 
 
 

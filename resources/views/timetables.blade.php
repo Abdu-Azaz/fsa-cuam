@@ -19,7 +19,7 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#flush-collapseOne{{ $major }}" aria-expanded="false"
                         aria-controls="flush-collapseOne">
-                        <span class="fs-4 fw-bold">{{ $major }}</span>
+                        <span class="fs-4 fw-bold text-center w-100">{{ $major }}</span>
                     </button>
                 </h2>
                 <div id="flush-collapseOne{{ $major }}" class="accordion-collapse collapse"
@@ -31,8 +31,14 @@
                                     <div class="row">
                                         @foreach ($timetables as $timetable)
                                             @if ($timetable->timetables)
+                                                @if ($timetable->isUpdated())
+                                                    <span class="text-danger fs-tiny text-center"
+                                                        role="alert">
+                                                        {{ __('messages.lu') . ': ' . $timetable->when() }}
+                                                    </span>
+                                                @endif
                                                 @foreach ($timetable->timetables as $item)
-                                                    <div class="col-md-3 m-1">
+                                                    <div class="col-sm-6 col-md-3 m-1">
                                                         <div class="card">
                                                             <div class="card-body">
                                                                 <h5 class="card-title">{{ $item['type'] }}</h5>

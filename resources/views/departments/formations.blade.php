@@ -8,7 +8,7 @@
 {{-- PAGE HEADER INFO --}}
 @section('page_header')
     @include('partials.page_header', [
-        'pageTitle' => 'Formations',
+        'pageTitle' => __('messages.courses'),
         'pageBreadcrumb' => 'formations',
     ])
 @endsection

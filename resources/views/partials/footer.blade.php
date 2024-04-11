@@ -11,11 +11,10 @@
         </div>
         <div class="col-lg-3 col-md-12 pt-0 pt-lg-5 mb-5">
             <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                <h3 class="text-light mb-0">Contact</h3>
+                <h3 class="text-light mb-0">{{__('messages.contact-us')}}</h3>
             </div>
             <div class="link-animated d-flex flex-column justify-content-start">
-                <a class="text-light mb-2" href="#"><i class="fa fa-map-marker-alt text-warning me-2"></i>Route
-                    Nationale N10. BP 6146 Cité Azrou</a>
+                <a class="text-light mb-2" href="#"><i class="fa fa-map-marker-alt text-warning me-2"></i>{{__('messages.fsa-address')}}</a>
                 <a class="text-light mb-2" href="#"><i
                         class="fa fa-phone-alt text-warning me-2"></i>0528-241434</a>
                 <a class="text-light mb-2" href="#"><i
@@ -24,7 +23,7 @@
         </div>
         <div class="col-lg-3 col-md-12 pt-0 pt-lg-5 mb-5">
             <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                <h3 class="text-light mb-0">{{ __('Liens utiles') }}</h3>
+                <h3 class="text-light mb-0">{{ __('messages.useful-links') }}</h3>
             </div>
             <div class="link-animated d-flex flex-column justify-content-start">
                 <a class="text-light mb-2" href="https://www.gconcours.uiz.ac.ma"><i
@@ -46,7 +45,7 @@
             <div class="col-lg-8 col-md-6">
                 <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
                     <p class="mb-0">&copy; <a class="text-white border-bottom" href="#">FSAAM</a>.
-                        {{ __('Tous droits reservés') }}
+                        {{ __('messages.rights-reserved') }}
                 </div>
             </div>
         </div>
