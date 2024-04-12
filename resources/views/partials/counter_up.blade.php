@@ -40,7 +40,7 @@
                         <i class="fa fa-award text-primary"></i>
                     </div>
                     <div class="ps-4">
-                        <h6 class="text-light mb-0">{{ __('Filières') }}</h6>
+                        <h6 class="text-light mb-0">{{ __('messages.majors') }}</h6>
                         <h1 class="text-light mb-0" data-toggle="counter-up">{{setting('majors-number', 9)}}</h1>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                         <i class="fas fa-sitemap text-light"></i>
                     </div>
                     <div class="ps-4">
-                        <h6 class="text-primary mb-0">{{ __('Personnel administratif') }}</h6>
+                        <h6 class="text-primary mb-0">{{ __('messages.staff') }}</h6>
                         <h1 class="text-primary mb-0" data-toggle="counter-up">+{{setting('staff-number', 50)}}</h1>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                         <i class="fas fa-user-tie text-primary"></i>
                     </div>
                     <div class="ps-3">
-                        <h6 class="text-light mb-0">{{ __('Chercheurs') }}</h6>
+                        <h6 class="text-light mb-0">{{ __('messages.researchers') }}</h6>
                         <h1 class="mb-0 text-light" data-toggle="counter-up">{{setting('professors-number', 70)}}</h1>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                         <i class="fas fa-hotel text-light"></i>
                     </div>
                     <div class="ps-4">
-                        <h6 class="counter-title text-primary mb-0 wrap">{{ __('Structures de recherche') }}</h6>
+                        <h6 class="counter-title text-primary mb-0 wrap">{{ __('messages.research-structures') }}</h6>
                         <h1 class="text-primary mb-0" data-toggle="counter-up">{{setting('research-structures',2)}}</h1>
                     </div>
                 </div>

@@ -65,9 +65,9 @@ Breadcrumbs::for('departments.licenceinformatique', function ($trail) {
     $trail->push('Licence Informatique', route('licenceinformatique'));
 });
 
-Breadcrumbs::for('presentation', function ($trail) {
+Breadcrumbs::for('internal-law', function ($trail) {
     $trail->parent('home', route('homepage'));
-    $trail->push('Presentation', route('presentation'));
+    $trail->push(__('messages.internal-rule'), route('internal-rule'));
 });
 
 Breadcrumbs::for('howto', function ($trail) {

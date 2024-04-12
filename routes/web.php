@@ -47,7 +47,7 @@ Route::controller(RoutesController::class)->group(function () {
 
 Route::view('/mot-du-doyen.g', 'doyen')->name('doyen');
 Route::get('/formations', [RoutesController::class, 'formations'])->name('formations');
-Route::view('/faculte/presentation', 'presentation')->name('presentation');
+Route::view('/faculte/loi-interne-fsaam', 'loi-interne')->name('internal-rule');
 Route::view('/faculte/adminstration', 'administration')->name("administration");
 Route::view('/bibliotheque', 'library')->name("library");
 Route::get('/timetables', [RoutesController::class, 'timetables'])->name("timetables");

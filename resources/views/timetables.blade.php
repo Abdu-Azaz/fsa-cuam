@@ -28,31 +28,26 @@
                         @foreach ($timetables_per_semester as $semester => $timetables)
                             <h5 class="mb-3 my-0 alert alert-success text-center">>==||
                                 {{ $major }}({{ $semester }}) ||==< </h5>
-                                    <div class="row">
+                                    <div class="rows">
                                         @foreach ($timetables as $timetable)
                                             @if ($timetable->timetables)
                                                 @if ($timetable->isUpdated())
-                                                    <span class="text-danger fs-tiny text-center"
-                                                        role="alert">
+                                                    <span class="text-danger fs-tiny text-center fw-bold w-100 d-block" role="alert">
                                                         {{ __('messages.lu') . ': ' . $timetable->when() }}
                                                     </span>
                                                 @endif
-                                                @foreach ($timetable->timetables as $item)
-                                                    <div class="col-sm-6 col-md-3 m-1">
-                                                        <div class="card">
+                                                <div class="d-flex flex-row flex-wrap">
+                                                    @foreach ($timetable->timetables as $item)
+                                                        <div class="card flex-grow-1 mx-1">
                                                             <div class="card-body">
-                                                                <h5 class="card-title">{{ $item['type'] }}</h5>
-                                                                <a
-                                                                    href="{{ url('storage/' . $item['file']) }}">{{ __('messages.download') }}</a>
+                                                                <h6 class="card-title"><a target="_blank"
+                                                                        href="{{ url('storage/' . $item['file']) }}">{{ $item['type'] }}</a>
+                                                                </h6>
+
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                @endforeach
-                                                {{-- @if ($timetable->isUpdated())
-                                                    <span class="alert alert-danger fade show p-0 fs-tiny" role="alert">
-                                                        {{ __('messages.lu') . ': ' . $timetable->when() }}
-                                                    </span>
-                                                @endif --}}
+                                                    @endforeach
+                                                </div>
                                             @endif
                                         @endforeach
                                     </div>

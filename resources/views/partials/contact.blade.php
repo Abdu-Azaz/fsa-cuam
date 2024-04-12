@@ -19,7 +19,7 @@
                 </ul>
             </div>
         @endif
-
+sa
         <div class="row g-1">
             <div class="col-lg-7">
                 <div class="bg-primary rounded h-100 p-lg-5 p-2">
@@ -36,14 +36,14 @@
                             </div>
                             <div class="col-12">
                                 <input type="text" name="subject" class="form-control bg-light border-0 px-3"
-                                    placeholder="{{ __('Sujet') }}">
+                                    placeholder="{{ __('messages.subject-email') }}">
                             </div>
                             <div class="col-12">
                                 <textarea name="message" class="form-control bg-light border-0 px-3 py-3" rows="2" placeholder="Message"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-dark w-100 py-1" name="send"
-                                    type="submit">{{ __('Envoyer') }}</button>
+                                    type="submit">{{ __('messages.send') }}</button>
                             </div>
                         </div>
                     </form>

@@ -20,7 +20,7 @@
                         {{-- <a href="{{route('presentation')}}" class="dropdown-item">{{__('messages.presentation')}}</a> --}}
                         <a href="{{route('administration')}}" class="dropdown-item">{{__('messages.administration')}}</a>
                         <a href="{{ route('lmd') }}" class="dropdown-item">{{__('Système LMD')}}</a>
-                        <a href="" class="dropdown-item">{{__('messages.internal-rule')}}</a>
+                        <a href="{{route('internal-rule')}}" class="dropdown-item">{{__('messages.internal-rule')}}</a>
                     </div>
                 </div>
                 <a href="{{ route('formations') }}" class="nav-item nav-link text-center">{{__('messages.courses')}}</a>

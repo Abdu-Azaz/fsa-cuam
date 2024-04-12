@@ -39,15 +39,15 @@
                                 </div>
                                 <div class="col-12">
                                     <input wire:model="subject" type="text" name="subject"
-                                        class="form-control bg-light border-0 px-3" placeholder="{{ __('messages.subject') }}">
+                                        class="form-control bg-light border-0 px-3" placeholder="{{ __('messages.subject-email') }}">
                                 </div>
                                 <div class="col-12">
                                     <textarea wire:model="content" name="message" class="form-control bg-light border-0 px-3 py-3" rows="2"
-                                        placeholder="Message"></textarea>
+                                        placeholder="{{__('messages.message')}}"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-dark w-100 py-1" name="send"
-                                        type="submit">{{ __('Envoyer') }}</button>
+                                        type="submit">{{ __('messages.send') }}</button>
                                 </div>
                             </div>
 
@@ -62,15 +62,15 @@
 
                             <i class="fa fa-users  text-light"></i>
                             <div class="ps-3">
-                                <h5 class="text-white">{{ __('Adresse') }}</h5>
-                                <span class="text-white text-wrap">Route Nationale N10. BP 6146 Cité Azrou</span>
+                                <h5 class="text-white">{{ __('messages.address') }}</h5>
+                                <span class="text-white text-wrap">{{__('messages.fsa-address')}}</span>
                             </div>
                         </div>
                         <div class="d-flex mb-4">
 
                             <i class="fa fa-envelope fs-5x text-light"></i>
                             <div class="ps-3">
-                                <h5 class="text-white">Email</h5>
+                                <h5 class="text-white">{{__('messages.email')}}</h5>
                                 <span class="text-white">fsa@uiz.ac.ma</span>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
 
                             <i class="fa fa-phone fs-5x text-light"></i>
                             <div class="ps-3">
-                                <h5 class="text-white">{{ __('Téléphone') }}</h5>
+                                <h5 class="text-white">{{ __('messages.phone') }}</h5>
                                 <span class="text-white">0528-241434</span>
                             </div>
                         </div>
