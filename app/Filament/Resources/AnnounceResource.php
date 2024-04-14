@@ -67,7 +67,7 @@ class AnnounceResource extends Resource
                                 'avis' => 'Avis Aux Etudiants',
                                 'emploi' => 'Emploi du temps',
                                 'changement_filiere' => 'Changement de filiere',
-                                'announce-simple'=>'Announce Simple'
+                                'announce-simple' => 'Announce Simple'
                             ]
                         ),
                     Forms\Components\Select::make('status')
@@ -77,23 +77,23 @@ class AnnounceResource extends Resource
                                 'draft' => 'Draft',
                             ]
                         ),
-                                        
+
                 ])->columns('2'),
-//    Tabs::make('Tabs')
-//     ->tabs([
-//         Tabs\Tab::make('Tab 1')
-//             ->schema([
-//                 // ...
-//             ]),
-//         Tabs\Tab::make('Tab 2')
-//             ->schema([
-//                 // ...
-//             ]),
-//         Tabs\Tab::make('Tab 3')
-//             ->schema([
-//                 // ...
-//             ]),
-//         ]),
+                //    Tabs::make('Tabs')
+                //     ->tabs([
+                //         Tabs\Tab::make('Tab 1')
+                //             ->schema([
+                //                 // ...
+                //             ]),
+                //         Tabs\Tab::make('Tab 2')
+                //             ->schema([
+                //                 // ...
+                //             ]),
+                //         Tabs\Tab::make('Tab 3')
+                //             ->schema([
+                //                 // ...
+                //             ]),
+                //         ]),
                 Section::make()->schema(
                     [
 
@@ -149,7 +149,7 @@ class AnnounceResource extends Resource
                     })
                     ->html()
                     ->toggleable(),
-                    Tables\Columns\TextColumn::make('views_count')->label('Views'),
+                Tables\Columns\TextColumn::make('views_count')->label('Views'),
 
                 Tables\Columns\TextColumn::make('created_at')
                     ->since()
@@ -174,7 +174,24 @@ class AnnounceResource extends Resource
                     ->options([
                         'draft' => 'Draft',
                         'published' => 'Published',
+                    ]),
+                Filter::make('created_at')
+                    ->form([
+                        Forms\Components\DatePicker::make('created_from'),
+                        Forms\Components\DatePicker::make('created_until'),
                     ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['created_from'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '>=', $date),
+                            )
+                            ->when(
+                                $data['created_until'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '<=', $date),
+                            );
+                    }),
+                    
             ])
             ->actions([
                 ActionGroup::make([

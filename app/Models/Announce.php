@@ -49,7 +49,11 @@ class Announce extends Model
     public static function boot()
     {
         parent::boot();
-
+        static::creating(function ($announce) {
+            // Set created_at timestamp manually
+            $announce->created_at = now();
+            $announce->updated_at = $announce->created_at;
+        });
         static::updating(function (Announce $announce) {
             // Update updated_at only if specific conditions are met
             if ($announce->isDirty(['title', 'body']) && $announce->make_first) {

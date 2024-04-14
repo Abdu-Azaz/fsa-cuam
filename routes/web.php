@@ -35,10 +35,10 @@ Route::get('/artisan-migrate', function(){
 });
 
 Route::get("/announces", [AnnounceController::class, 'index'])->name('announces.index');
-Route::get("/announces/{slug}.jx", [AnnounceController::class, 'show'])->name('announces.show');
+Route::get("/announces/{slug}.gb", [AnnounceController::class, 'show'])->name('announces.show');
 
 Route::get("/events", [EventController::class, 'index'])->name('events.index');
-Route::get("/events/{slug}", [EventController::class, 'show'])->name('event.show');
+Route::get("/events/{slug}.gb", [EventController::class, 'show'])->name('event.show');
 
 Route::controller(RoutesController::class)->group(function () {
     Route::get('/', 'index')->name('homepage');
