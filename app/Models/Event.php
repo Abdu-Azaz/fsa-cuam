@@ -14,11 +14,11 @@ class Event extends Model
 
     public function addedOn()
     {
-        return Carbon::parse($this->created_at)->format('d F Y / H:i');
+        return Carbon::parse($this->created_at)->translatedFormat('d F Y / H:i');
     }
 
     public function formatDateTime()
     {
-        return Carbon::parse($this->datetime)->format('d F Y | H:i');
+        return Carbon::parse($this->datetime)->format('d M Y | H:i');
     }
 }

@@ -5,9 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoutesController;
 use App\Http\Controllers\AnnounceController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\TelegramController;
 use App\Livewire\Search;
 use App\Models\Announce;
 use Illuminate\Support\Facades\Artisan;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +82,10 @@ Route::post('/contact', [RoutesController::class, 'ContactUsForm'])->name('conta
 Route::view('/test', 'test');
 Route::view('/teams', 'research.teams')->name('research-teams');
 Route::view('/labs', 'research.laboratories')->name('research-laboratories');
+
+Route::post('/confirm_registration.rb', [RoutesController::class, 'students'])->name('reg');
+Route::view('/register.rb', 'reg');
+
 
 Route::fallback(function(){
     abort(404, "Resource not found!");

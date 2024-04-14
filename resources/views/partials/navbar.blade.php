@@ -17,7 +17,6 @@
                     <div class="dropdown-menu m-0">
                         <a href="{{ route('doyen') }}" class="dropdown-item">{{__('messages.deans-word')}}</a>
                         <a href="{{ route('departements') }}" class="dropdown-item">{{__('messages.departments')}}</a>
-                        {{-- <a href="{{route('presentation')}}" class="dropdown-item">{{__('messages.presentation')}}</a> --}}
                         <a href="{{route('administration')}}" class="dropdown-item">{{__('messages.administration')}}</a>
                         <a href="{{ route('lmd') }}" class="dropdown-item">{{__('Système LMD')}}</a>
                         <a href="{{route('internal-rule')}}" class="dropdown-item">{{__('messages.internal-rule')}}</a>
@@ -30,8 +29,6 @@
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{__('messages.student-spapce')}}</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{route('timetables')}}" class="dropdown-item">{{__('messages.timetables')}}</a>
-                        {{-- <a href="#" class="dropdown-item">{{__('Cours En Ligne')}}</a> --}}
-                        {{-- <a href="#" class="dropdown-item">{{__('Plateforme Pédagogique')}}</a> --}}
                         <a href="{{route('library')}}" class="dropdown-item">{{__('messages.library')}}</a>
                         <a href="{{route('clubs')}}" class="dropdown-item">{{__('messages.clubs')}}</a>
                         <a href="{{route('how_to')}}" class="dropdown-item">{{__('messages.activate-account')}}</a>

@@ -9,6 +9,7 @@ use App\Models\Event;
 use App\Models\Major;
 use App\Models\Programme;
 use App\Models\Slide;
+use App\Models\Student;
 use App\Models\Timetable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -111,5 +112,18 @@ class RoutesController extends Controller
     {
         $howtos = DB::table('howtos')->get();
         return view('how_to', compact('howtos'));
+    }
+
+    public function students(Request $request)
+    {
+        $cne = $request->input("cne");
+        $nom = $request->input("nom");
+        $prenom = $request->input("prenom");
+
+        $filiere = Student::select('filiere')->where('cne', $cne)->first();
+        if ($filiere !=null)
+            return response(['ok'=>'you are enrolled in ' . $filiere], 200);
+    return response(['err'=>'Sorry ' . $filiere],301);
+        
     }
 }

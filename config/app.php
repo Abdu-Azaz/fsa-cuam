@@ -83,9 +83,9 @@ return [
     |
     */
     'available_locales' => [
-        'English' => 'en',
-        'French' => 'fr',
         'Arabic' => 'ar',
+        'French' => 'fr',
+        'English' => 'en'
     ],
 
     'locale' => 'en',

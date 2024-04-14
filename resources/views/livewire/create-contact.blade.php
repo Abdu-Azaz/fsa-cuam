@@ -22,8 +22,9 @@
 
             <div class="row g-1">
                 <div class="col-lg-7">
-                    <div class="rounded h-100 p-lg-5 p-2" style="background:linear-gradient(135deg, 
-                    {{ setting('color1-gradient', '#000')}}, 
+                    <div class="rounded h-100 p-lg-5 p-2"
+                        style="background:linear-gradient(135deg, 
+                    {{ setting('color1-gradient', '#000') }}, 
                     {{ setting('color2-gradient', 'blue') }}  
                 )">
                         <form wire:submit="save">
@@ -35,15 +36,17 @@
                                 </div>
                                 <div class="col-12">
                                     <input wire:model="email" type="email" name="email"
-                                        class="form-control bg-light border-0 px-3" placeholder="{{ __('messages.academic_email') }}">
+                                        class="form-control bg-light border-0 px-3"
+                                        placeholder="{{ __('messages.academic_email') }}">
                                 </div>
                                 <div class="col-12">
                                     <input wire:model="subject" type="text" name="subject"
-                                        class="form-control bg-light border-0 px-3" placeholder="{{ __('messages.subject-email') }}">
+                                        class="form-control bg-light border-0 px-3"
+                                        placeholder="{{ __('messages.subject-email') }}">
                                 </div>
                                 <div class="col-12">
                                     <textarea wire:model="content" name="message" class="form-control bg-light border-0 px-3 py-3" rows="2"
-                                        placeholder="{{__('messages.message')}}"></textarea>
+                                        placeholder="{{ __('messages.message') }}"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-dark w-100 py-1" name="send"
@@ -56,21 +59,21 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <div class="bg-dark h-100 rounded  p-3">
-                        <h2 class="text-white mb-4">{{ __('messages.contact-us') }}</h2>
+                    <div class="bg-dark h-100 rounded px-3 py-5">
+                        <h4 class="text-white mb-4">{{ __('messages.contact-us') }}</h4>
                         <div class="d-flex mb-lg-4">
 
                             <i class="fa fa-users  text-light"></i>
                             <div class="ps-3">
-                                <h5 class="text-white">{{ __('messages.address') }}</h5>
-                                <span class="text-white text-wrap">{{__('messages.fsa-address')}}</span>
+                                <h6 class="text-white">{{ __('messages.address') }}</h6>
+                                <span class="text-white text-wrap">{{ __('messages.fsa-address') }}</span>
                             </div>
                         </div>
                         <div class="d-flex mb-4">
 
                             <i class="fa fa-envelope fs-5x text-light"></i>
                             <div class="ps-3">
-                                <h5 class="text-white">{{__('messages.email')}}</h5>
+                                <h6 class="text-white">{{ __('messages.email') }}</h6>
                                 <span class="text-white">fsa@uiz.ac.ma</span>
                             </div>
                         </div>
@@ -78,7 +81,7 @@
 
                             <i class="fa fa-phone fs-5x text-light"></i>
                             <div class="ps-3">
-                                <h5 class="text-white">{{ __('messages.phone') }}</h5>
+                                <h6 class="text-white">{{ __('messages.phone') }}</h6>
                                 <span class="text-white">0528-241434</span>
                             </div>
                         </div>
@@ -88,3 +91,13 @@
         </div>
     </div>
 </div>
+@push('js')
+    <script>
+       
+            setTimeout(function() {
+                $('.alert-success').alert('close');
+               
+            }, 5000); // 5000 milliseconds = 5 seconds
+    </script>
+
+@endpush

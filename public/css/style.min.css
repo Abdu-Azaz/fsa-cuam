@@ -86,7 +86,7 @@ h1,
 }
 
 h1 {
-    font-size: 2rem!important;
+    font-size: 1.7rem!important;
 }
 
 .fs-1-5 {
@@ -162,7 +162,7 @@ h1 {
 }
 
 .navbar-brand {
-    width: 250px;
+    width: 230px;
 }
 
 #brand-light {
@@ -241,7 +241,7 @@ h5,
     padding: 35px 0;
      /* color: var(--color-white); */
     color: var(--color-dark);
-    font-size: 0.8rem;
+    font-size: 0.5rem!important;
     font-weight: 600;
     outline: none;
     transition: .5s;
@@ -252,7 +252,7 @@ h5,
 }
 
 .sticky-top.navbar-dark .navbar-nav .nav-link {
-    padding: 20px 0;
+    padding:18px 0;
     color: var(--color-dark);
 }
 
@@ -269,8 +269,8 @@ h5,
 @media (max-width: 991.98px) {
     .sticky-top.navbar-dark {
         position: relative;
-        background: var(--color-warning);
-         /* background: var(--color-dark); */
+        /* background: var(--color-warning); */
+         background: #ddf;
     }
 
     .navbar-dark .navbar-nav .nav-link,
@@ -889,7 +889,7 @@ h5,
     left: 0px;
     z-index: 1;
 }
-
+/* 
 .bg-header_news {
     background: linear-gradient(rgba(13, 12, 29, 0.9), rgba(13, 12, 29, 0.9)), url(https://cdn.pixabay.com/photo/2017/09/28/08/34/important-2794684_960_720.jpg) center center no-repeat;
     background-size: cover;
@@ -933,7 +933,7 @@ h5,
 .bg-header-departements {
     background: linear-gradient(rgba(9, 30, 62, .8), rgba(9, 30, 62, .9)), url(../storage/site/fsa2-ok.jpg) center center no-repeat;
     background-size: cover;
-}
+} */
 
 .link-animated a {
     transition: .5s;
@@ -951,7 +951,7 @@ h5,
 
 @media (max-width: 456px) {
     .navbar-brand {
-        max-width: 176px;
+        max-width: 170px;
     }
 
     .timeline:before {

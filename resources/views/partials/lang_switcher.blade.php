@@ -29,12 +29,12 @@
     <div class="dropdoswn-start bxstn-group">
         <button class="btn btn-sm btn-outline-secondary dropdown-toggle " type="button" id="dropdownMenuButton"
             data-bs-toggle="dropdown" aria-expanded="false">
-            @if ($current_locale === 'en')
-                🇬🇧
-            @elseif ($current_locale === 'fr')
-                🇫🇷
+            @if ($current_locale === 'ar')
+            🇲🇦
+            @elseif ($current_locale === 'en')
+            🇬🇧
             @else
-                🇲🇦
+                🇫🇷
             @endif
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
@@ -42,12 +42,12 @@
                 <li>
                     <a class="dropdown-item {{ $available_locale === $current_locale ? 'active' : '' }}"
                         href="{{ url('/lang', $available_locale) }}">
-                        @if ($available_locale === 'en')
+                        @if ($available_locale === 'ar')
+                             🇲🇦 العربية
+                        @elseif ($available_locale === 'en')
                             🇬🇧 English
-                        @elseif ($available_locale === 'fr')
-                            🇫🇷 Francais
                         @else
-                            🇲🇦 العربية
+                            🇫🇷 Francais
                         @endif
                     </a>
                 </li>
