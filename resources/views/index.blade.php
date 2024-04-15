@@ -59,15 +59,16 @@
                 @foreach ($announces as $announce)
                     <x-post :announce='$announce' />
                 @endforeach
-            @else
-                {{ __('Pas d\'announces') }}
-            @endif
-            {{-- d-flex justify-content-center align-items-center --}}
-            <div class="wow SlideInRight  bg-light rounded  borders bosrder-dark m-1 d-flex align-items-center justify-content-center"
+                <div class="wow SlideInRight  bg-light rounded  borders bosrder-dark m-1 d-flex align-items-center justify-content-center"
                 data-wow-delay="0.7s" style=" background:linear-gradient(135deg, {{ setting('color1', '#dff') }},  {{ setting('color2', '#fdd') }}); height:235px" sstyle=""> 
                     <a class="text-uppercase display-6 border p-3 "
                         href="{{ route('announces.index') }}">{{ __('messages.see-more') }}</a>
             </div>
+
+                @else
+                {{ __('Pas d\'announces') }}
+            @endif
+            {{-- d-flex justify-content-center align-items-center --}}
         </div>
     </div>
     {{-- News V1 END --}}

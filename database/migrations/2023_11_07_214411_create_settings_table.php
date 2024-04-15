@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('key', 30)->unique();
             $table->string('value')->nullable();
             $table->longText('LongValue')->nullable();
+            $table->string('comment',100)->nullable();
             $table->timestamps();
         });
     }

@@ -12,38 +12,76 @@ class DepartmentSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    
+
     public function run(): void
     {
-        $depts= [
+        $depts = [
             [
                 'id' => 1,
                 'name' => 'Genie Informatique et Systemes Intelligents',
-                'slug' => 'genie-informatique-et-systemes-intelligents'
+                'slug' => 'genie-informatique-et-systemes-intelligents',
+                'translation_key' => "gisi",
+                'image' => 'departments/gisi.png'
             ],
             [
                 'id' => 2,
                 'name' => 'Mathematiques Appliquees',
-                'slug' => 'mathematiques-appliquees'
+                'slug' => 'mathematiques-appliquees',
+                'translation_key' => "am",
+                'image' => 'departments/am.png'
+
+
             ],
             [
                 'id' => 3,
                 'name' => 'Chimie Appliquee',
-                'slug' => 'chimie-appliquee'
+                'slug' => 'chimie-appliquee',
+                'translation_key' => "ac",
+                'image' => 'departments/ac.png'
+
+
             ],
             [
                 'id' => 4,
                 'name' => 'Physique Appliquee',
-                'slug' => 'physique-appliquee'
+                'slug' => 'physique-appliquee',
+                'translation_key' => "ap",
+                'image' => 'departments/ap.png'
+
+
             ],
             [
                 'id' => 5,
                 'name' => 'Sciences de l\'Environnement et Sciences de Vivants',
-                'slug' => 'sciences-de-vivants'
+                'slug' => 'sciences-de-vivants',
+                'translation_key' => "ls",
+                'image' => 'departments/ls.png'
+
+
             ]
-            ];
-            DB::table('departments')->insert(
+        ];
+
+        $slides = [
+
+            [
+                'slide_title' => "",
+                "slide_image" => "slides/slide1.jpg",
+                "slide_description" => "Nouvelles Filières dispensées",
+
+            ],
+            [
+                'slide_title' => "",
+                "slide_image" => "slides/slide2.jpg",
+                "slide_description" => "Bienvenue à la faculté des sciences appliquées ",
+
+            ],
+        ];
+        DB::table('departments')->insert(
             $depts
+        );
+
+        DB::table('slides')->insert(
+            $slides
         );
     }
 }

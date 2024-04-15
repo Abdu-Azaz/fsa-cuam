@@ -11,6 +11,8 @@
                 } else $(".navbar").removeClass("sticky-top shadow-sm");
             }
         });
+        document.body.style.zoom = "90%"; // Adjust the zoom level as needed
+
     // });
     let s = $(".dropdown"),
         e = $(".dropdown-toggle"),

@@ -20,7 +20,10 @@ return new class extends Migration
             $table->enum('status', ['published', 'draft'])->default('published');
             $table->string('isFeatured')->default(false);
             $table->string('meta_keywords');
+            $table->boolean("make_first")->default(true); //WHen true, on update announce will become first
             $table->timestamps();
+            $table->unsignedMediumInteger('views_count')->default(0);
+            
         });
     }
 

@@ -21,18 +21,23 @@ use Telegram\Bot\Laravel\Facades\Telegram;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+/*
+    Route::middleware('auth')->group(function () {
+        Route::get('/artisan-storage-link', function () {
+            return  Artisan::call('storage:link');
+        });
 
-Route::get('/artisan-storage-link', function(){
-    return  Artisan::call('storage:link');
-});
+        Route::get('/artisan-cache-clear', function () {
+            return  Artisan::call('cache:clear');
+        });
 
-Route::get('/artisan-cache-clear', function(){
-    return  Artisan::call('cache:clear');
-});
+        Route::get('/artisan-migrate', function () {
+            return  Artisan::call('migrate');
+        });
+    }); 
+    */
 
-Route::get('/artisan-migrate', function(){
-    return  Artisan::call('migrate');
-});
+
 
 Route::get("/announces", [AnnounceController::class, 'index'])->name('announces.index');
 Route::get("/announces/{slug}.gb", [AnnounceController::class, 'show'])->name('announces.show');
@@ -70,7 +75,7 @@ Route::get('/login', function () {
 
 // Route::get('/media/delete/{path}', [MediaController::class, 'delete'])->name('media.delete');
 
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->group(function () {
     Route::view('/my-media', 'media')->name('media.index')->middleware('auth');
     // Route::get('/my-media/{path?}', [MediaController::class, 'index'])->name('media.index')->middleware('auth');
 });
@@ -87,6 +92,6 @@ Route::post('/confirm_registration.rb', [RoutesController::class, 'students'])->
 Route::view('/register.rb', 'reg');
 
 
-Route::fallback(function(){
+Route::fallback(function () {
     abort(404, "Resource not found!");
 });

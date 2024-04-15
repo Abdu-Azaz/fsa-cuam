@@ -20,14 +20,6 @@ return new class extends Migration
             $table->json("timetables")->nullable();
             $table->timestamps();
         });
-
-        // Schema::create('timetable_files', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->unsignedBigInteger('timetable_id');
-        //     $table->foreign('timetable_id')->references('id')->on('timetables')->onDelete('cascade');
-        //     $table->string('file')->comment('pdf file or whatever');
-        //     $table->timestamps();
-        // });
     }
 
     /**
@@ -35,7 +27,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('timetable_files');
+        // Schema::dropIfExists('timetable_files');
         Schema::dropIfExists('timetables');
     }
 };

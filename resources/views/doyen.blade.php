@@ -28,7 +28,7 @@
     <div class="px-md-5 px-2">
 
         <p class="mb-4 text-dark text-indent">
-            {!! setting('deans-word') !!}
+            {!! __(setting('deans-word')) !!}
         </p>
     </div>
     <span class="w-100 d-flex justify-content-end"><i class="fas fa-quote-right"></i></span>
