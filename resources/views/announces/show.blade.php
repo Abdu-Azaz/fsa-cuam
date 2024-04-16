@@ -24,7 +24,7 @@
 @section('main_column_content')
     <h2 class="text-ceter mb-2">{{ $announce->title }}</h2>
     <span class="bg-light border">
-        {{__('messages.added-on')}}: {{ $announce->formatDateTime()}} ( {{ $announce->isUpdated() ? __('messages.lu').': '.$announce->announceUpdatedSince(): ''}})
+        {{__('messages.added-on')}}: {{ $announce->formatDateTime()}}  {{ $announce->isUpdated() ? "(". __('messages.lu').': '.$announce->announceUpdatedSince().")": ''}}
     </span>
    
     <div class="bg-white p-4">
