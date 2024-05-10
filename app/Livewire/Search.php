@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Announce;
 use App\Models\Major;
 use App\Models\Professor;
 use App\Models\Programme;
@@ -14,16 +15,16 @@ class Search extends Component
     use WithPagination;
 
     public $search = '';
-    public $programmes;
- 
+    public $announces;
+
     public function render()
     {
-        // $this->programmes = Programme::where('title','like', '%'.$this->search.'%')->get();
 
-        if($this->search)
-            $this->programmes = Major::where('diploma','like', '%'.$this->search.'%')->get();
-        else 
-            $this->programmes = [];
+        if ($this->search)
+            $this->announces = Announce::where('body', 'like', '%' . $this->search . '%')
+                ->orWhere('body', 'like', '%' . $this->search . '%')->get();
+        else
+            $this->announces = [];
         return view('livewire.search');
     }
 }

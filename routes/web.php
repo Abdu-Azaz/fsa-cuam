@@ -56,12 +56,11 @@ Route::view('/mot-du-doyen-de-la-fac-sci-app.rs', 'doyen')->name('doyen');
 Route::get('/formations', [RoutesController::class, 'formations'])->name('formations');
 Route::view('/faculte/loi-interne-fsaam', 'loi-interne')->name('internal-rule');
 Route::view('/faculte/adminstration_fsaam.rs', 'administration')->name("administration");
-Route::view('/bibliotheque-fsaam', 'library')->name("library");
+Route::view('/bibliotheque-fsaam.rs', 'library')->name("library");
 Route::get('/timetables_emplois_des_temps_fsaam', [RoutesController::class, 'timetables'])->name("timetables");
 Route::get('/clubs-and-stuff', [RoutesController::class, 'clubs'])->name("clubs");
 Route::view('/faculte/Systeme-LMD', 'lmd')->name('lmd');
 Route::get('/student_space/how-to', [RoutesController::class, 'how_to'])->name('how_to');
-
 
 Route::get('lang/{locale}', function ($locale) {
     app()->setLocale($locale);
@@ -89,6 +88,7 @@ Route::view('/labos_recherche_fsaam.rs', 'research.laboratories')->name('researc
 
 Route::post('/confirm_registration.rb', [RoutesController::class, 'students'])->name('reg');
 Route::view('/register.rb', 'reg');
+Route::view('/typing', 't');
 
 
 Route::fallback(function () {

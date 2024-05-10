@@ -28,7 +28,7 @@
     </span>
    
     <div class="bg-white p-4">
-        <div class="w-100" style="overflow-x:auto">
+        <div class="w-100 rich-im-res" style="overflow-x:auto">
             {!! $announce->body !!}
         </div>
         <span class="bg-light border">

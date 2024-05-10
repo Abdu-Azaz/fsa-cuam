@@ -21,7 +21,8 @@ class RoutesController extends Controller
      */
     public function index()
     {
-        $announces = Announce::where('status', 'published')->orderBy('updated_at', 'DESC')->take(10)->get();
+        $announces = Announce::where('status', 'published')->latest()->take(10)->get();
+
         $sliders = Slide::get();
         $events = Event::orderBy('updated_at', 'DESC')->get();
         return view('index', compact('announces', 'sliders', 'events'));

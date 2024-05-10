@@ -2,9 +2,9 @@
 <title>@yield('title')</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <!-- Favicon -->
-{{-- <link rel="apple-touch-icon" sizes="180x180" href="{{url('img/favicons/apple-touch-icon.png')}}"> --}}
+<link rel="apple-touch-icon" sizes="180x180" href="{{url('img/favicons/apple-touch-icon.png')}}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ url('storage/favicons/favicon-32x32.png') }}">
-{{-- <link rel="icon" type="image/png" sizes="16x16" href="{{url('img/favicons/favicon-16x16.png')}}"> --}}
+<link rel="icon" type="image/png" sizes="16x16" href="{{url('img/favicons/favicon-16x16.png')}}">
 {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"> --}}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,10 +22,10 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" rel="stylesheet">
 <link href="{{asset('css/animate.css')}}" rel="stylesheet">
 
-<!-- Customized Bootstrap Stylesheet -->
+<!-- Customized RST Stylesheet -->
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
-<!-- Template Stylesheet -->
+<!-- Template SS sheets PowerCss.com -->
 <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
 <meta name="description" content="Faculté des Sciences Appliquées Ait Melloul">
 <meta name="keywords" content="FSA, FSAAM, CUAM, Faculté des Sciences Appliquées Ait Melloul">

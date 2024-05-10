@@ -17,9 +17,9 @@
                             <div class="grid"></div>
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 900px;">
-                                    <h5 class="text-white text-uppercase mb-3 animated slideInDown">
+                                    <h4 class="text-white text-uppercase mb-3 animated slideInDown">
                                         {{ __($slide->slide_title) }}
-                                    </h5>
+                                    </h4>
                                     <h1 class="display-4 text-white mb-md-4 animated zoomIn">{{ $slide->slide_description }}
                                     </h1>
                                 </div>
@@ -78,7 +78,7 @@
         <div class="card mb-3 text-light " 
           style="background:linear-gradient(135deg, 
         {{ setting('color1-gradients', 'blue')}}, 
-        {{ setting('color2-gradients', '#00f') }}  
+        {{ setting('color2-gradients', '#000') }}  
     )"
     >
             <div class="row g-0">
@@ -150,7 +150,7 @@
                 @endforeach
             </div>
         @else
-            {{ __('0 Evenements') }}
+            0 {{ __('messages.events') }}
         @endif
     </div>
     {{-- Plateforms --}}

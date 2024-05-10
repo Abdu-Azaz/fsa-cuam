@@ -8,7 +8,7 @@
     <div class="my-container">
         <div class="row g-4">
             <div class="col-lg-9 border rounded bg-white wow fadeInUp" data-wow-delay="0.1s">
-                <div class=" p-lg-4">
+                <div class="p-2 p-lg-4">
                     {{-- <div class="section-title position-relative pb-3 mb-5"> --}}
                     {{-- <h5 class="fw-bold text-primary text-uppercase">{{ __('Formations') }}</h5> --}}
                     {{-- <h1 class="mb-0">@yield('main_column_title')</h1> --}}
@@ -20,11 +20,11 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="border rounded bg-white p-3">
-                    <div class="py-4 mb-5 wow fadeInUp" data-wow-delay="0.1s"
+                <div class="border rounded bg-white ps-3">
+                    <div class="py-4 mb-5s wow fadeInUp" data-wow-delay="0.1s"
                         style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                         <div class="input-group">
-                            {{-- @livewire('search') --}}
+                            @livewire('search')
                         </div>
                     </div>
                     <div class="sidebar-widget">

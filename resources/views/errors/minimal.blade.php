@@ -27,13 +27,18 @@
            }
            .code{
             font-size: 9rem;
+            font-weight: bold
            }
            .msg{
             font-size: 5rem;
+            font-weight: bold
+
            }
            .desc{
             font-size: 2rem;
             margin-top:10px;
+            font-weight: bold
+
            }
         </style>
     </head>
@@ -52,6 +57,7 @@
             <div style="color: yellow; wsidth:100px; padding:12px; margin:12px;">
                 <a style="color:white; font-size:2rem " href="{{route('homepage')}}" >Home</a>
             </div>
+            <a style="color: wheat" href="mailto:a.azaz@uiz.ac.ma">@webmaster</a>
         </div>
     </body>
 </html>

@@ -18,7 +18,7 @@
 {{-- MAIN COLUMN CONTENT (LEFT COLUMN) --}}
 @section('main_column_content')
 <x-section-title>{{__('messages.courses')}}</x-section-title>
-
+@empty($programs)
     <div class="my-4 border p-2">
         <ul class="nav nav-pills mb-3 " id="pills-tab" role="tablist">
             @foreach ($programs as $diploma => $_)
@@ -52,6 +52,6 @@
                 </div>
             @endforeach
         </div>
-
-    </div>
+    </div>        
+    @endempty
 @endsection

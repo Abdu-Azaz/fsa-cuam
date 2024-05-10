@@ -57,7 +57,7 @@ class Announce extends Model
             // Update updated_at only if specific conditions are met
             if (
                 $announce->isDirty(['title', 'body'])
-                && $announce->make_first
+                || $announce->make_first
             ) {
                 $announce->updated_at = now();
             }

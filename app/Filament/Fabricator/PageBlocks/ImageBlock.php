@@ -3,18 +3,16 @@
 namespace App\Filament\Fabricator\PageBlocks;
 
 use Filament\Forms\Components\Builder\Block;
-use Filament\Forms\Components\TextInput;
-use Symfony\Component\Console\Input\Input;
+use Filament\Forms\Components\FileUpload;
 use Z3d0X\FilamentFabricator\PageBlocks\PageBlock;
 
-class MyBlock extends PageBlock
+class ImageBlock extends PageBlock
 {
     public static function getBlockSchema(): Block
     {
-        return Block::make('my')
+        return Block::make('image')
             ->schema([
-                TextInput::make('name'),
-
+                FileUpload::make('image')->directory('awesome-images-rust')->image()->imageEditor()
             ]);
     }
 
