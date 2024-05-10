@@ -18,7 +18,7 @@
             <div class="col-lg-6">
                 <div class="card bg-light">
                     <div class="card-body">
-                        <h3 class="card-title text-center mb-4">Confirmation de l'inscription
+                        <h3 class="card-title text-center mb-4">Confirmation de l'inscription 
                         </h3>
                         <form action="{{ route('reg') }}" method="POST" id="confirmForm">
                             @csrf
@@ -53,7 +53,7 @@
                             </div> --}}
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary rounded-0"
-                                    id="submitButton">{{ __('messages.confirm') }}</button>
+                                    id="submitButton" {{setting('activate-registration', false) ? '':' disabled'}}>{{ __('messages.confirm') }}</button>
                             </div>
                         </form>
                     </div>

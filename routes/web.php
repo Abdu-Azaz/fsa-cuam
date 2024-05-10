@@ -87,7 +87,7 @@ Route::view('/teams_equipes_recherche.rs', 'research.teams')->name('research-tea
 Route::view('/labos_recherche_fsaam.rs', 'research.laboratories')->name('research-laboratories');
 
 Route::post('/confirm_registration.rb', [RoutesController::class, 'students'])->name('reg');
-Route::view('/register.rb', 'reg');
+Route::view('/register.rb', 'reg')->name('confirm.registration');
 
 Route::fallback(function () {
     abort(404, "Resource not found!");

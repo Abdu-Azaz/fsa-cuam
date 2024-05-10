@@ -17,12 +17,12 @@
             <div class="accordion-item">
                 <h2 class="accordion-header border border-dark mb-1" id="flush-headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne{{ $major }}" aria-expanded="false"
+                        data-bs-target="#flush-collapseOne{{ Str::slug($major) }}" aria-expanded="false"
                         aria-controls="flush-collapseOne">
-                        <span class="fs-4 fw-bold text-center w-100">{{ $major }}</span>
+                        <span class="fs-4 fw-bold text-center w-100">{{$major }}</span>
                     </button>
                 </h2>
-                <div id="flush-collapseOne{{ $major }}" class="accordion-collapse collapse"
+                <div id="flush-collapseOne{{ Str::slug($major) }}" class="accordion-collapse collapse"
                     aria-labelledby="flush-headingOne" data-bs-parent="#accordion{{ $major }}">
                     <div class="accordion-body bg-light border border-dark">
                         @foreach ($timetables_per_semester as $semester => $timetables)
@@ -32,7 +32,8 @@
                                         @foreach ($timetables as $timetable)
                                             @if ($timetable->timetables)
                                                 @if ($timetable->isUpdated())
-                                                    <span class="text-danger fs-tiny text-center fw-bold w-100 d-block" role="alert">
+                                                    <span class="text-danger fs-tiny text-center fw-bold w-100 d-block"
+                                                        role="alert">
                                                         {{ __('messages.lu') . ': ' . $timetable->when() }}
                                                     </span>
                                                 @endif
