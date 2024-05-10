@@ -117,14 +117,20 @@ class RoutesController extends Controller
 
     public function students(Request $request)
     {
-        $cne = $request->input("cne");
+        $cin = $request->input("cin");
         $nom = $request->input("nom");
         $prenom = $request->input("prenom");
 
-        $filiere = Student::select('filiere')->where('cne', $cne)->first();
-        if ($filiere !=null)
-            return response(['ok'=>'you are enrolled in ' . $filiere], 200);
-    return response(['err'=>'Sorry ' . $filiere],301);
-        
+        $student = Student::where('cin', $cin)->first();
+
+        if ($student != null && $student->filiere != null) {
+            // Update the actif field
+            $student->actif = true;
+            $student->save();
+
+            return response()->json(['message' => 'Vous êtes inscrit à: ' . $student->filiere . ', vous êtes maintenant réinscrit avec succès']);
+        } else {
+            return response()->json(['message' => 'Les données entrées ne correspondent à aucun étudiant']);
+        }
     }
 }

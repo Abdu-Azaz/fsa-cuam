@@ -23,7 +23,9 @@
 <link href="{{asset('css/animate.css')}}" rel="stylesheet">
 
 <!-- Customized RST Stylesheet -->
+
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" /> --}}
 
 <!-- Template SS sheets PowerCss.com -->
 <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">

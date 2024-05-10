@@ -31,7 +31,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('admin')
-            ->path('admin')
+            ->path('_4dm!n_P0w3r')
             ->login()
             ->font('Poppins')
             ->brandName('FSA FACTORY')

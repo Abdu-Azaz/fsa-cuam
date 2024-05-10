@@ -81,7 +81,8 @@ return [
     "am" => "Applied Mathematics",
     "ls" => "Life Sciences",
     "gisi" => "Computer Engineering & Intelligent Systems",
-    'fsa-address' => 'National Route No 10. MB 6146 Azrou'
+    'fsa-address' => 'National Route No 10. MB 6146 Azrou',
+    'confirm'=>'Confirm'
 
 
 

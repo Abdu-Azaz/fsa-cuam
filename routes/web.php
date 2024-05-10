@@ -40,15 +40,15 @@ use Telegram\Bot\Laravel\Facades\Telegram;
 
 
 Route::get("/announces", [AnnounceController::class, 'index'])->name('announces.index');
-Route::get("/announces/{slug}.rs", [AnnounceController::class, 'show'])->name('announces.show');
+Route::get("/announces/{slug}.rb", [AnnounceController::class, 'show'])->name('announces.show');
 
-Route::get("/events.rs", [EventController::class, 'index'])->name('events.index');
-Route::get("/events/{slug}.rs", [EventController::class, 'show'])->name('event.show');
+Route::get("/events.rb", [EventController::class, 'index'])->name('events.index');
+Route::get("/events/{slug}.rb", [EventController::class, 'show'])->name('event.show');
 
 Route::controller(RoutesController::class)->group(function () {
     Route::get('/', 'index')->name('homepage');
     Route::post('/upload_image', 'upload')->name('upload_image');
-    Route::get('/departements_fac_sci_app_am.rs', 'departements')->name('departements');
+    Route::get('/departements_fac_sci_app_am.rb', 'departements')->name('departements');
     Route::get('/departments/{slug}',  'departmentsHandle')->name('departement');
 });
 
@@ -68,9 +68,9 @@ Route::get('lang/{locale}', function ($locale) {
     return redirect()->back();
 })->name('switchLanguage');
 
-Route::get('/login', function () {
-    return redirect(route('filament.admin.auth.login'));
-})->name('login');
+// Route::get('/login', function () {
+//     return redirect(route('filament.admin.auth.login'));
+// })->name('login');
 
 // Route::get('/media/delete/{path}', [MediaController::class, 'delete'])->name('media.delete');
 
@@ -88,8 +88,6 @@ Route::view('/labos_recherche_fsaam.rs', 'research.laboratories')->name('researc
 
 Route::post('/confirm_registration.rb', [RoutesController::class, 'students'])->name('reg');
 Route::view('/register.rb', 'reg');
-Route::view('/typing', 't');
-
 
 Route::fallback(function () {
     abort(404, "Resource not found!");
