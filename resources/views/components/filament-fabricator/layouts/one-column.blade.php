@@ -5,7 +5,6 @@
     {{ $page->title }}
 @endsection
 
-{{-- <x-filament-fabricator::page-blocks :blocks="$page->blocks" /> --}}
 @section('page_header')
     {{-- PAGE HEADER INCLUDE --}}
     @include('partials.page_header', [
@@ -16,9 +15,9 @@
 
 
 @section('main_column_content')
-<x-filament-fabricator::page-blocks :blocks="$page->blocks" />
-
-    {{-- @foreach ($page->blocks as $block)
+    <x-filament-fabricator::page-blocks :blocks="$page->blocks" />
+    {{-- 
+    @foreach ($page->blocks as $block)
         @foreach ($block['data'] as $item)
             @if ($block['type'] == 'title')
                 <h3> {{ $item }}</h3>
@@ -29,4 +28,6 @@
             @endif
         @endforeach
     @endforeach --}}
+
+ 
 @endsection

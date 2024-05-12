@@ -63,7 +63,7 @@
                     data-wow-delay="0.7s"
                     style=" background:linear-gradient(135deg, {{ setting('color1', '#dff') }},  {{ setting('color2', '#fdd') }}); height:235px"
                     sstyle="">
-                    <a class="text-uppercase display-6 border p-3 "
+                    <a class="text-uppercase h4 fw-bold border p-3 "
                         href="{{ route('announces.index') }}">{{ __('messages.see-more') }}</a>
                 </div>
             @else
@@ -78,9 +78,10 @@
 
         <div class="card mb-3 text-light "
             style="background:linear-gradient(135deg, 
-        {{ setting('color1-gradients', 'blue') }}, 
-        {{ setting('color2-gradients', '#000') }}  
+        {{ setting('color1-gradients', '#334') }}, 
+        {{ setting('color2-gradients', '#334') }}  
     )">
+    {{-- #ADD8E6--}}
             <div class="row g-0">
                 <div class="col-sm-2">
                     <img src="{{ url('storage/' . setting('dean-photo')) }}" class="img-fluid rounded-start w-100"

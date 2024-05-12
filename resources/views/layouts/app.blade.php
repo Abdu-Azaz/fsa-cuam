@@ -33,7 +33,7 @@
     {{-- a closing div is on the other files to wrap the background as well --}}
     @yield('content')
     <!-- Full Screen Search Start -->
-    @include('partials.search_modal')
+    {{-- @include('partials.search_modal') --}}
     <!-- Full Screen Search End -->
 
     <!-- Footer Start -->

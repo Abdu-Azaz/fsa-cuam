@@ -3,7 +3,6 @@
     setTimeout(function () {
         $("#spinner").length > 0 && $("#spinner").removeClass("show");
     }, 1),
-        new WOW().init(),
         $(window).on("scroll load resize", function () {
             if (window.innerWidth > 991.92) {
                 if ($(this).scrollTop() > 45) {
@@ -11,8 +10,8 @@
                 } else $(".navbar").removeClass("sticky-top shadow-sm");
             }
         });
+        new WOW().init();
         document.body.style.zoom = "85%"; // Adjust the zoom level as needed
-        $('footer').css('visibility','visible');
     // });
     let s = $(".dropdown"),
         e = $(".dropdown-toggle"),
@@ -115,7 +114,7 @@
                     items: 3,
                 },
                 900: {
-                    items: 3,
+                    items: 4,
                 },
             },
         }),

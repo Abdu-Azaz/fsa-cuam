@@ -13,8 +13,9 @@
                                 <div class="service-icon bg-{{$professor->isHead? 'light':'primary'}}">
                                     <i class="fa fa-solid fa-user-tie  text-{{$professor->isHead ? 'primary':'light'}}"></i>
                                 </div>
-                                <p class="mb-1 h6 fw-bold {{$professor->isHead ? 'text-light':''}}">Prof. {{$professor->full_name}}</p>
-                                <span class="text-white">{{$professor->isHead ? __("messages.department-head") :'' }}</span>
+                                <p class="mb-1 h5 fw-bold {{$professor->isHead ? 'text-warning':''}}">Prof. {{$professor->full_name}}</p>
+                                <span class="text-white h6">{{$professor->isHead ? __("messages.department-head") :'' }}</span>
+                                {{-- <p class="text-white h6"><i class="fas fa-envelope "></i> {{$professor->email}}</p> --}}
                             </div>
                         </div>
                     {{-- @endif --}}

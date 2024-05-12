@@ -8,5 +8,4 @@ class OneColumnLayout extends Layout
 {
     protected static ?string $name = 'one-column';
 
-    
 } 

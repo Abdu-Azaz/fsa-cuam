@@ -39,10 +39,12 @@ class ProfessorResource extends Resource
                         ->relationship('department', 'name')
                         ->required()
                         ->label('Department (Select)'),
-                    Forms\Components\Toggle::make('isHead')
+                        Forms\Components\TextInput::make('email')->email(),
+                        Forms\Components\Toggle::make('isHead')
                         ->label('Head of department?')
                         ->helperText('Is this professor the head of department?'),
                         ])->columns('3'),
+                    
             ]);
     }
 

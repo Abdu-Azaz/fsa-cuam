@@ -24,7 +24,6 @@
                         <a href="{{ route('announces.index') }}"
                             class="dropdown-item">{{ __('messages.announcements') }}</a>
                         <a href="{{ route('events.index') }}" class="dropdown-item">{{ __('messages.events') }}</a>
-                        <a href="{{ route('lmd') }}" class="dropdown-item">{{ __('Système LMD') }}</a>
                         <a href="{{ route('internal-rule') }}"
                             class="dropdown-item">{{ __('messages.internal-rule') }}</a>
                     </div>
@@ -35,6 +34,7 @@
                     <a href="#" class="nav-link dropdown-toggle"
                         data-bs-toggle="dropdown">{{ __('messages.courses') }}</a>
                     <div class="dropdown-menu m-0">
+                        <a href="{{ route('lmd') }}" class="dropdown-item">{{ __('Système LMD') }}</a>
                         <a href="{{ route('formations') }}" class="dropdown-item">{{ __('messages.courses') }}</a>
                         <a href="{{ url('/pacte-esri-2030') }}"
                             class="dropdown-item">{{ __('messages.newlicences') }}</a>

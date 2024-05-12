@@ -22,7 +22,7 @@
         'professors' => $professors,
     ])
 
-        <x-section-title>{{ __('Programmes') }}</x-section-title>
+        <x-section-title>{{ __('messages.courses') }}</x-section-title>
 
         <div class="bg-light bordre px-3">
 {{-- {{dd($programs)}} --}}

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Professor extends Model
 {
     use HasFactory;
-    protected $fillable = ['full_name', 'department_id', 'isHead', 'image'];
+    protected $fillable = ['full_name', 'department_id', 'isHead', 'email'];
 
     public function department()
     {
