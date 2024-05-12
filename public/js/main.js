@@ -11,8 +11,8 @@
                 } else $(".navbar").removeClass("sticky-top shadow-sm");
             }
         });
-        document.body.style.zoom = "90%"; // Adjust the zoom level as needed
-
+        document.body.style.zoom = "85%"; // Adjust the zoom level as needed
+        $('footer').css('visibility','visible');
     // });
     let s = $(".dropdown"),
         e = $(".dropdown-toggle"),
@@ -26,6 +26,7 @@
                       s.addClass(t),
                           s.find(e).attr("aria-expanded", "true"),
                           s.find(a).addClass(t);
+
                   },
                   function () {
                       let s = $(this);
@@ -83,7 +84,9 @@
             margin: 50,
             dots: !0,
             loop: !0,
-            autoplay: !0,
+            autoplay: true,
+            // navigation:true,
+            // center:true,
             smartSpeed: 100,
             responsive: {
                 0: {

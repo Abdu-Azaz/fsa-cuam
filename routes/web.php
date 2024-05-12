@@ -49,16 +49,16 @@ Route::controller(RoutesController::class)->group(function () {
     Route::get('/', 'index')->name('homepage');
     Route::post('/upload_image', 'upload')->name('upload_image');
     Route::get('/departements_fac_sci_app_am.rb', 'departements')->name('departements');
-    Route::get('/departments/{slug}',  'departmentsHandle')->name('departement');
+    Route::get('/departments/{slug}.rb',  'departmentsHandle')->name('departement');
 });
 
-Route::view('/mot-du-doyen-de-la-fac-sci-app.rs', 'doyen')->name('doyen');
+Route::view('/mot-du-doyen-de-la-fac-sci-app.rb', 'doyen')->name('doyen');
 Route::get('/formations', [RoutesController::class, 'formations'])->name('formations');
-Route::view('/faculte/loi-interne-fsaam', 'loi-interne')->name('internal-rule');
-Route::view('/faculte/adminstration_fsaam.rs', 'administration')->name("administration");
-Route::view('/bibliotheque-fsaam.rs', 'library')->name("library");
+Route::view('/faculte/loi-interne-fsaam.rb', 'loi-interne')->name('internal-rule');
+Route::view('/faculte/adminstration_fsaam.rb', 'administration')->name("administration");
+Route::view('/bibliotheque-fsaam.rb', 'library')->name("library");
 Route::get('/timetables_emplois_des_temps_fsaam', [RoutesController::class, 'timetables'])->name("timetables");
-Route::get('/clubs-and-stuff', [RoutesController::class, 'clubs'])->name("clubs");
+Route::get('/clubs-and-stuff.rb', [RoutesController::class, 'clubs'])->name("clubs");
 Route::view('/faculte/Systeme-LMD', 'lmd')->name('lmd');
 Route::get('/student_space/how-to', [RoutesController::class, 'how_to'])->name('how_to');
 
@@ -68,14 +68,14 @@ Route::get('lang/{locale}', function ($locale) {
     return redirect()->back();
 })->name('switchLanguage');
 
-// Route::get('/login', function () {
-//     return redirect(route('filament.admin.auth.login'));
-// })->name('login');
+// Route::get('/robots.txts', function () {
+//     return abort(302);
+// });
 
 // Route::get('/media/delete/{path}', [MediaController::class, 'delete'])->name('media.delete');
 
 Route::prefix('admin')->group(function () {
-    Route::view('/my-media', 'media')->name('media.index')->middleware('auth');
+    Route::view('/my-media.rb', 'media')->name('media.index')->middleware('auth');
     // Route::get('/my-media/{path?}', [MediaController::class, 'index'])->name('media.index')->middleware('auth');
 });
 
@@ -83,11 +83,12 @@ Route::post('/contact', [RoutesController::class, 'ContactUsForm'])->name('conta
 // Route::post('/add_node', [RoutesController::class, 'storeNode'])->name('node.store');
 // Route::get('/search', Search::class);
 
-Route::view('/teams_equipes_recherche.rs', 'research.teams')->name('research-teams');
-Route::view('/labos_recherche_fsaam.rs', 'research.laboratories')->name('research-laboratories');
+Route::view('/teams_equipes_recherche.rb', 'research.teams')->name('research-teams');
+Route::view('/labos_recherche_fsaam.rb', 'research.laboratories')->name('research-laboratories');
 
 Route::post('/confirm_registration.rb', [RoutesController::class, 'students'])->name('reg');
 Route::view('/register.rb', 'reg')->name('confirm.registration');
+Route::view('/t', 't');
 
 Route::fallback(function () {
     abort(404, "Resource not found!");

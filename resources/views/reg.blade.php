@@ -16,16 +16,23 @@
     <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-6">
+                @if (!setting('activate-registration', false))
+                    <div class="alert alert-danger fade show" role="alert">
+
+                        <strong>Ce service n'est pas disponible maintenant</strong>.
+                    </div>
+                @endif
                 <div class="card bg-light">
                     <div class="card-body">
-                        <h3 class="card-title text-center mb-4">Confirmation de l'inscription 
+                        <h3 class="card-title text-center mb-4">Confirmation de l'inscription
                         </h3>
                         <form action="{{ route('reg') }}" method="POST" id="confirmForm">
                             @csrf
                             <div class="mb-3">
                                 <label for="nom" class="form-label">Nom</label>
                                 <input type="text" class="form-control rounded-0 @error('nom') is-invalid @enderror"
-                                    id="nom" name="nom" placeholder="Nom" required>
+                                    id="nom" name="nom" placeholder="Nom" required
+                                    {{ setting('activate-registration', false) ? '' : ' readonly' }}>
                                 @error('nom')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -33,7 +40,8 @@
                             <div class="mb-3">
                                 <label for="prenom" class="form-label">Prenom</label>
                                 <input type="text" class="form-control rounded-0 @error('prenom') is-invalid @enderror"
-                                    id="prenom" name="prenom" placeholder="Prenom" required>
+                                    id="prenom" name="prenom" placeholder="Prenom" required
+                                    {{ setting('activate-registration', false) ? '' : ' readonly' }}>
                                 @error('prenom')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -41,7 +49,8 @@
                             <div class="mb-3">
                                 <label for="cin" class="form-label">CIN (No. Carte Nationale)</label>
                                 <input type="text" class="form-control rounded-0 @error('cin') is-invalid @enderror"
-                                    id="cin" name="cin" placeholder="CIN...." required>
+                                    id="cin" name="cin" placeholder="CIN...." required
+                                    {{ setting('activate-registration', false) ? '' : ' readonly' }}>
                                 @error('cin')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -52,8 +61,8 @@
                                     readonly>
                             </div> --}}
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary rounded-0"
-                                    id="submitButton" {{setting('activate-registration', false) ? '':' disabled'}}>{{ __('messages.confirm') }}</button>
+                                <button type="submit" class="btn btn-primary rounded-0" id="submitButton"
+                                    {{ setting('activate-registration', false) ? '' : ' disabled' }}>{{ __('messages.confirm') }}</button>
                             </div>
                         </form>
                     </div>
@@ -61,9 +70,9 @@
             </div>
         </div>
     </div>
- <div id="messageContainer">
+    <div id="messageContainer">
 
- </div>
+    </div>
 @endsection
 @push('js')
     <script>
@@ -98,18 +107,20 @@
                     type: 'POST',
                     data: formData,
                     success: function(response) {
-                        $('#messageContainer').html('<div class="alert alert-info alert-dismissible fade show" role="alert">' +
-                            response.message + '  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
-                            $('#confirmForm')[0].reset()
-                        },
+                        $('#messageContainer').html(
+                            '<div class="alert alert-info alert-dismissible fade show" role="alert">' +
+                            response.message +
+                            '  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+                        );
+                        $('#confirmForm')[0].reset()
+                    },
                     error: function(xhr, status, error) {
                         $('#messageContainer').html(
                             '<div class="alert alert-danger alert-dismissible fade show"  role="alert">An error occurred while processing your request.</div>'
-                            );
+                        );
                     }
                 });
             });
-         
         });
     </script>
 @endpush

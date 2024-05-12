@@ -1,9 +1,11 @@
 <div>
     <div class="mycontainer py-1">
         <div class="container">
-            <div class="section-title position-relative pb-3 mb-5" style="max-width: 600px;">
+            {{-- <div class="section-title position-relative pb-3 mb-5">
                 <h1 class="mb-0">{{ __('messages.contact-us') }}</h1>
-            </div>
+            </div> --}}
+            <x-section-title> {{ __('messages.contact-us') }}</x-section-title>
+
             @if (Session::has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-alert">
                     {{ Session::get('success') }}
@@ -93,11 +95,9 @@
 </div>
 @push('js')
     <script>
-       
-            setTimeout(function() {
-                $('.alert-success').alert('close');
-               
-            }, 5000); // 5000 milliseconds = 5 seconds
-    </script>
+        setTimeout(function() {
+            $('.alert-success').alert('close');
 
+        }, 5000); // 5000 milliseconds = 5 seconds
+    </script>
 @endpush

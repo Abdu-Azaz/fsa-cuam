@@ -29,8 +29,17 @@
                             class="dropdown-item">{{ __('messages.internal-rule') }}</a>
                     </div>
                 </div>
-                <a href="{{ route('formations') }}"
-                    class="nav-item nav-link text-centers">{{ __('messages.courses') }}</a>
+                {{-- <a href="{{ route('formations') }}"
+                    class="nav-item nav-link text-centers">{{ __('messages.courses') }}</a> --}}
+                <div class="nav-item dropdown smx-auto">
+                    <a href="#" class="nav-link dropdown-toggle"
+                        data-bs-toggle="dropdown">{{ __('messages.courses') }}</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{{ route('formations') }}" class="dropdown-item">{{ __('messages.courses') }}</a>
+                        <a href="{{ url('/pacte-esri-2030') }}"
+                            class="dropdown-item">{{ __('messages.newlicences') }}</a>
+                    </div>
+                </div>
                 <div class="nav-item dropdown smx-auto">
                     <a href="#" class="nav-link dropdown-toggle"
                         data-bs-toggle="dropdown">{{ __('messages.student-spapce') }}</a>
@@ -38,15 +47,7 @@
                         <a href="{{ route('timetables') }}" class="dropdown-item">{{ __('messages.timetables') }}</a>
                         <a href="{{ route('library') }}" class="dropdown-item">{{ __('messages.library') }}</a>
                         <a href="{{ route('clubs') }}" class="dropdown-item">{{ __('messages.clubs') }}</a>
-                        <a href="{{ url('/question-reponses') }}"
-                            class="dropdown-item">{{ __('messages.activate-account') }}</a>
-                        {{-- <a href="{{route('how_to')}}" class="dropdown-item">{{__('messages.activate-account')}}</a> --}}
-                    </div>
-                </div>
-                <div class="nav-item dropdown smx-auto">
-                    <a href="#" class="nav-link dropdown-toggle"
-                        data-bs-toggle="dropdown">{{ __('messages.e-services') }}</a>
-                    <div class="dropdown-menu m-0">
+                       
                         <a href="http://scolarite.uiz.ac.ma/cst-cuam/"
                             class="dropdown-item">{{ __('messages.scolarity') }}</a>
                         <a href="https://amo.onousc.ma/" class="dropdown-item">{{ __('messages.insurance') }}</a>
@@ -54,6 +55,15 @@
                             class="dropdown-item">{{ __('messages.scholarship') }}</a>
                         <a href="http://ecours-fsam.uiz.ac.ma" class="dropdown-item">{{ __('messages.moodle') }}</a>
                         <a href="https://login.rosettastone.com" class="dropdown-item">{{ __('Rosetta Stone') }}</a>
+                        {{-- <a href="{{route('how_to')}}" class="dropdown-item">{{__('messages.activate-account')}}</a> --}}
+                    </div>
+                </div>
+                <div class="nav-item dropdown smx-auto">
+                    <a href="#" class="nav-link dropdown-toggle"
+                        data-bs-toggle="dropdown">{{ __('messages.howto') }}</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{{ url('/question-reponses') }}"
+                        class="dropdown-item">{{ __('messages.activate-account') }}</a>
                     </div>
                 </div>
                 <div class="nav-item dropdown smx-auto">

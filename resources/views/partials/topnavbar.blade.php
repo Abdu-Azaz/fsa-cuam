@@ -20,8 +20,8 @@
                         class="fab fa-instagram fw-normal"></i></a> --}}
                 <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://t.me/fssam_channel"><i
                         class="fab fa-telegram fw-normal"></i></a>
-                <button type="button" class="btn text-warning ms-3" data-bs-toggle="modal"
-                    data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+                {{-- <button type="button" class="btn text-warning ms-3" data-bs-toggle="modal"
+                    data-bs-target="#searchModal"><i class="fa fa-search"></i></button> --}}
                     {{-- <button class="btn btn-white" id="switchTheme">Dark</button> --}}             
             </div>
         </div>

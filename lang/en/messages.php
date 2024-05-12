@@ -82,7 +82,8 @@ return [
     "ls" => "Life Sciences",
     "gisi" => "Computer Engineering & Intelligent Systems",
     'fsa-address' => 'National Route No 10. MB 6146 Azrou',
-    'confirm'=>'Confirm'
+    'confirm'=>'Confirm',
+    'newlicences'=>'Pacte ESRI 2030'
 
 
 
