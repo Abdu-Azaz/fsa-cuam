@@ -23,6 +23,8 @@
                             class="dropdown-item">{{ __('messages.administration') }}</a>
                         <a href="{{ route('announces.index') }}"
                             class="dropdown-item">{{ __('messages.announcements') }}</a>
+                        <a href="{{ route('faculty.gallery') }}"
+                            class="dropdown-item">{{ __('words.gallery') }}</a>
                         <a href="{{ route('events.index') }}" class="dropdown-item">{{ __('messages.events') }}</a>
                         <a href="{{ route('internal-rule') }}"
                             class="dropdown-item">{{ __('messages.internal-rule') }}</a>
@@ -47,7 +49,7 @@
                         <a href="{{ route('timetables') }}" class="dropdown-item">{{ __('messages.timetables') }}</a>
                         <a href="{{ route('library') }}" class="dropdown-item">{{ __('messages.library') }}</a>
                         <a href="{{ route('clubs') }}" class="dropdown-item">{{ __('messages.clubs') }}</a>
-                       
+
                         <a href="http://scolarite.uiz.ac.ma/cst-cuam/"
                             class="dropdown-item">{{ __('messages.scolarity') }}</a>
                         <a href="https://amo.onousc.ma/" class="dropdown-item">{{ __('messages.insurance') }}</a>
@@ -63,7 +65,7 @@
                         data-bs-toggle="dropdown">{{ __('messages.howto') }}</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{ url('/question-reponses') }}"
-                        class="dropdown-item">{{ __('messages.activate-account') }}</a>
+                            class="dropdown-item">{{ __('messages.activate-account') }}</a>
                     </div>
                 </div>
                 <div class="nav-item dropdown smx-auto">

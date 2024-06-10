@@ -45,7 +45,7 @@
     {{-- @include('partials.counter2') --}}
     <!-- Counter UP Start -->
     {{-- News V1 Start --}}
-    <div class="container my-2 " id="news">
+    <div class="container my-2 " id="news" >
         <x-section-title> {{ __('messages.news') }}</x-section-title>
 
         <div class="d-flex justify-content-end align-items-center my-3">

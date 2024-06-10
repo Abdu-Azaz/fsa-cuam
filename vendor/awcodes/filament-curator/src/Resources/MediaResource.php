@@ -66,6 +66,11 @@ class MediaResource extends Resource
         return CuratorPlugin::get()->getNavigationGroup();
     }
 
+    public static function getCluster(): ?string
+    {
+        return config('curator.resources.cluster');
+    }
+
     public static function getNavigationBadge(): ?string
     {
         return CuratorPlugin::get()->getNavigationCountBadge() ?
@@ -191,7 +196,9 @@ class MediaResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
-            ->bulkActions(static::getBulkActions($livewire->layoutView))
+            ->bulkActions([
+                Tables\Actions\DeleteBulkAction::make(),
+            ])
             ->defaultSort('created_at', 'desc')
             ->contentGrid(function () use ($livewire) {
                 if ($livewire->layoutView === 'grid') {
@@ -205,7 +212,8 @@ class MediaResource extends Resource
                 return null;
             })
             ->defaultPaginationPageOption(12)
-            ->paginationPageOptions([6, 12, 24, 48, 'all']);
+            ->paginationPageOptions([6, 12, 24, 48, 'all'])
+            ->recordUrl(false);
     }
 
     public static function getPages(): array
@@ -316,16 +324,5 @@ class MediaResource extends Resource
             ->preserveFilenames(config('curator.should_preserve_filenames'))
             ->visibility(config('curator.visibility'))
             ->storeFileNamesIn('originalFilename');
-    }
-
-    public static function getBulkActions(string $view): array
-    {
-        if ($view === 'list') {
-            return [
-                Tables\Actions\DeleteBulkAction::make(),
-            ];
-        }
-
-        return [];
     }
 }

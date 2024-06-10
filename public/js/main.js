@@ -11,7 +11,7 @@
             }
         });
         new WOW().init();
-        document.body.style.zoom = "85%"; // Adjust the zoom level as needed
+        document.body.style.zoom = "90%"; // Adjust the zoom level as needed
     // });
     let s = $(".dropdown"),
         e = $(".dropdown-toggle"),

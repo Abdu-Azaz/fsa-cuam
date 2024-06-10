@@ -41,7 +41,7 @@ return [
     'gisi' => 'Génie informatique et systèmes intelligents',
     'gisi-department' => 'Génie Informatique et Systèmes Intelligents',
     'home' => 'Accueil',
-    'howto' => 'Guides Étape par Étape',
+    'howto' => 'Guide/FAQ',
     'insurance' => 'Assurance étudiant',
     'internal-rule' => 'Loi interne',
     'internal-rules' => 'Reglement intérieur',

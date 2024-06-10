@@ -1,5 +1,9 @@
 @push('css')
     <meta name="keywords" content="{{ $announce->meta_keywords }}">
+    <meta property="og:title" content="{{ $announce->title }}" />
+    {{-- <meta property="og:description" content="{{ Str::limit(strip_tags($announce->body), 100) }}" /> --}}
+    <meta property="og:url" content="{{ route('announces.show', $announce->slug) }}" />
+    <meta property="og:type" content="article" />
 @endpush
 {{-- 2C Layout --}}
 {{-- {{dd($announce)}} --}}

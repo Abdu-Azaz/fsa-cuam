@@ -25,6 +25,20 @@ return [
         'roles' => true,
     ],
 
+    /**
+     * Set to true to redirect to the resource index instead of the view
+     */
+    'should_redirect_to_index' => [
+        'permissions' => [
+            'after_create' => false,
+            'after_edit' => false
+        ],
+        'roles' => [
+            'after_create' => false,
+            'after_edit' => false
+        ],
+    ],
+
     /*
      * If you want to place the Resource in a Cluster, then set the required Cluster class.
      * Eg. \App\Filament\Clusters\Cluster::class
@@ -49,6 +63,9 @@ return [
     ],
 
     'default_guard_name' => null,
+
+    // if false guard option will not be show on screen. You should set a default_guard_name in this case
+    'should_show_guard' => true,
 
     'model_filter_key' => 'return \'%\'.$value;', // Eg: 'return \'%\'.$key.'\%\';'
 

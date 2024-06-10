@@ -9,8 +9,8 @@
             content: "";
             width: 200px;
             height: 5px;
-            {{App::getLocale() === 'ar'? 'right:0': 'left:0'}};
             bottom: 0;
+            {{App::getLocale() === 'ar'? 'right:0': 'left:0'}};
             background: var(--color-primary);
             border-radius: 2px;
         }

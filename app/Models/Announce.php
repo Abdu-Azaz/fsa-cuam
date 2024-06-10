@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\FacebookService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -52,6 +53,20 @@ class Announce extends Model
         static::creating(function ($announce) {
             $announce->created_at = now();
             $announce->updated_at = $announce->created_at;
+        });
+        static::created(function ($announce) {
+            // Instantiate the FacebookService
+            $facebookService = new FacebookService();
+
+            // Prepare the message and link
+            $message = $announce->title;
+            $link = route('announces.show', $announce->slug);
+            // $shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode($link);
+
+            // Post to Facebook
+            $msg = $announce->title . "\nLink:" . $link;
+            
+            $facebookService->postToPage($msg);
         });
         static::updating(function (Announce $announce) {
             // Update updated_at only if specific conditions are met

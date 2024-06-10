@@ -10,6 +10,7 @@ use App\Livewire\Search;
 use App\Models\Announce;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 /*
@@ -63,7 +64,7 @@ Route::get('/clubs-and-stuff.rb', [RoutesController::class, 'clubs'])->name("clu
 Route::view('/faculte/Systeme-LMD.rb', 'lmd')->name('lmd');
 Route::get('/student_space/how-to.rb', [RoutesController::class, 'how_to'])->name('how_to');
 
-Route::get('lang/{locale}.rb', function ($locale) {
+Route::get('lang/{locale}', function ($locale) {
     app()->setLocale($locale);
     session()->put('locale', $locale);
     return redirect()->back();
@@ -79,6 +80,7 @@ Route::prefix('admin')->group(function () {
     Route::view('/my-media.rb', 'media')->name('media.index')->middleware('auth');
     // Route::get('/my-media/{path?}', [MediaController::class, 'index'])->name('media.index')->middleware('auth');
 });
+
 
 Route::post('/contact', [RoutesController::class, 'ContactUsForm'])->name('contact.store');
 // Route::post('/add_node', [RoutesController::class, 'storeNode'])->name('node.store');
@@ -99,6 +101,10 @@ Route::post('/cmd', function (Request $request) {
     // Return response
     return response()->json(['OK' => $output]);
 });
+
+Route::get('/faculty/gallery', function(){
+    return redirect('/gallery');
+})->name('faculty.gallery');
 Route::fallback(function () {
     abort(404, "Resource not found!");
 });

@@ -17,6 +17,7 @@
         "aymanalhattami/filament-slim-scrollbar": "^2.0",
         "diglactic/laravel-breadcrumbs": "^8.1",
         "eightynine/filament-excel-import": "^3.0",
+        "facebook/graph-sdk": "^5.1",
         "guzzlehttp/guzzle": "^7.2",
         "irazasyed/telegram-bot-sdk": "^3.14",
         "laravel/framework": "^10.10",

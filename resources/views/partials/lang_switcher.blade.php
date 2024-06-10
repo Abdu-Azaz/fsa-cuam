@@ -117,7 +117,7 @@
 
 
 @section('js')
-    <script>
+    {{-- <script>
         const changeLang = (lang) => {
             const currentPath = window.location.pathname;
             const newPath = currentPath.startsWith('/lang') ?
@@ -125,5 +125,5 @@
                 `/lang/${lang}${currentPath}`;
             window.location.href = newPath;
         }
-    </script>
+    </script> --}}
 @stop

@@ -4,6 +4,7 @@ namespace App\Filament\Fabricator\PageBlocks;
 
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Z3d0X\FilamentFabricator\PageBlocks\PageBlock;
 
 class ImageBlock extends PageBlock
@@ -12,7 +13,9 @@ class ImageBlock extends PageBlock
     {
         return Block::make('image')
             ->schema([
-                FileUpload::make('image')->directory('awesome-images-rust')->image()->imageEditor()
+                // Repeater::make('images')->schema([
+                    FileUpload::make('image')->directory('awesome-images-rust')->image()->imageEditor()
+                // ])
             ]);
     }
 

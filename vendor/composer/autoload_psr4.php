@@ -121,6 +121,7 @@ return array(
     'FilamentTiptapEditor\\Tests\\' => array($vendorDir . '/awcodes/filament-tiptap-editor/tests/src'),
     'FilamentTiptapEditor\\' => array($vendorDir . '/awcodes/filament-tiptap-editor/src'),
     'Faker\\' => array($vendorDir . '/fakerphp/faker/src/Faker'),
+    'Facebook\\' => array($vendorDir . '/facebook/graph-sdk/src/Facebook'),
     'Facade\\IgnitionContracts\\' => array($vendorDir . '/facade/ignition-contracts/src'),
     'EightyNine\\ExcelImport\\Database\\Factories\\' => array($vendorDir . '/eightynine/filament-excel-import/database/factories'),
     'EightyNine\\ExcelImport\\' => array($vendorDir . '/eightynine/filament-excel-import/src'),
