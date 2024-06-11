@@ -61,7 +61,6 @@ class Announce extends Model
             // Prepare the message and link
             $message = $announce->title;
             $link = route('announces.show', $announce->slug);
-            // $shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode($link);
 
             // Post to Facebook
             $msg = $announce->title . "\nLink:" . $link;

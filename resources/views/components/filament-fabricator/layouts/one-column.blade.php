@@ -14,8 +14,6 @@
 @endsection
 
 @section('main_column_content')
-@dump(App::currentLocale())
-{{-- {{App::setLocale()}}     --}}
 <x-filament-fabricator::page-blocks :blocks="$page->blocks" />
 
     {{-- 

@@ -11,12 +11,7 @@ class AnnounceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    protected $facebookService;
-
-    public function __construct(FacebookService $facebookService)
-    {
-        $this->facebookService = $facebookService;
-    }
+   
     public function index()
     {
         $announces = Announce::orderBy('updated_at','desc')->paginate(10);
@@ -29,10 +24,9 @@ class AnnounceController extends Controller
      */
     public function show($slug)
     {
-
-        // $this->facebookService->postToPage("Message");
-
+        
         $announce = Announce::where('slug', $slug)->first();
+        // dd($announce);
         $viewed = session()->get('viewed_posts', []);
 
         if (!in_array($announce->id, $viewed)) {

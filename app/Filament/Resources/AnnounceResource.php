@@ -69,14 +69,16 @@ class AnnounceResource extends Resource
                                 'changement_filiere' => 'Changement de filiere',
                                 'announce-simple' => 'Announce Simple'
                             ]
-                        ),
+                            )
+                        ->default('avis'),
                     Forms\Components\Select::make('status')
                         ->options(
                             [
                                 'published' => 'Published',
                                 'draft' => 'Draft',
                             ]
-                        ),
+                        )
+                        ->default('published'),
 
                 ])->columns('2'),
                 //    Tabs::make('Tabs')
